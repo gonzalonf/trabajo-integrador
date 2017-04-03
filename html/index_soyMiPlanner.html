@@ -17,33 +17,39 @@
 			<nav>
 				<ul class="botonera">
 					<li><a href="#">HOME</a></li>
-					<li><a href="#">NOSOTROS</a></li>
-					<li><a href="#">PREGUNTAS</a></li>
+					<li><a href="#type1">NOSOTROS</a></li>
+					<li><a href="#type2">PREGUNTAS</a></li>
 				</ul>
 			</nav>
-			<div class="registrate"><a href="#">REGISTRATE</a></div>
+			<div class="registrate"><a href="registro.html">REGISTRATE</a></div>
 		</div>
 	</header>
 
 	<section class="type_portada">
 		<h2>Todo lo que necesitás para planificar TU EVENTO!</h2>
-		<div class="opciones_principales1">
-			Armá tu evento desde cero
+
+		<div class="mainButton">
+
+				<div class="opciones_principales1">
+					<a href="#">Arma tu evento desde cero</a>
+				</div>
+				<div class="opciones_principales2">
+					<a href="#">Explorá nuestras propuestas</a>
+				</div>
 		</div>
-		<div class="opciones_principales2">
-			Explora nuestras propuestas
-		</div>
-		<div class="buscador">
-			Buscá en nuestra agenda
-		</div>
-	</section>
+				<label  for="search"> Buscá</label>
+			    <input type="text" name="search"  id=search placeholder="Salones, Catering, Dj, Fotográfo, Iluminación, ..." >
+			</section>
+
+
+
 
 	<section class="type1">
-		<h2>QUIENES SOMOS</h2>
+		<h2 id=type1>QUIENES SOMOS</h2>
 		<p>Somos un grupo de programadores decididos a crear herramientas que hagan mas facil la vida cotidiana. Nos apasiona la tecnologia y el diseño. Nuestro objetivo es crear sistemas intuitivos que brinden soluciones integrales y dinamicas, de manera rapida.</p>
 	</section>
 	<section class="type2">
-		<h2>PREGUNTAS FRECUENTES</h2>
+		<h2 id="type2">PREGUNTAS FRECUENTES</h2>
 		<p><em>Todo lo que querás saber si es la primera vez que entras al sitio!</em></p>
 		<br>
 		<ul>
@@ -70,7 +76,9 @@
 		</ul>
 	</section>
 
-	<footer>Copyright © 2017 - Soy mi Planner</footer>
+	<footer>Copyright © 2017 - Soy mi Planner
+		<a href="#">TOP</a>
+	</footer>
 
 </body>
 </html>

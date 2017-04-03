@@ -2,13 +2,10 @@
 			box-sizing: border-box;
 			list-style-type: none;
 			text-decoration: none;
+			margin: 0;
+			padding: 0;
 		}
 
-		html,body,ul {
-			margin: 0px;
-			padding: 0px;
-			text-align: center;
-		}
 
 		body {
 			background: lightcyan;  /* color de fondo gral */
@@ -19,6 +16,7 @@
 			display: block;
 			margin: 0px;
 			padding: 0px;
+			text-align: center;
 
 		}
 
@@ -34,7 +32,7 @@
 
 		.logo{
 			margin: 0px;
-			padding: 1vw 0px; 
+			padding: 1vw 0px;
 			vertical-align: middle;
 
 			background: rgba(255, 255, 255, 0.9);
@@ -53,7 +51,7 @@
 
 		.botonera a{
 			background: rgba(255, 255, 255, 0.9);
-			
+
 			font-weight: bold;
 			display: block;
 
@@ -64,12 +62,12 @@
 		.botonera a:hover{
 			background-color: rgba(0, 0, 0, 0.8);
 			font-weight: bold;
-			color: white;			
+			color: white;
 		}
 
 		.registrate {
 			margin-bottom: 0px;
-			padding: 10px 0px; 
+			padding: 10px 0px;
 			border-radius: 5px;
 
 			background: rgba(200, 0, 0, 1);
@@ -100,6 +98,47 @@
 			color: white;
 			text-align: center;
 		}
+
+		.type_portada h2{
+			font-size: 2.3em;
+		}
+		.mainButton{
+			display: flex;
+			justify-content: center;
+
+			margin: 30px auto;
+			height: 200px;
+			width: 400px;
+			align-items: center;
+
+		}
+		.opciones_principales1 a{
+			background-color: #fac031;
+
+			padding: 40px;
+			display: block;
+			text-decoration: none;
+			color: black;
+			margin-right: 20px;
+			border-radius: 30%;
+		}
+		.opciones_principales2 a{
+			background-color: #387c2b;
+
+			padding: 40px;
+			display: block;
+			text-decoration: none;
+			color: black;
+			margin-right: 20px;
+			border-radius: 30%;
+		}
+		.type_portada input{
+			line-height: 20px;
+			width: 400px;
+			text-align: center;
+		}
+
+
 
 		.type1 {
 			display: block;
@@ -144,7 +183,7 @@
 			.logo{
 				flex-flow: row;
 				margin: 0px;
-				padding: 5px; 
+				padding: 5px;
 			}
 
 			.botonera{
@@ -160,37 +199,17 @@
 			.botonera a{
 				display: block;
 
-				padding: 15px 50px; 
+				padding: 15px 50px;
 				margin-right: 0px 0px;
 			}
 
-			.registrate {
-				padding: 15px 50px; 
+			.registrate a {
+				padding: 15px 50px;
 				border-radius: 5px;
 			}
 
 			.registrate a {
 				color: white;
 				font-weight: bold;
+				
 			}
-
-			.type_portada{
-				display: block;
-				color: white;
-				text-align: center;
-				flex-flow: column;
-			}
-
-			.opciones_principales1 div {
-				background-color: red;
-				flex: 0 40%;
-				order: 1;
-			}
-
-			.opciones_principales2 div {
-				background-color: red;
-				flex: 0 20%;
-				order: 2;
-			}
-
-		}
