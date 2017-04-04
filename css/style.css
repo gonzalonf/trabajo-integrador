@@ -34,7 +34,7 @@
 
 		.logo{
 			margin: 0px;
-			padding: 1vw 0px; 
+			padding: 1vw 0px;
 			vertical-align: middle;
 
 			background: rgba(255, 255, 255, 0.9);
@@ -53,7 +53,7 @@
 
 		.botonera a{
 			background: rgba(255, 255, 255, 0.9);
-			
+
 			font-weight: bold;
 			display: block;
 
@@ -64,13 +64,14 @@
 		.botonera a:hover{
 			background-color: rgba(0, 0, 0, 0.8);
 			font-weight: bold;
-			color: white;			
+			color: white;
 		}
 
 		.registrate {
 			margin-bottom: 0px;
-			padding: 10px 0px; 
-			border-radius: 5px;
+			/*padding: 10px 0px;*/
+			/*border-radius: 5px;*/
+			/* GONZA: el redondeante, creo, queda disonante con el resto, cualquier cosa lo activamos de nuevo */
 
 			background: rgba(200, 0, 0, 1);
 		}
@@ -78,6 +79,7 @@
 		.registrate a {
 			color: white;
 			font-weight: bold;
+			padding: 10px 0px;
 		}
 
 		footer {
@@ -132,6 +134,142 @@
 		}
 
 
+/*------------estilos para caja de registro-------------*/
+/* campos de texto al 100% */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.botones-login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.logear-con{
+  background-color: #366EBB;
+  color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.psw{
+  padding: 5px;
+  float: right;
+  /*background-color: red;*/
+}
+.ir-registro{
+  padding: 5px;
+  float: left;
+  /*background-color: red;*/
+  text-decoration: none;
+  font-weight: bold;
+
+}
+.ir-registro a{
+  color: red;
+}
+.ir-registro a,.psw a{
+  text-decoration: none;
+}
+.ir-registro:hover a, .psw:hover a{
+  text-decoration: underline;
+}
+/* la caja de login con su fondo, el div contenedor */
+.modal {
+    display: none; /* oculta al comienzo*/
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+		/*ocupar pantalla*/
+    width: 100%;
+    height: 100%;
+		/*scroll si necesita*/
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+.caja-login {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
+    border: 1px solid #888;
+    width: 80%;
+		height: 90%;
+    max-width: 500px;
+
+}
+
+/* botón cerrar (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/*animación cuando aparece (ZOOM)  -webkit   */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+
+
+
+/*------------estilos para caja de registro-------------*/
+
+
+
 		/* Small Devices, Tablets */
 		@media (min-width : 768px) {
 
@@ -144,7 +282,7 @@
 			.logo{
 				flex-flow: row;
 				margin: 0px;
-				padding: 5px; 
+				padding: 5px;
 			}
 
 			.botonera{
@@ -160,13 +298,13 @@
 			.botonera a{
 				display: block;
 
-				padding: 15px 50px; 
+				padding: 15px 50px;
 				margin-right: 0px 0px;
 			}
 
 			.registrate {
-				padding: 15px 50px; 
-				border-radius: 5px;
+				padding: 15px 50px;
+				/*border-radius: 5px;*/
 			}
 
 			.registrate a {
