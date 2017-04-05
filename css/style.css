@@ -402,3 +402,16 @@ footer a{
 		font-weight: bold;
 		color: white;
 	}
+}
+	@media (max-width: 599px){ /* Mobil  */
+			.caja-login {
+					width: 100%;
+					margin-left:0;
+			} /*el form*/
+
+			.login-modal{
+				overflow: scroll;
+				background-color: white;
+
+			}
+		}
