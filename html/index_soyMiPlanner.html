@@ -10,9 +10,8 @@
 
 	<header>
 		<div class="barra_superior">
-			<div class="logo">
-				<img src="../images/logo.png" alt="logotipo" class="logo" width="40">
-				Soy mi Planner
+			<div class="logo-marca">
+				<img src="../images/logo.png" alt="logotipo" class="logo">
 			</div>
 			<nav>
 				<ul class="botonera">
@@ -21,103 +20,111 @@
 					<li><a href="#type2">PREGUNTAS</a></li>
 				</ul>
 			</nav>
-			<div class="registrate" ><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESAR</a></div>
+			<div class="registrate" ><a href="#" onclick="document.getElementById('id01').style.display='block'">INGRESAR</a></div>
 		</div>
 	</header>
 
 	<section class="type_portada">
-		<h2>Todo lo que necesitás para planificar TU EVENTO!</h2>
+		<h2>¡Todo lo que necesitás para planificar TU EVENTO!</h2>
 
 		<div class="mainButton">
 
 				<div class="opciones_principales1">
-					<a href="#">Arma tu evento desde cero</a>
+					<a href="#">ARMÁ TU EVENTO DESDE CERO</a>
 				</div>
 				<div class="opciones_principales2">
-					<a href="#">Explorá nuestras propuestas</a>
+					<a href="#">EXPLORÁ NUESTRAS PROPUESTAS</a>
 				</div>
 		</div>
-				<label  for="search"> Buscá</label>
-			    <input type="text" name="search"  id=search placeholder="Salones, Catering, Dj, Fotográfo, Iluminación, ..." >
+				<label  for="search"> Buscá: <br> </label>
+			    <input type="text" name="search"  id=search placeholder="Salones, Catering, Dj, Fotografía, Ambientación, ..." >
 			</section>
 
 
 
 
 	<section class="type1">
-		<h2 id=type1>QUIENES SOMOS</h2>
-		<p>Somos un grupo de programadores decididos a crear herramientas que hagan mas facil la vida cotidiana. Nos apasiona la tecnologia y el diseño. Nuestro objetivo es crear sistemas intuitivos que brinden soluciones integrales y dinamicas, de manera rapida.</p>
+		<h2 id=type1>QUIÉNES SOMOS</h2>
+		<br>
+		<p>Somos un grupo de programadores decididos a crear herramientas que hagan más fácil la vida cotidiana. Nos apasionan la tecnología y el diseño. Nuestro objetivo es crear sistemas intuitivos que brinden soluciones integrales y dinámicas, de manera rápida.</p>
 	</section>
 	<section class="type2">
 		<h2 id="type2">PREGUNTAS FRECUENTES</h2>
-		<p><em>Todo lo que querás saber si es la primera vez que entras al sitio!</em></p>
+		<p><em>Todo lo que querés saber si es la primera vez que entrás al sitio.</em></p>
+		<br>
 		<br>
 		<ul>
 			<li>
 				<h3>¿Para qué sirve <strong>Soy mi Planner</strong>? </h3>
+				<br>
 				<p><strong>Soy mi Planner</strong> ofrece soluciones integrales o puntuales para cualquier persona que quiera organizar un evento, de manera fácil y rápida.</p>
+				<br>
 			</li>
 			<li>
 				<h3>¿Qué tipo de eventos puedo organizar? </h3>
+				<br>
 				<p>Desde sociales hasta empresariales, <strong>Soy mi Planner</strong> brinda la posibilidad de encontrar todo lo que necesario para armar un evento y ver el presupuesto en tiempo real. Elegi lugar, ambientacion, catering, dj, foto, video y mucho más!</p>
+				<br>
 			</li>
 			<li>
 				<h3>¿Cómo conozco a los profesionales? </h3>
+				<br>
 				<p>Una gran de ventaja <strong>Soy mi Planner</strong> es que los profesionales cuentan con un sistema de puntuación a partir de la calificaciones de los usuarios.</p>
+				<br>
 			</li>
 			<li>
 				<h3>¿Y si quiero formar parte de la agenda?</h3>
+				<br>
 				<p>Es muy fácil! Registrate de manera gratuita, completa nuestro formulario y ya sos parte de la comunidad <strong>Soy mi Planner</strong>. A medida que realices trabajos, obtendrás puntos que te ayudarán a crearte una reputacion en el sitio.</p>
+				<br>
 			</li>
 			<li>
 				<h3>¿Cómo hago para conseguir más clientes?</h3>
+				<br>
 				<p>Destacate con ayuda de nuestras promociones: con un costo mínimo, podemos hacer que tu anuncio a más clientes, mediante banners y/o una ubicacion privilegiada en los puestos de busqueda. <strong>Soy mi Planner</strong> ¿Y vos? </p>
+				<br>
 			</li>
 		</ul>
 	</section>
 
 	<footer>Copyright © 2017 - Soy mi Planner
-		<a href="#">TOP</a>
+		<a href="#">INICIO</a>
 	</footer>
 
-<!-- ESTO ES EL FORMULARIO LOGIN ------------------------------------------------------->
-	<div id="login-id" class="login-modal">
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
+	<div id="id01" class="modal">
 
 	  <form class="caja-login animate" action="/action_page.php">
-	    <div class="login-container-arriba">
-	      <span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
-	      <!-- <img src="../images/user.png" alt="Avatar" class="login-avatar"> -->
+	    <div class="imgcontainer">
+	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+	      <img src="../images/user.png" alt="Avatar" class="avatar">
 	    </div>
-			<div class="logear-con">
-				<ul>
-					<h2>Ingresar con</h2>
-					<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
-					<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
-				</ul>
-			</div>
-	    <div class="login-container">
 
-	      <label for='usuario'><b>Usuario</b></label>
-	      <input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
+	    <div class="container">
+	      <button type="button" class="botones-login logear-con">(logo) Ingresar con Facebook</button>
+	      <button type="button" class="botones-login logear-con">(logo) ingresar con LinkedIn</button>
 
-	      <label for='clave'><b>Clave</b></label>
-	      <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
+	      <label><b>Usuario</b></label>
+	      <input type="text" placeholder="Nombre de usuario" name="uname" required>
 
-	      <button type="submit" class="login-botones">Ingresar</button>
+	      <label><b>Clave</b></label>
+	      <input type="password" placeholder="Escribe tu contraseña" name="psw" required>
+
+	      <button type="submit" class="botones-login">Ingresar</button>
 	      <input type="checkbox" checked="checked"> Recordarme
-
 	    </div>
-	    <div class="login-container-abajo">
-	      <span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-	      <span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
+
+	    <div class="container" style="background-color:#f1f1f1">
+	      <span class="psw"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+	      <span class="ir-registro"> <a href="#">REGISTRATE!</a></span>
 	    </div>
 	  </form>
 	</div>
-<!-- TERMINA FORMULARIO LOGIN ------------------------------------------------->
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
 
-<!--...javascript! ------------------------------------>
+<!-- bewareth! ...javascript! -->
 	<script>
-		var modal = document.getElementById('login-id');
+		var modal = document.getElementById('id01');
 		// cerrar cuando clickea arafue
 		window.onclick = function(event) {
 		    if (event.target == modal) {
@@ -126,6 +133,48 @@
 		}
 	</script>
 
+
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
+	<div id="id01" class="modal">
+
+	  <form class="caja-login animate" action="/action_page.php">
+	    <div class="imgcontainer">
+	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+	      <img src="../images/user.png" alt="Avatar" class="avatar">
+	    </div>
+
+	    <div class="container">
+	      <button type="button" class="botones-login logear-con">(logo) Ingresar con Facebook</button>
+	      <button type="button" class="botones-login logear-con">(logo) ingresar con LinkedIn</button>
+
+	      <label><b>Usuario</b></label>
+	      <input type="text" placeholder="Nombre de usuario" name="uname" required>
+
+	      <label><b>Clave</b></label>
+	      <input type="password" placeholder="Escribe tu contraseña" name="psw" required>
+
+	      <button type="submit" class="botones-login">Ingresar</button>
+	      <input type="checkbox" checked="checked"> Recordarme
+	    </div>
+
+	    <div class="container" style="background-color:#f1f1f1">
+	      <span class="psw"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+	      <span class="ir-registro"> <a href="#">REGISTRATE!</a></span>
+	    </div>
+	  </form>
+	</div>
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
+
+<!-- bewareth! ...javascript! -->
+	<script>
+		var modal = document.getElementById('id01');
+		// cerrar cuando clickea arafue
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+	</script>
 
 
 </body>
