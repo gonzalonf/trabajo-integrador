@@ -23,7 +23,7 @@ header{
 .barra_superior {   /* Todo lo que hay en el header. */
 	margin: 0px;    /* dejo algunas cosas en cero, por si uno quiere probar un valor rapidamente y luego hacer undo */
 	padding: 0px;
-	
+
 
 	background: lightgrey;
 
@@ -52,9 +52,9 @@ header{
 .botonera a{
 	display: block;
 	padding: 10px 0px;
-	
+
 	background: rgba(255, 255, 255, 0.9);
-	font-weight: bold;	
+	font-weight: bold;
 	color: grey;
 }
 
@@ -81,7 +81,7 @@ header{
 	padding: 10px 0px;
 
 	font-weight: bold;
-	color: white;	
+	color: white;
 }
 
 .registrate a:hover{
@@ -129,7 +129,7 @@ footer a{
 
 	margin: auto;
 	height: 200px;
-	align-items: center; 
+	align-items: center;
 }
 
 .opciones_principales1 a{
@@ -139,7 +139,7 @@ footer a{
 	max-width: 450px;
 	min-height: 5vw;
 	padding: 5%;
-	
+
 	display: block;
 	text-decoration: none;
 	font-weight: bold;
@@ -200,270 +200,152 @@ footer a{
 	color: black;
 }
 
+/*------------EMPIEZA  estilos LOGIN-------------------------*/
 
-/*------------estilos para caja de registro-------------*/
-/* campos de texto al 100% */
-input[type=text], input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
-
-.botones-login {
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-}
-
-.logear-con{
-	background-color: #366EBB;
-	color: white;
-}
-
-button:hover {
-	opacity: 0.8;
-}
-
-
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-	position: relative;
-}
-
-img.avatar {
-	width: 20%;
-	border-radius: 50%;
-}
-
-.container {
-	padding: 16px;
-	position: relative;
-	overflow: hidden;
-
-}
-
-.psw{
-	padding: 5px;
-	float: right;
-	/*background-color: red;*/
-}
-.ir-registro{
-	padding: 5px;
-	float: left;
-	/*background-color: red;*/
-	text-decoration: none;
-	font-weight: bold;
-
-}
-.ir-registro a{
-	color: red;
-}
-.ir-registro a,.psw a{
-	text-decoration: none;
-}
-.ir-registro:hover a, .psw:hover a{
-	text-decoration: underline;
-}
-
-/* la caja de login con su fondo, el div contenedor */
-.modal {
+.login-modal {/* la caja de login con su fondo, el div contenedor */
 	display: none; /* oculta al comienzo*/
 	position: fixed;
 	z-index: 1;
 	left: 0;
 	top: 0;
 	/*ocupar pantalla*/
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	/*scroll si necesita*/
-	overflow: auto;
+	/*overflow: auto;*/
 	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-
-}
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	}
 
 .caja-login {
-	background-color: #fefefe;
-	margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
-	border: 1px solid #888;
-	width: 80%;
-	height: 90%;
-	max-width: 500px;
-	max-height: 523px; /* altura de la ventana de login*/
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
+    border: 1px solid #888;
+    width: 80%;
+		max-height: 90vh;
+    max-width: 500px;
+
+} /*el form*/
+
+.login-container {
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+		/*background-color: red;*/
+
+}
+.login-container-abajo{
+	background-color: lightgrey;
+	overflow: hidden;
+	padding: 1em;
+	position: relative;
 }
 
-/* botón cerrar (x) */
-.close {
-	position: absolute;
-	right: 25px;
-	top: 0;
-	color: #000;
-	font-size: 35px;
-	font-weight: bold;
+.login-container-arriba {
+    text-align: center;
+    /*margin: 24px 0 12px 0;*/
+		height: 40px;
+		margin: 0;
+    position: relative;
+		overflow:  hidden;
+		/*background-color: blue;*/
+}
+.login-avatar {
+    width: 20%;
+    border-radius: 50%;
 }
 
-.close:hover,
-.close:focus {
-	color: red;
-	cursor: pointer;
+.login-input[type=text], .login-input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}/* campos de texto al 100% */
+
+.logear-con h2{
+	padding-left: 0.5em;
 }
-
-/*animación cuando aparece (ZOOM)  -webkit   */
-.animate {
-	-webkit-animation: animatezoom 0.6s;
-	animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)}
-	to {-webkit-transform: scale(1)}
-}
-@keyframes animatezoom {
-	from {transform: scale(0)}
-	to {transform: scale(1)}
-}
-
-
-
-/*------------estilos para caja de registro-------------*/
-/* campos de texto al 100% */
-input[type=text], input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
+.logear-con li{
 	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
 }
-
-.botones-login {
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
+.boton-logear-con-red{
+	display: inline;
+	float: left;
+	margin-left: 20%;
+	margin-top: 10%;
 }
-
-.logear-con{
-	background-color: #366EBB;
-	color: white;
-}
-
-button:hover {
+.logear-con li:hover img{
 	opacity: 0.8;
 }
 
-
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-	position: relative;
+.login-botones {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
-
-img.avatar {
-	width: 20%;
-	border-radius: 50%;
+.login-botones:hover {
+    opacity: 0.8;
 }
-
-.container {
-	padding: 16px;
-	position: relative;
-	overflow: hidden;
-}
-
-.psw{
-	padding: 5px;
-	float: right;
-	/*background-color: red;*/
+.login-olvidaste{
+  padding: 5px;
+  float: right;
+  /*background-color: red;*/
 }
 .ir-registro{
-	padding: 5px;
-	float: left;
-	/*background-color: red;*/
-	text-decoration: none;
-	font-weight: bold;
+  padding: 5px;
+  float: left;
+  /*background-color: red;*/
+  text-decoration: none;
+  font-weight: bold;
 
 }
 .ir-registro a{
-	color: red;
+  color: red;
 }
 .ir-registro a,.psw a{
-	text-decoration: none;
+  text-decoration: none;
 }
-.ir-registro:hover a, .psw:hover a{
-	text-decoration: underline;
-}
-/* la caja de login con su fondo, el div contenedor */
-
-.modal {
-	display: none; /* oculta al comienzo*/
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	/*ocupar pantalla*/
-	width: 100%;
-	height: 100%;
-	/*scroll si necesita*/
-	overflow: auto;
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.ir-registro a:hover, .login-olvidaste a:hover{
+  text-decoration: underline;
 }
 
-.caja-login {
-	background-color: #fefefe;
-	margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
-	border: 1px solid #888;
-	width: 80%;
-	height: 90%;
-	max-width: 500px;
-}
-
-/* botón cerrar (x) */
 .close {
-	position: absolute;
-	right: 25px;
-	top: 0;
-	color: #000;
-	font-size: 35px;
-	font-weight: bold;
-}
-
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}/* botón cerrar (x) */
 .close:hover,
 .close:focus {
-	color: red;
-	cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
 
-/*animación cuando aparece (ZOOM)  -webkit   */
 .animate {
-	-webkit-animation: animatezoom 0.6s;
-	animation: animatezoom 0.6s
-}
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}/*animación cuando aparece (ZOOM)  -webkit   */
 
 @-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)}
-	to {-webkit-transform: scale(1)}
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
 }
 @keyframes animatezoom {
-	from {transform: scale(0)}
-	to {transform: scale(1)}
+    from {transform: scale(0)}
+    to {transform: scale(1)}
 }
 
 
+/*------------FIN ESTILOS LOGIN-------------------------------------------*/
 
-
-/*------------estilos para caja de registro-------------*/
 
 
 
@@ -518,5 +400,5 @@ img.avatar {
 		padding: 15px 3vw;
 
 		font-weight: bold;
-		color: white;	
+		color: white;
 	}

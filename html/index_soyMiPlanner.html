@@ -20,7 +20,7 @@
 					<li><a href="#type2">PREGUNTAS</a></li>
 				</ul>
 			</nav>
-			<div class="registrate" ><a href="#" onclick="document.getElementById('id01').style.display='block'">INGRESAR</a></div>
+			<div class="registrate" ><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESAR</a></div>
 		</div>
 	</header>
 
@@ -91,90 +91,51 @@
 		<a href="#">INICIO</a>
 	</footer>
 
-	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
-	<div id="id01" class="modal">
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------------------------------------->
+		<div id="login-id" class="login-modal">
 
-	  <form class="caja-login animate" action="/action_page.php">
-	    <div class="imgcontainer">
-	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-	      <img src="../images/user.png" alt="Avatar" class="avatar">
-	    </div>
+		  <form class="caja-login animate" action="/action_page.php">
+		    <div class="login-container-arriba">
+		      <span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
+		      <!-- <img src="../images/user.png" alt="Avatar" class="login-avatar"> -->
+		    </div>
+				<div class="logear-con">
+					<ul>
+						<h2>Ingresar con</h2>
+						<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
+						<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
+					</ul>
+				</div>
+		    <div class="login-container">
 
-	    <div class="container">
-	      <button type="button" class="botones-login logear-con">(logo) Ingresar con Facebook</button>
-	      <button type="button" class="botones-login logear-con">(logo) ingresar con LinkedIn</button>
+		      <label for='usuario'><b>Usuario</b></label>
+		      <input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
 
-	      <label><b>Usuario</b></label>
-	      <input type="text" placeholder="Nombre de usuario" name="uname" required>
+		      <label for='clave'><b>Clave</b></label>
+		      <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
 
-	      <label><b>Clave</b></label>
-	      <input type="password" placeholder="Escribe tu contraseña" name="psw" required>
+		      <button type="submit" class="login-botones">Ingresar</button>
+		      <input type="checkbox" checked="checked"> Recordarme
 
-	      <button type="submit" class="botones-login">Ingresar</button>
-	      <input type="checkbox" checked="checked"> Recordarme
-	    </div>
+		    </div>
+		    <div class="login-container-abajo">
+		      <span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+		      <span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
+		    </div>
+		  </form>
+		</div>
+	<!-- TERMINA FORMULARIO LOGIN ------------------------------------------------->
 
-	    <div class="container" style="background-color:#f1f1f1">
-	      <span class="psw"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-	      <span class="ir-registro"> <a href="#">REGISTRATE!</a></span>
-	    </div>
-	  </form>
-	</div>
-	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
-
-<!-- bewareth! ...javascript! -->
-	<script>
-		var modal = document.getElementById('id01');
-		// cerrar cuando clickea arafue
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-		}
-	</script>
-
-
-	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
-	<div id="id01" class="modal">
-
-	  <form class="caja-login animate" action="/action_page.php">
-	    <div class="imgcontainer">
-	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-	      <img src="../images/user.png" alt="Avatar" class="avatar">
-	    </div>
-
-	    <div class="container">
-	      <button type="button" class="botones-login logear-con">(logo) Ingresar con Facebook</button>
-	      <button type="button" class="botones-login logear-con">(logo) ingresar con LinkedIn</button>
-
-	      <label><b>Usuario</b></label>
-	      <input type="text" placeholder="Nombre de usuario" name="uname" required>
-
-	      <label><b>Clave</b></label>
-	      <input type="password" placeholder="Escribe tu contraseña" name="psw" required>
-
-	      <button type="submit" class="botones-login">Ingresar</button>
-	      <input type="checkbox" checked="checked"> Recordarme
-	    </div>
-
-	    <div class="container" style="background-color:#f1f1f1">
-	      <span class="psw"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-	      <span class="ir-registro"> <a href="#">REGISTRATE!</a></span>
-	    </div>
-	  </form>
-	</div>
-	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------>
-
-<!-- bewareth! ...javascript! -->
-	<script>
-		var modal = document.getElementById('id01');
-		// cerrar cuando clickea arafue
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-		}
-	</script>
+	<!--...javascript! ------------------------------------>
+		<script>
+			var modal = document.getElementById('login-id');
+			// cerrar cuando clickea arafue
+			window.onclick = function(event) {
+			    if (event.target == modal) {
+			        modal.style.display = "none";
+			    }
+			}
+		</script>
 
 
 </body>
