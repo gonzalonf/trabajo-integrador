@@ -168,6 +168,8 @@ footer a{
 	text-align: center;
 	max-width: 950px;
 	border-radius: 3px;
+	width: 50%;
+	margin: 20px;
 }
 
 .type1 {
