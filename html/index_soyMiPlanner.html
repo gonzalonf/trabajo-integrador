@@ -10,17 +10,20 @@
 
 	<header>
 		<div class="barra_superior">
+			<input class="burger-check" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label>
 			<div class="logo-marca">
 				<img src="../images/logo.png" alt="logotipo" class="logo">
 			</div>
-			<nav>
-				<ul class="botonera">
-					<li><a href="#">HOME</a></li>
-					<li><a href="#type1">NOSOTROS</a></li>
-					<li><a href="#type2">PREGUNTAS</a></li>
-				</ul>
-			</nav>
-			<div class="registrate" ><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESAR</a></div>
+			<div class="desplegable">
+				<nav>
+					<ul class="botonera">
+						<li><a href="#">INICIO</a></li>
+						<li><a href="#type1">NOSOTROS</a></li>
+						<li><a href="#type2">PREGUNTAS</a></li>
+						<li class="registrate"><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESAR</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</header>
 
@@ -29,16 +32,16 @@
 
 		<div class="mainButton">
 
-				<div class="opciones_principales1">
-					<a href="#">ARMÁ TU EVENTO DESDE CERO</a>
-				</div>
-				<div class="opciones_principales2">
-					<a href="#">EXPLORÁ NUESTRAS PROPUESTAS</a>
-				</div>
+			<div class="opciones_principales1">
+				<a href="#">ARMÁ TU EVENTO DESDE CERO</a>
+			</div>
+			<div class="opciones_principales2">
+				<a href="#">EXPLORÁ NUESTRAS PROPUESTAS</a>
+			</div>
 		</div>
-				<label  for="search"> Buscá: <br> </label>
-			    <input type="text" name="search"  id=search placeholder="Salones, Catering, Dj, Fotografía, Ambientación, ..." >
-			</section>
+		<label  for="search"> Buscá: <br> </label>
+		<input type="text" name="search"  id=search placeholder="Salones, Catering, Dj, Fotografía, Ambientación, ..." >
+	</section>
 
 
 
@@ -98,45 +101,45 @@
 		    <div class="login-container-arriba">
 		      <span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
 		      <!-- <img src="../images/user.png" alt="Avatar" class="login-avatar"> -->
-		    </div>
-				<div class="logear-con">
-					<ul>
-						<h2>Ingresar con</h2>
-						<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
-						<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
-					</ul>
-				</div>
-		    <div class="login-container">
+		  </div>
+		  <div class="logear-con">
+		  	<ul>
+		  		<h2>Ingresar con</h2>
+		  		<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
+		  		<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
+		  	</ul>
+		  </div>
+		  <div class="login-container">
 
-		      <label for='usuario'><b>Usuario</b></label>
-		      <input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
+		  	<label for='usuario'><b>Usuario</b></label>
+		  	<input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
 
-		      <label for='clave'><b>Clave</b></label>
-		      <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
+		  	<label for='clave'><b>Clave</b></label>
+		  	<input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
 
-		      <button type="submit" class="login-botones">Ingresar</button>
-		      <input type="checkbox" checked="checked"> Recordarme
+		  	<button type="submit" class="login-botones">Ingresar</button>
+		  	<input type="checkbox" checked="checked"> Recordarme
 
-		    </div>
-		    <div class="login-container-abajo">
-		      <span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-		      <span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
-		    </div>
-		  </form>
-		</div>
+		  </div>
+		  <div class="login-container-abajo">
+		  	<span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+		  	<span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
+		  </div>
+		</form>
+	</div>
 	<!-- TERMINA FORMULARIO LOGIN ------------------------------------------------->
 
 	<!--...javascript! ------------------------------------>
-		<script>
-			var modal = document.getElementById('login-id');
+	<script>
+		var modal = document.getElementById('login-id');
 			// cerrar cuando clickea arafue
 			window.onclick = function(event) {
-			    if (event.target == modal) {
-			        modal.style.display = "none";
-			    }
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
 			}
 		</script>
 
 
-</body>
-</html>
+	</body>
+	</html>
