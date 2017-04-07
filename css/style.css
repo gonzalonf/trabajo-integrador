@@ -9,7 +9,7 @@
 
 body {
 	background: lightcyan;  /* color de fondo gral */
-	font-family: "Verdana", sans-serif;
+	font-family: "Verdana", "sans-serif";
 }
 
 header{
@@ -20,25 +20,65 @@ header{
 
 }
 
+/*------------COMIENZA BURGUER------------------------------------------*/
+
+.burger {
+	display: block;
+	border: 0;
+	background: none;
+	outline: 0;
+	padding: 0;
+	cursor: pointer;
+	width: 28px;
+}
+
+.burger-check {
+	display: none;
+}
+
+input[type=checkbox] + label {
+	background: url(../images/menu-icon.png) no-repeat;
+	background-size: 40px;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 5px;
+	left: 84vw; 
+}
+
+input[type=checkbox]:checked + label {
+	background: url(../images/cross.png) no-repeat;
+	background-size: 40px;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 5px;
+	left: 84vw; 
+}
+
+.desplegable{
+	overflow: hidden;
+	max-height: 0;
+}
+
+.burger-check:checked ~ .desplegable{
+	max-height: 500px;
+}
+
+/*------------TERMINA BURGUER------------------------------------------*/
+
 .barra_superior {   /* Todo lo que hay en el header. */
 	margin: 0px;    /* dejo algunas cosas en cero, por si uno quiere probar un valor rapidamente y luego hacer undo */
 	padding: 0px;
-
-
-	background: lightgrey;
-
+	background: white;
 	display: flex;
 	flex-flow: column;
 }
 
-.logo-marca {
-	background: rgba(255, 255, 255, 0.9);
-}
-
 .logo-marca img{
 	margin: 0px;
-	padding: 2px 0px;
-	height: 50px;
+	padding: 0px 0px;
+	height: 45px;
 }
 
 .botonera{
@@ -52,8 +92,6 @@ header{
 .botonera a{
 	display: block;
 	padding: 10px 0px;
-
-	background: rgba(255, 255, 255, 0.9);
 	font-weight: bold;
 	color: grey;
 }
@@ -69,7 +107,7 @@ header{
 	/*padding: 10px 0px;*/
 	/*border-radius: 5px;*/
 	/* GONZA: el redondeante, creo, queda disonante con el resto, cualquier cosa lo activamos de nuevo */
-	background: rgba(200, 0, 0, 1);
+	background: #4CAF50;
 }
 
 .registrate li{
@@ -87,7 +125,7 @@ header{
 .registrate a:hover{
 	background-color: rgba(0, 0, 0, 0.6);
 	font-weight: bold;
-	color: red;
+	color: #4CAF50;
 }
 
 footer{
@@ -356,8 +394,29 @@ footer a{
 /* Small Devices, Tablets */
 @media (min-width : 768px) {
 
+	/*------------EMPIEZA BURGUER------------------------------------------*/
+	
+	input[type=checkbox] + label {
+		background: none;
+	}
+
+	input[type=checkbox]:checked + label {
+		background: none;
+	}
+
+	.desplegable{
+		overflow: visible;
+		max-height: 48px;
+	}
+
+	.burger-check:checked ~ .desplegable{
+		overflow: visible;
+		max-height: 48px;
+	}
+
+	/*------------TERMINA BURGUER------------------------------------------*/
+
 	.barra_superior{
-		background: white;
 		width: 100%;
 		position: fixed;
 		top: 0px;
@@ -371,14 +430,8 @@ footer a{
 		top: 48px;
 	}
 
-	.logo-marca {
-		background: rgba(255, 255, 255, 0.9);
-	}
-
 	.logo-marca img{
 		margin: 0px 50px;
-		padding: 0px 0px;
-		height: 40px;
 	}
 
 	.botonera{
