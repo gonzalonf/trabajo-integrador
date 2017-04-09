@@ -151,6 +151,7 @@ body{
 .contenedor-responsive{
 	width: 100%;
 	padding: 1em;
+	text-align: center;
 }
 
 .text-responsive{
@@ -200,11 +201,13 @@ footer a{
 
 	width: 100%;
 	height: 80px;
-	margin: 5vh 0;
+	margin: 5vh auto;
 	align-items: center;
 	font-size: 0.8em;
 	text-decoration: none;
 	color: white;
+
+
 
 }
 
@@ -246,18 +249,18 @@ footer a{
 
 
 .type_portada input{
-	line-height: 20px;
+
+	line-height: 30px;
 	text-align: center;
 	max-width: 950px;
 	border-radius: 3px;
-	/*border: 1px solid #ccc;*/
-	border: none;
-	width: 100%;
-	/*margin: 20px;*/
-	/*margin: auto;*/
-	margin: 1em auto;
-	padding: 0.3em;
-	font-size: 1em;
+	width: 70%;
+	margin: 20px;
+	font-size: 14px;
+	color: #333;
+	border: 1px solid #ccc;
+
+
 }
 
 
@@ -368,7 +371,6 @@ li.imagen3 {
 		/*border: 1px solid lightgrey;*/
 		border: none;
 		background-color: lightgrey ;
-		box-sizing: border-box;
 		border-radius: 3px;
 
 }/* campos de texto al 100% */
@@ -493,10 +495,6 @@ li.imagen3 {
 @media (min-width : 768px) {
 
 
-
-	.type_portada input{
-		width: 70%;
-	}
 	.contenedor-responsive{
 		max-width: 800px;
 		margin: auto;
@@ -616,7 +614,4 @@ li.imagen3 {
 
 
 }
-
-
-
 
