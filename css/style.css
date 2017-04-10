@@ -8,7 +8,7 @@
 
 
 body {
-	background: lightcyan;  /* color de fondo gral */
+	background: #white;  /* color de fondo gral */
 	font-family: "Verdana", "sans-serif";
 	font-size: 16px;
 }
@@ -478,10 +478,82 @@ li.imagen3 {
 		to {transform: scale(1)}
 }
 
-
-
-
 /*------------FIN ESTILOS LOGIN-------------------------------------------*/
+/* ----------- INICIA ESTILOS REGISTRATE----------------------------------*/
+.registro-container {
+	display: block;
+	margin: 20px;
+	padding-top: 3%;
+	padding-left: 30%;
+	padding-right: 30%;
+	min-height: 200px;
+	background-color: white;
+	text-align: left;
+	font-size: 10px;
+
+}
+
+.formulario {
+
+}
+
+.decorative-input{
+	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+	background-repeat: no-repeat;
+	background-position: right 9px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	height: 40px;
+	padding: 10px 35px 10px 10px;
+	width: 100% !important;
+	background-size: 40px 171px;
+}
+
+.decorative-input-mail {
+	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+	background-repeat: no-repeat;
+	background-position: right -40px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	height: 40px;
+	padding: 10px 35px 10px 10px;
+	width: 100% !important;
+	background-size: 40px 171px;
+}
+
+.decorative-input-password {
+	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+	background-repeat: no-repeat;
+	background-position: right -90px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	height: 40px;
+	padding: 10px 35px 10px 10px;
+	width: 100% !important;
+	background-size: 40px 171px;
+}
+
+.checkbox{
+	cursor: pointer;
+	line-height: normal;
+}
+
+
+.signup_modal_promotion_checkbox{
+	padding-top: 9px;
+	padding-bottom: 20px;
+	margin-right: 5px;
+}
+
+
+.pull-left{
+	float: left;
+}
+
+/*------------FIN ESTILOS REGISTRATE-------------------------------------------*/
 
 @media (min-width: 480px) {
 	.mainButton{
@@ -489,8 +561,21 @@ li.imagen3 {
 		width: 70%;
 		font-size: 1em;
 	}
-}
 
+	.enviar{
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		padding-left: 27px !important;
+		padding-right: 27px !important;
+		font-weight: normal;
+		box-sizing: border-box;
+		border-color: #ff5a5f;
+		background-color: #ff5a5f;
+		color: #fff;
+		letter-spacing: 1px;
+	}
+}
+/* ----------- FINALIZA ESTILOS REGISTRATE----------------------------------*/
 
 @media (min-width : 768px) {
 
@@ -567,9 +652,7 @@ li.imagen3 {
 	}
 
    /*@media query LOGIN----------------------------*/
-
-
-
+}
 
 
 	.login-modal {/* la caja de login con su fondo, el div contenedor */
@@ -614,4 +697,3 @@ li.imagen3 {
 
 
 }
-
