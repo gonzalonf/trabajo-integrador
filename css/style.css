@@ -20,7 +20,6 @@ header{
 	text-align: center;
 	position: relative;
 	z-index: 1;
-
 }
 
 /*------------COMIENZA BURGUER------------------------------------------*/
@@ -79,14 +78,7 @@ input[type=checkbox]:checked + label {
 	background: white;
 	display: flex;
 	flex-flow: column;
-
-	/******/
-	/********/
-	/*esto lo agregué para que se despuegue la barra del fondo... saquenlo si no gusta	*/
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-	/********/
-	/******/
-
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /*esto lo agregué para que se despuegue la barra del fondo... saquenlo si no gusta	*/
 }
 
 body{
@@ -113,8 +105,7 @@ body{
 	padding: 10px 0px;
 	font-weight: bold;
 	color: grey;
-	transition: background-color,color 0.5s;
-
+	transition: background-color 0.3s;
 }
 
 .botonera a:hover{
@@ -126,8 +117,6 @@ body{
 .registrate{
 	flex-flow: row;
 	/*padding: 10px 0px;*/
-	/*border-radius: 5px;*/
-	/* GONZA: el redondeante, creo, queda disonante con el resto, cualquier cosa lo activamos de nuevo */
 	background: #ff5a5f;
 	overflow: hidden;
 }
@@ -146,7 +135,6 @@ body{
 
 .registrate a:hover{
 	background-color: rgba(0, 0, 0, 0.6);
-
 	color: #ff5a5f;
 }
 
@@ -160,8 +148,6 @@ body{
 	font-size: 1em;
 	line-height: 2em;
 }
-
-
 
 footer{
 	display: block;
@@ -179,7 +165,7 @@ footer{
 footer a{
 	float: right;
 	font-weight: bold;
-	color: red;
+	color: #ff5a5f;
 }
 
 .type_portada {
@@ -203,7 +189,6 @@ footer a{
 	display: flex;
 	justify-content: center;
 	font-weight: bold;
-
 	width: 100%;
 	height: 80px;
 	margin: 5vh auto;
@@ -211,36 +196,35 @@ footer a{
 	font-size: 0.8em;
 	text-decoration: none;
 	color: white;
-
-
-
 }
 
 .opciones_principales1, .opciones_principales2{
-	margin: 0 5px;
+	margin: 0px 10px;
 	width: 100%;
 	height: 100%;
 }
+
 .opciones_principales1 a, .opciones_principales2 a{
 	border: none;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-	/*border: solid white 1px;*/
 	/*width: 36vw;*/
 	/*max-width: 450px;*/
 	color: white;
 	height: 100%;
 	width: 100%;
 	padding: 5% 2%;
-	margin: 1vh 2vw;
+	margin: 0px;
+	min-width: 140px;
 	border-radius: 15px;
-
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 	display: flex;
- justify-content: center;
- flex-direction: column;
+	justify-content: center;
+	flex-direction: column;
 }
+
 .opciones_principales1 a{
-	background-color: #72CA8C;
+	background-color: #55bd74;
 }
+
 .opciones_principales2 a{
 	background-color:  #ff5a5f;
 }
@@ -248,13 +232,12 @@ footer a{
 .opciones_principales1 a:hover{
 	background-color: #95e5ac;
 }
+
 .opciones_principales2 a:hover{
 	background-color: #ed878a;
 }
 
-
 .type_portada input{
-
 	line-height: 30px;
 	text-align: center;
 	max-width: 950px;
@@ -264,10 +247,7 @@ footer a{
 	font-size: 14px;
 	color: #333;
 	border: 1px solid #ccc;
-
-
 }
-
 
 .type1 {
 	display: block;
@@ -290,27 +270,31 @@ footer a{
 	/*line-height: 1.5em;*/
 }
 
-.type2 p{
-	/*font-size: 0.8em;*/
-	
+.type1 p, .type2 p{
+	font-size: 1em;
 }
+
 .como-funciona{
 	position: relative;
 	display: inline-block;
 	width: 100%;
 }
+
 .como-funciona-imagen{
 	position: relative;
 	width: 100%;
 	float: left;
-	padding: 1em;
+	z-index: 0;
 }
+
 .como-funciona-texto{
 	position: relative;
 	width: 100%;
 	float: right;
-	padding: 2em;
+	padding: 0 2em 20px 2em;
+	text-align: center;
 }
+
 /*
 li.imagen1 {
 	background: url(../images/1.png) no-repeat;
@@ -352,8 +336,7 @@ li.imagen3 {
 
 		display: none; /* oculta al comienzo*/
 
-
-		/*z-index: 1;*/
+		z-index: 2;
 		/*left: 0;*/
 		/*top: 0;*/
 
@@ -361,20 +344,20 @@ li.imagen3 {
 		width: 100%;
 		height: 100vh;
 		position: fixed;
-
 		/*scroll si necesita*/
 		overflow: scroll;
 
 	}
+
 .caja-login {
 		border: 1px solid #888;
 		width: 100%;
 		height: 100%;
 		max-width: 500px;
+		max-height: 478px;
 		overflow: auto;
 		margin: auto;
 } /*el form*/
-
 
 .login-container {
 		padding: 16px;
@@ -382,8 +365,8 @@ li.imagen3 {
 		overflow: hidden;
 		/*background-color: red;*/
 		background-color: white;
-
 }
+
 .login-container-abajo{
 	background-color: lightgrey;
 	overflow: hidden;
@@ -401,48 +384,68 @@ li.imagen3 {
 		background-color: lightgrey;
 }
 
-.login-input[type=text], .login-input[type=password] {
+.login-input[type=text]{
+		background-color:#f4f4f4;
 		width: 100%;
-		padding: 12px 20px;
 		margin: 8px 0;
+		padding: 12px 20px;
 		display: inline-block;
 		border: 1px solid lightgrey;
+		background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+		background-repeat: no-repeat;
+		background-position: right 9px;
+		background-size: 40px 171px;
 		/*border: none;*/
-		/*background-color: lightgrey ;*/
-		background-color:#f4f4f4;
 		/*border-radius: 3px;*/
+}
 
-}/* campos de texto al 100% */
+.login-input[type=password]{
+		background-color:#f4f4f4;
+		width: 100%;
+		margin: 8px 0;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid lightgrey;
+		background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+		background-repeat: no-repeat;
+		background-position: right -90px;
+		background-size: 40px 171px;
+		/*border: none;*/
+		/*border-radius: 3px;*/
+}
 
 .login-input:focus{
 	background-color:#f4f4f4;
 	border: 1px solid black;
 	/*box-shadow: 5px 5px 5px blue;*/
-
-
 }
 
 .logear-con{
 	background-color: #f4f4f4;
-	color: grey;
+	color: negro;
 	text-align: center;
 	border-bottom: double lightgrey;
 }
+
 .logear-con h2{
 	padding-left: 0.5em;
 }
+
 .logear-con li{
 	display: inline-block;
 }
+
 .boton-logear-con-red{
 	display: inline;
 	float: left;
 	margin-left: 20%;
 	margin-top: 10%;
 }
+
 .logear-con li:hover img{
 	opacity: 0.8;
 }
+
 .logear-con img{
 	height: 2.5em;
 }
@@ -459,6 +462,7 @@ li.imagen3 {
 		font-weight: bold;
 		font-size: 1em;
 }
+
 .login-botones:hover {
 		opacity: 0.8;
 }
@@ -470,6 +474,7 @@ li.imagen3 {
 	text-align: center;
 	width: 90%;
 }
+
 .ir-registro{
 	position: relative;
 	padding: 5px;
@@ -480,13 +485,14 @@ li.imagen3 {
 	font-weight: bold;
 }
 
-
 .ir-registro a{
 	color: red;
 }
+
 .ir-registro a,.psw a{
 	text-decoration: none;
 }
+
 .ir-registro a:hover, .login-olvidaste a:hover{
 	text-decoration: underline;
 }
@@ -499,6 +505,7 @@ li.imagen3 {
 		font-size: 35px;
 		font-weight: bold;
 }/* botón cerrar (x) */
+
 .close:hover,
 .close:focus {
 		color: red;
@@ -525,19 +532,20 @@ li.imagen3 {
 	display: block;
 	margin: 20px;
 	padding-top: 3%;
-	padding-left: 30%;
-	padding-right: 30%;
+	padding-left: 20%;
+	padding-right: 20%;
 	min-height: 200px;
 	background-color: white;
 	text-align: left;
 	font-size: 10px;
-
 }
 
 .formulario {
 }
 
 .decorative-input{
+	background: #f4f4f4; 
+	border: 1px solid lightgrey;
 	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
 	background-repeat: no-repeat;
 	background-position: right 9px;
@@ -551,6 +559,8 @@ li.imagen3 {
 }
 
 .decorative-input-mail {
+	background: #f4f4f4; 
+	border: 1px solid lightgrey;
 	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
 	background-repeat: no-repeat;
 	background-position: right -40px;
@@ -564,6 +574,8 @@ li.imagen3 {
 }
 
 .decorative-input-password {
+	background: #f4f4f4;
+	border: 1px solid lightgrey;
 	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
 	background-repeat: no-repeat;
 	background-position: right -90px;
@@ -581,13 +593,11 @@ li.imagen3 {
 	line-height: normal;
 }
 
-
 .signup_modal_promotion_checkbox{
 	padding-top: 9px;
 	padding-bottom: 20px;
 	margin-right: 5px;
 }
-
 
 .pull-left{
 	float: left;
@@ -595,7 +605,7 @@ li.imagen3 {
 
 /*------------FIN ESTILOS REGISTRATE-------------------------------------------*/
 
-@media (min-width: 480px) {
+
 	.mainButton{
 		margin: 10vh auto;
 		width: 70%;
@@ -603,149 +613,161 @@ li.imagen3 {
 	}
 
 	.enviar{
-		padding-top: 20px !important;
-		padding-bottom: 20px !important;
-		padding-left: 27px !important;
-		padding-right: 27px !important;
+		padding: 14px;
 		font-weight: normal;
 		box-sizing: border-box;
-		border-color: #ff5a5f;
+		border: none;
 		background-color: #ff5a5f;
 		color: #fff;
-		letter-spacing: 1px;
+		width: 100% !important;
+		/*letter-spacing: 1px;*/
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.enviar:hover{
+		background: #ed878a;
+	}
+
+	@media (min-width : 768px) {
+
+	.contenedor-responsive{
+		max-width: 800px;
+		margin: auto;
+	}
+	.text-responsive{
+		font-size: 1.3em;
+	}
+	.mainButton{
+		margin: 10vh auto;
+		width: 60%;
+		font-size: 1em;
+	}
+
+	.type1 p, .type2 p{
+		font-size: 0.8em;
+	}
+
+	/*@MQ explicativo , como-funciona....*/
+
+	.como-funciona{
+		/*background-color: blue;*/
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		margin: 2em;
+	}
+
+	.como-funciona-imagen{
+		/*background-color: red;*/
+		position: relative;
+		width: 25%;
+		/*float: left;*/
+		padding: 1em;
+		/*top: 50%;*/
+		top: 0;
+		/*transform: translateY(50%);*/
+	}
+
+	.como-funciona-texto{
+		/*background-color: green;*/
+		position: relative;
+		width: 75%;
+		/*float: right;*/
+		padding: 1em;
+		text-align: left;
+	}
+
+	/*@mquery---EMPIEZA BURGUER---*/
+
+	input[type=checkbox] + label {
+		background: none;
+		top: 5px;
+		left: 150vw;
+	}
+
+	input[type=checkbox]:checked + label {
+		background: none;
+		top: 5px;
+		left: 150vw;
+	}
+
+	.desplegable{
+		overflow: visible;
+		max-height: 48px;
+	}
+
+	.burger-check:checked ~ .desplegable{
+		overflow: visible;
+		max-height: 48px;
+	}
+
+	/*--@mquery----TERMINA BURGUER---*/
+
+	.login-modal {/* la caja de login con su fondo, el div contenedor */
+		display: none; /* oculta al comienzo*/
+
+		overflow: hidden;
+
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	}
+
+	.caja-login{
+		border: none;
+		width: 80%;
+		margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
+		width: 100%;
+		max-height: 90vh;
+		max-width: 500px;
+		overflow: auto;
+	}
+	.login-olvidaste{
+		width: auto;
+		float: right;
+		/*background-color: red;*/
+	}
+	.ir-registro{
+		width: auto;
+		float: left;
+		/*background-color: red;*/
+	}
+
+
+	.barra_superior{
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.logo-marca img{
+		margin: 0px 50px;
+	}
+
+	.botonera{
+		display: flex;
+	}
+
+	.botonera li{
+		flex-grow: 1;
+	}
+
+	.botonera a{
+		display: block;
+
+		padding: 15px 3vw;
+	}
+
+	.registrate li{
+		flex-grow: 1;
+	}
+
+	.registrate a{
+		display: block;
+		padding: 15px 3vw;
+		font-weight: bold;
+		color: white;
 	}
 }
-
-@media (min-width : 768px) {
-
-					.contenedor-responsive{
-						max-width: 800px;
-						margin: auto;
-					}
-					.text-responsive{
-						font-size: 1.3em;
-					}
-					.mainButton{
-						margin: 10vh auto;
-						width: 60%;
-						font-size: 1em;
-					}
-			     /*@MQ explicativo , como-funciona....*/
-
-					.como-funciona{
-						/*background-color: blue;*/
-						position: relative;
-						display: inline-block;
-						width: 100%;
-						margin: 2em;
-					}
-					.como-funciona-imagen{
-						/*background-color: red;*/
-						position: relative;
-						width: 20%;
-						/*float: left;*/
-						padding: 1em;
-						/*top: 50%;*/
-						top: 0;
-						/*transform: translateY(50%);*/
-					}
-					.como-funciona-texto{
-						/*background-color: green;*/
-						position: relative;
-						width: 60%;
-						float: right;
-						padding: 1em;
-					}
-
-					/*@mquery---EMPIEZA BURGUER---*/
-
-					input[type=checkbox] + label {
-						background: none;
-					}
-
-					input[type=checkbox]:checked + label {
-						background: none;
-					}
-
-					.desplegable{
-						overflow: visible;
-						max-height: 48px;
-					}
-
-					.burger-check:checked ~ .desplegable{
-						overflow: visible;
-						max-height: 48px;
-					}
-
-					/*--@mquery----TERMINA BURGUER---*/
-
-					.login-modal {/* la caja de login con su fondo, el div contenedor */
-						display: none; /* oculta al comienzo*/
-
-						overflow: hidden;
-
-						background-color: rgb(0,0,0); /* Fallback color */
-						background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-						}
-
-					.caja-login{
-						border: none;
-						width: 80%;
-						margin: 5% auto 15% auto; /* 5% arriba, 15% abajo y centrado */
-						width: 100%;
-						max-height: 90vh;
-						max-width: 500px;
-						overflow: auto;
-					}
-					.login-olvidaste{
-						width: auto;
-						float: right;
-						/*background-color: red;*/
-					}
-					.ir-registro{
-						width: auto;
-						float: left;
-						/*background-color: red;*/
-				}
-
-
-					.barra_superior{
-						flex-flow: row;
-						justify-content: center;
-						align-items: center;
-					}
-
-					.logo-marca img{
-						margin: 0px 50px;
-					}
-
-					.botonera{
-						display: flex;
-					}
-
-					.botonera li{
-						flex-grow: 1;
-					}
-
-					.botonera a{
-						display: block;
-
-						padding: 15px 3vw;
-					}
-
-					.registrate li{
-						flex-grow: 1;
-					}
-
-					.registrate a{
-						display: block;
-						padding: 15px 3vw;
-						font-weight: bold;
-						color: white;
-					}
-
-
-
-				}
 
 
