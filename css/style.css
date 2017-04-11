@@ -533,8 +533,8 @@ li.imagen3 {
 	display: block;
 	margin: 20px;
 	padding-top: 3%;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 10%;
+	padding-right: 10%;
 	min-height: 200px;
 	background-color: white;
 	text-align: left;
@@ -770,6 +770,10 @@ li.imagen3 {
 		padding: 14.5px 3vw;
 		font-weight: bold;
 		color: white;
+	}
+	.registro-container {
+	padding-left: 20%;
+	padding-right: 20%;
 	}
 }
 
