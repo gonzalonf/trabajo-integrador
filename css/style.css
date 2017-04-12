@@ -144,6 +144,10 @@ body{
 	text-align: center;
 }
 
+.contenedor-responsive label{
+	font-size: 18px;
+}
+
 .text-responsive{
 	font-size: 1em;
 	line-height: 2em;
@@ -179,6 +183,37 @@ footer a{
 	font-weight: bold;
 	color: white;
 	text-align: center;
+}
+
+.type_portada input[type=search] {
+	border-radius: 3px 0px 0px 3px;
+	margin-left: -20px; 
+}
+
+.type_portada input[type=button] {
+	background-color: #ff5a5f;
+	background-image: url(../images/lupita_blanca.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 28px 28px;
+	width: 40px;
+	height: 32px;
+	border-radius: 0px 3px 3px 0px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	position: absolute;
+	margin-left: -20px;
+	transition: background-color 0.3s;
+}
+
+.type_portada input[type=button]:hover {
+	background-color: #ed878a;
+}
+
+.type_portada input[type=button]:active {
+	background-color: #ed878a;
+	background-position: center 3px;
 }
 
 .type_portada h2{
@@ -223,10 +258,12 @@ footer a{
 
 .opciones_principales1 a{
 	background-color: #55bd74;
+	transition: background-color 0.3s;
 }
 
 .opciones_principales2 a{
 	background-color:  #ff5a5f;
+	transition: background-color 0.3s;
 }
 
 .opciones_principales1 a:hover{

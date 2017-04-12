@@ -13,7 +13,9 @@
 		<div class="barra_superior">
 			<input class="burger-check" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label>
 			<div class="logo-marca">
-				<img src="../images/logo.png" alt="logotipo" class="logo">
+				<a href="#">
+					<img src="../images/logo.png" alt="logotipo" class="logo">
+				</a>
 			</div>
 			<div class="desplegable">
 				<nav>
@@ -42,11 +44,13 @@
 				<div class="opciones_principales2">
 					<a href="#">EXPLORÁ NUESTRAS PROPUESTAS</a>
 				</div>
-
 			</div>
-			<label  for="search"> Buscá: <br> </label>
-			<input type="text" name="search"  id="search" placeholder="Salones, Catering, Dj, Fotografía, Ambientación, ..." >
 
+			<form class="buscador">
+				<label  for="search"> Buscá: <br> </label>
+				<input type="search" name="search"  id="search" placeholder="Salones, Catering, Dj, Fotografía, Ambientación, ..." >
+				<input type="button" value="">
+			</form>
 		</div>
 	</section>
 
@@ -71,21 +75,21 @@
 
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
-						<img src="../images/1.png" alt="paso1">
+						<img src="../images/1.png" alt="paso1" width="120px">
 					</div>
 					<p class="como-funciona-texto">Armá tu evento desde cero: navegá nuestra agenda de profesionales y servicios ordenados por categoría. Consulta referencias de otros  usuarios. Chequeá disponibilidad, precios y obtené un presupuesto en tiempo real.</p>
 				</li>
 
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
-						<img src="../images/2.png" alt="paso1">
+						<img src="../images/2.png" alt="paso2" width="120px">
 					</div>
 					<p class="como-funciona-texto">Explorá nuestras propuestas y conocé nuestras soluciones express: eventos temáticos con todo resuelto, organización de eventos especiales en manos de un planner profesional de nuestra agenda ¡y mucho más!</p>
 				</li>
 
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
-						<img src="../images/3.png" alt="paso1">
+						<img src="../images/3.png" alt="paso3" width="120px">
 					</div>
 					<p class="como-funciona-texto">Buscá lo que te falta: quizás tenías todo listo y, a último momento, te canceló alguno de los profesionales o servicios que habías contratado. Buscá en nuestra agenda, encontrá exactamente aquello que necesitás ¡y problema resuelto!</p>
 				</li>
@@ -105,50 +109,50 @@
 		<a href="#">INICIO</a>
 	</footer>
 
-		<!-- ESTO ES EL FORMULARIO LOGIN ------------------------------------>
-			<div id="login-id" class="login-modal">
+	<!-- ESTO ES EL FORMULARIO LOGIN ------------------------------------>
+	<div id="login-id" class="login-modal">
 
-			  <form class="caja-login animate" action="#">
-			    <div class="login-container-arriba">
-			      <span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-				  </div>
-					  <div class="logear-con">
-					  	<ul>
-					  		<h2>INGRESAR CON</h2>
-					  		<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
-					  		<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
-					  	</ul>
-					  </div>
-					  <div class="login-container">
-
-						  	<label for='usuario'><b>Usuario</b></label>
-						  	<input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
-
-						  	<label for='clave'><b>Clave</b></label>
-						  	<input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
-
-						  	<button type="submit" class="login-botones">INGRESAR</button>
-
-								<label for="recordarme" >Recordarme</label>
-								<input style="float:left" type="checkbox" name="recordarme" id='recordarme' checked="checked">
-
-
-					  </div>
-
-					  <div class="login-container-abajo">
-				  	<span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-				  	<span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
-				  </div>
-				</form>
+		<form class="caja-login animate" action="#">
+			<div class="login-container-arriba">
+				<span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
 
 			</div>
-		<!-- TERMINA FORMULARIO LOGIN ---------------------------------->
+			<div class="logear-con">
+				<ul>
+					<h2>INGRESAR CON</h2>
+					<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
+					<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
+				</ul>
+			</div>
+			<div class="login-container">
+
+				<label for='usuario'><b>Usuario</b></label>
+				<input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
+
+				<label for='clave'><b>Clave</b></label>
+				<input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
+
+				<button type="submit" class="login-botones">INGRESAR</button>
+
+				<label for="recordarme" >Recordarme</label>
+				<input style="float:left" type="checkbox" name="recordarme" id='recordarme' checked="checked">
 
 
-		<!--...desde acá... JAVASCRIPT! -------------------------------->
-		<script>
-			var modal = document.getElementById('login-id');
+			</div>
+
+			<div class="login-container-abajo">
+				<span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+				<span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
+			</div>
+		</form>
+
+	</div>
+	<!-- TERMINA FORMULARIO LOGIN ---------------------------------->
+
+
+	<!--...desde acá... JAVASCRIPT! -------------------------------->
+	<script>
+		var modal = document.getElementById('login-id');
 				// cerrar cuando clickea arafue
 				window.onclick = function(event) {
 					if (event.target == modal) {
@@ -157,5 +161,5 @@
 				}
 			</script>
 
-</body>
-</html>
+		</body>
+		</html>
