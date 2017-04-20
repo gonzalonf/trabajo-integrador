@@ -8,27 +8,8 @@
 </head>
 <body>
 
-	<header>
-		<div class="barra_superior">
-			<input class="burger-check" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label>
-			<div class="logo-marca">
-				<a href="index_soyMiPlanner.html#">
-				<img src="../images/logo.png" alt="logotipo" class="logo">
-				</a>
-			</div>
-			<div class="desplegable">
-				<nav>
-					<ul class="botonera">
-						<li><a href="index_soyMiPlanner.html">INICIO</a></li>
-						<li><a href="index_soyMiPlanner.html#type1">NOSOTROS</a></li>
-						<li><a href="#">PREGUNTAS</a></li>
-						<li class="registrate"><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESAR</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
-
+<!-- barra navegación -->
+	<?php include('nav.html') ;?>
 
 	<section class="type2">
 		<div class="contenedor-responsive text-responsive">
@@ -74,45 +55,9 @@
 		<a href="index_soyMiPlanner.html" target="_blank">INICIO<a/>
 		</footer>
 
-	<!-- ESTO ES EL FORMULARIO LOGIN ---------------------------------------->
-	<div id="login-id" class="login-modal">
+<!-- login -->
+<?php include('login.html'); ?>
 
-		<form class="caja-login animate" action="#">
-			<div class="login-container-arriba">
-				<span onclick="document.getElementById('login-id').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-			</div>
-				<div class="logear-con">
-					<ul>
-						<h2>INGRESAR CON</h2>
-						<li><a class="boton-logear-con-red" href="#"><img src="../images/facebook.png" alt="facebook"></a></li>
-						<li><a class="boton-logear-con-red" href="#"><img src="../images/linkedin.png" alt="linkedIn"></a></li>
-					</ul>
-				</div>
-				<div class="login-container">
-
-						<label for='usuario'><b>Usuario</b></label>
-						<input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
-
-						<label for='clave'><b>Clave</b></label>
-						<input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
-
-						<button type="submit" class="login-botones">INGRESAR</button>
-
-						<label for="recordarme" >Recordarme</label>
-						<input style="float:left" type="checkbox" name="recordarme" id='recordarme' checked="checked">
-
-
-				</div>
-
-				<div class="login-container-abajo">
-				<span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
-				<span class="ir-registro"> <a href="registro.html">REGISTRATE!</a></span>
-			</div>
-		</form>
-
-	</div>
-	<!-- TERMINA FORMULARIO LOGIN --------------------------------------->
 
 	<!--...javascript! -------------------------------------------------->
 	<script>
