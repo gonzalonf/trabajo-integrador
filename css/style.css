@@ -114,10 +114,31 @@ body{
 	color: white;
 }
 
+.ingresa{
+	flex-flow: row;
+	background: #ff5a5f;
+	overflow: hidden;
+}
+
+.ingresa li{
+	flex-grow: 1;
+}
+
+.ingresa a{
+	display: block;
+	padding: 10px 0px;
+	font-weight: bold;
+	color: white;
+}
+
+.ingresa a:hover{
+	background: rgba(0, 0, 0, 0.6);
+	color: #ff5a5f;
+}
+
 .registrate{
 	flex-flow: row;
-	/*padding: 10px 0px;*/
-	background: #ff5a5f;
+	background: (255, 190, 195, 1);
 	overflow: hidden;
 }
 
@@ -128,14 +149,13 @@ body{
 .registrate a{
 	display: block;
 	padding: 10px 0px;
-
 	font-weight: bold;
-	color: white;
+	color: #ff5a5f;
 }
 
 .registrate a:hover{
-	background-color: rgba(0, 0, 0, 0.6);
-	color: #ff5a5f;
+	background: rgba(255, 90, 95, 0.7);
+	color: white;
 }
 
 .contenedor-responsive{
@@ -782,7 +802,7 @@ li.imagen3 {
 	}
 
 	.logo-marca img{
-		margin: 0px 50px;
+		margin: 0px 1vw;
 	}
 
 	.botonera{
@@ -795,7 +815,16 @@ li.imagen3 {
 
 	.botonera a{
 		display: block;
-		padding: 14.5px 3vw;
+		padding: 14.5px 1vw;
+	}
+
+	.ingresa li{
+		flex-grow: 1;
+	}
+
+	.ingresa a{
+		display: block;
+		padding: 14.5px 1vw;
 	}
 
 	.registrate li{
@@ -804,10 +833,9 @@ li.imagen3 {
 
 	.registrate a{
 		display: block;
-		padding: 14.5px 3vw;
-		font-weight: bold;
-		color: white;
+		padding: 14.5px 1vw;
 	}
+
 	.registro-container {
 	padding-left: 20%;
 	padding-right: 20%;
