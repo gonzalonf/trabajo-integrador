@@ -7,12 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	
+
 <!-- navegación -->
 	<?php include('nav.html') ;?>
 
 
 	<section class="type_portada">
+		<div class="video-container">
+			<video muted autoplay loop>
+				<source src="../videos/vid2.mp4" type="video/mp4">
+			</video>
+		</div>
+
 		<div class="contenedor-responsive ">
 			<h2>¡Todo lo que necesitás para planificar TU EVENTO!</h2>
 
