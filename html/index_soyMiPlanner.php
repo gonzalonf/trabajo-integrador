@@ -91,9 +91,65 @@
 		</div>
 	</section>
 
-	<footer>Copyright © 2017 - Soy mi Planner
-		<a href="#">INICIO</a>
-	</footer>
+
+		<footer>
+			<div class="footerContainer">
+				<ul>
+					<li><a href="#">Prensa</a></li>
+					<li><a href="FAQ.php">FAQs</a></li>
+					<li><a href="#">Trabajá con nosotros</a></li>
+					<li><a href="mailto:soymiplanner@soymiplanner.com?subject=feedback">Contacto</a></li>
+				</ul>
+				<div class="lugar">
+					<img class="map" src="../images/mapMarker.png" alt="map" width="30px"
+							style="
+						    display: block;
+						    margin: auto;
+						">
+
+					<a href="https://www.google.com.ar/maps/place/Monroe+860,+C1428BKD+CABA/@-34.5486883,-58.4437777,17z/data=!3m1!4b1!4m5!3m4!1s0x95bcb436f0040d09:0x4aeb76b157369423!8m2!3d-34.5486883!4d-58.4437777" target="_blank">Monroe 860</a>
+					<br>
+					<a href="#">soymiplanner@soymiplanner.com</a>
+					<br>
+					<p>011 5263-7400</p>
+					<p>Buenos Aires, Argentina</p>
+				</div>
+				<div class="redesSociales">
+					<ul>
+						<li><a href="http://www.facebook.com" target="_blank"><img src="../images/f.png" alt="facebook" width="50px"> </a></li>
+						<li><a href="http://www.twitter.com" target="_blank"><img src="../images/t.png" alt="twitter" width="50px"> </a></li>
+						<li><a href="http://www.youtube.com" target="_blank"><img src="../images/yt.png" alt="YouTube" width="50px"> </a></li>
+						<li><a href="http://www.instagram.com" target="_blank"><img src="../images/i.png" alt="Instagram" width="50px"> </a></li>
+					</ul>
+					<br><br>
+
+
+
+				</div>
+			</div>
+
+			<p class="copyRight">Copyright © 2017 - Soy mi Planner</p>
+			<button onclick="topFunction()" id="myBtn" title="Go to top">INICIO</button>
+
+			<script>
+			window.onscroll = function() {scrollFunction()};
+
+	//cuando baja 100px aparece el boton
+			function scrollFunction() {
+			    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			        document.getElementById("myBtn").style.display = "block";
+			    } else {
+			        document.getElementById("myBtn").style.display = "none";
+			    }
+			}
+
+			// vuelve arriba
+			function topFunction() {
+			    document.body.scrollTop = 0;
+			    document.documentElement.scrollTop = 0;
+			}
+			</script>
+		</footer>
 
 
 	<!--LOGIN ----------------->
