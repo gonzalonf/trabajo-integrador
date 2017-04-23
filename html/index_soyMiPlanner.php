@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+	
 <!-- navegación -->
 	<?php include('nav.html') ;?>
 
@@ -19,7 +19,7 @@
 			</video>
 		</div>
 
-		<div class="contenedor-responsive ">
+		<div class="contenedor-responsive " class="contenedor-responsive-altura">
 			<h2>¡Todo lo que necesitás para planificar TU EVENTO!</h2>
 
 			<div class="mainButton">

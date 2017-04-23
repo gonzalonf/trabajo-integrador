@@ -9,7 +9,7 @@
 
 body {
 	background: white;  /* color de fondo gral */
-	font-family: "Verdana", "sans-serif";
+	font-family: Verdana, sans-serif;
 	font-size: 16px;
 }
 
@@ -166,8 +166,7 @@ video{
 	width: 100%;
 	padding: 1em;
 	text-align: center;
-	padding-top: 10%;
-
+	/*padding-top: 10%;*/ /*solo va en query desktop*/
 }
 
 .contenedor-responsive label{
@@ -265,8 +264,8 @@ footer .top{
 	background-size: cover;
 	display: block;
 	margin: 0px;
-	height: 95vh;
-
+	/* height: 95vh; */ /*solo va en query desktop*/
+	padding: 5%;
 	min-height: 500px;
 	font-weight: bold;
 	color: white;
@@ -383,16 +382,15 @@ footer .top{
 	background: white;
 	text-align: center;
 	/*line-height: 1.5em;*/
-	position: relative;
+	/*position: relative;*/ /*ya no hace falta*/
 }
-
 
 .type2 {
 	display: block;
 	margin: 0px;
 	padding: 5%;
 	min-height: 200px;
-	background: rgba(0, 0, 0, 0.6);
+	background: #666666;
 	color: white;
 	text-align: center;
 	/*line-height: 1.5em;*/
@@ -422,29 +420,6 @@ footer .top{
 	padding: 0 2em 20px 2em;
 	text-align: center;
 }
-
-/*
-li.imagen1 {
-	background: url(../images/1.png) no-repeat;
-	background-size: 70px;
-	padding-left: 90px;
-	text-align: left;
-}
-
-li.imagen2 {
-	background: url(../images/2.png) no-repeat;
-	background-size: 70px;
-	padding-left: 90px;
-	text-align: left;
-}
-
-li.imagen3 {
-	background: url(../images/3.png) no-repeat;
-	background-size: 70px;
-	padding-left: 90px;
-	text-align: left;
-}
-*/
 
 .registro_volver a{
 	background-color: red;
@@ -656,6 +631,7 @@ li.imagen3 {
 
 /*------------FIN ESTILOS LOGIN-------------------------------------------*/
 /* ----------- INICIA ESTILOS REGISTRATE----------------------------------*/
+
 .registro-container {
 	display: block;
 	margin: 20px;
@@ -762,19 +738,15 @@ li.imagen3 {
 
 	@media (min-width : 768px) {
 
-		video{
-			display: none;
-		}
-
 	.contenedor-responsive{
 		max-width: 800px;
 		margin: auto;
-		position: relative;
-
 	}
+
 	.text-responsive{
 		font-size: 1.3em;
 	}
+
 	.mainButton{
 		margin: 10vh auto;
 		width: 60%;
@@ -878,7 +850,7 @@ li.imagen3 {
 	}
 
 	.logo-marca img{
-		margin: 0px 1vw;
+		margin-right: 3.5vw;
 	}
 
 	.botonera{
@@ -892,6 +864,10 @@ li.imagen3 {
 	.botonera a{
 		display: block;
 		padding: 14.5px 1vw;
+	}
+
+	.preguntas a{
+		margin-right: 3.5vw;
 	}
 
 	.ingresa li{
@@ -916,15 +892,36 @@ li.imagen3 {
 	padding-left: 20%;
 	padding-right: 20%;
 	}
-
 }
 
-@media (min-width : 1100px)  {
+@media (min-width : 1024px)  {
+
+	.logo-marca img{
+		margin-right: 15vw;
+	}
+	
+	.preguntas a{
+		margin-right: 15vw;
+	}
+
+	.type_portada {
+		background-size: 0;
+		min-height: 97vh;
+	}
+
 	video{
 		display: block;
 		position: absolute;
-		min-width: 100%;
-
+		top: -1%; 
+		left: 0;
+		width: 100vw; 
+		height: 100vh;
+		object-fit: cover;
+		z-index: -2;
 	}
 
+	.contenedor-responsive{
+		padding-top: 8%;
+	}
 }
+
