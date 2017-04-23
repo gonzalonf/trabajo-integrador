@@ -19,8 +19,8 @@
 			</video>
 		</div>
 
-		<div class="contenedor-responsive " class="contenedor-responsive-altura">
-			<h2>¡Todo lo que necesitás para planificar TU EVENTO!</h2>
+		<div class="contenedor-responsive ">
+			<h2 class="contenedor-responsive-altura">¡Todo lo que necesitás para planificar TU EVENTO!</h2>
 
 			<div class="mainButton">
 
@@ -58,7 +58,6 @@
 			<br>
 
 			<ul>
-
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
 						<img src="../images/1.png" alt="paso1" width="120px">
@@ -72,85 +71,19 @@
 					</div>
 					<p class="como-funciona-texto">Explorá nuestras propuestas y conocé nuestras soluciones express: eventos temáticos con todo resuelto, organización de eventos especiales en manos de un planner profesional de nuestra agenda ¡y mucho más!</p>
 				</li>
-
+				
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
 						<img src="../images/3.png" alt="paso3" width="120px">
 					</div>
 					<p class="como-funciona-texto">Buscá lo que te falta: quizás tenías todo listo y, a último momento, te canceló alguno de los profesionales o servicios que habías contratado. Buscá en nuestra agenda, encontrá exactamente aquello que necesitás ¡y problema resuelto!</p>
 				</li>
-
-					<!-- estructura vieja
-					<li class="imagen1">
-						<p>Armá tu evento desde cero: navegá nuestra agenda de profesionales y servicios ordenados por categoría. Consulta referencias de otros  usuarios. Chequeá disponibilidad, precios y obtené un presupuesto en tiempo real.</p>
-						<br>
-					</li>
-				-->
 			</ul>
-
 		</div>
 	</section>
 
-
-		<footer>
-			<div class="footerContainer">
-				<ul>
-					<li><a href="#">Prensa</a></li>
-					<li><a href="FAQ.php">FAQs</a></li>
-					<li><a href="#">Trabajá con nosotros</a></li>
-					<li><a href="mailto:soymiplanner@soymiplanner.com?subject=feedback">Contacto</a></li>
-				</ul>
-				<div class="lugar">
-					<img class="map" src="../images/mapMarker.png" alt="map" width="30px"
-							style="
-						    display: block;
-						    margin: auto;
-						">
-
-					<a href="https://www.google.com.ar/maps/place/Monroe+860,+C1428BKD+CABA/@-34.5486883,-58.4437777,17z/data=!3m1!4b1!4m5!3m4!1s0x95bcb436f0040d09:0x4aeb76b157369423!8m2!3d-34.5486883!4d-58.4437777" target="_blank">Monroe 860</a>
-					<br>
-					<a href="#">soymiplanner@soymiplanner.com</a>
-					<br>
-					<p>011 5263-7400</p>
-					<p>Buenos Aires, Argentina</p>
-				</div>
-				<div class="redesSociales">
-					<ul>
-						<li><a href="http://www.facebook.com" target="_blank"><img src="../images/f.png" alt="facebook" width="50px"> </a></li>
-						<li><a href="http://www.twitter.com" target="_blank"><img src="../images/t.png" alt="twitter" width="50px"> </a></li>
-						<li><a href="http://www.youtube.com" target="_blank"><img src="../images/yt.png" alt="YouTube" width="50px"> </a></li>
-						<li><a href="http://www.instagram.com" target="_blank"><img src="../images/i.png" alt="Instagram" width="50px"> </a></li>
-					</ul>
-					<br><br>
-
-
-
-				</div>
-			</div>
-
-			<p class="copyRight">Copyright © 2017 - Soy mi Planner</p>
-			<button onclick="topFunction()" id="myBtn" title="Go to top">INICIO</button>
-
-			<script>
-			window.onscroll = function() {scrollFunction()};
-
-	//cuando baja 100px aparece el boton
-			function scrollFunction() {
-			    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-			        document.getElementById("myBtn").style.display = "block";
-			    } else {
-			        document.getElementById("myBtn").style.display = "none";
-			    }
-			}
-
-			// vuelve arriba
-			function topFunction() {
-			    document.body.scrollTop = 0;
-			    document.documentElement.scrollTop = 0;
-			}
-			</script>
-		</footer>
-
+	<!-- footer -->
+	<?php include('footer.html') ;?>
 
 	<!--LOGIN ----------------->
 	<?php include('login.html'); ?>

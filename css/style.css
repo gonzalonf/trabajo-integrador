@@ -227,23 +227,27 @@ footer .top{
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 7vh;
+  right: 4vw;
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #ff5a5f;
-  color: white;
-  font-weight: bold;
-  letter-spacing: 2px;
+  /* background-color: #ff5a5f; */
+  background: none;
+  color: #ff5a5f;
+  /*font-weight: bold;*/
+  /*letter-spacing: 2px;*/
   cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-  font-family: helvetica;
+  /*padding: 10px; */
+  /*border-radius: 10px;*/
+  font-size: 4em;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  transform:scale(2,1);
 }
 
 #myBtn:hover {
-  background-color: #555;
+ /* background-color: #555;*/
+ color: rgba(255, 139, 142, 1);
 }
 .redesSociales ul li{
 	border-right: none;
@@ -920,8 +924,8 @@ footer .top{
 		z-index: -2;
 	}
 
-	.contenedor-responsive{
-		padding-top: 8%;
+	.contenedor-responsive-altura{
+		padding-top: 10%;
 	}
 }
 
