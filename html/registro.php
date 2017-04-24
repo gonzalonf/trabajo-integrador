@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	
+
 <!-- navegación -->
 	<?php include('nav.html') ;?>
 
@@ -71,9 +71,7 @@
 			}
 		</script>
 
-	<footer>Copyright © 2017 - Soy mi Planner
-		<a href="#">INICIO</a>
-	</footer>
+		<?php include 'footer.html'; ?>
 
 </body>
 </html>

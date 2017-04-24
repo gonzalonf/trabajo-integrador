@@ -51,9 +51,7 @@
 		</div>
 	</section>
 
-	<footer>Copyright © 2017 - Soy mi Planner
-		<a href="index_soyMiPlanner.html" target="_blank">INICIO<a/>
-		</footer>
+<?php include 'footer.html'; ?>
 
 <!-- login -->
 <?php include('login.html'); ?>
