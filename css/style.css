@@ -227,27 +227,25 @@ footer .top{
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 7vh;
-  right: 4vw;
+  bottom: 20px;
+  right: 30px;
   z-index: 99;
   border: none;
   outline: none;
-  /* background-color: #ff5a5f; */
-  background: none;
-  color: #ff5a5f;
-  /*font-weight: bold;*/
-  /*letter-spacing: 2px;*/
+  background-color: #ff5a5f;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
   cursor: pointer;
-  /*padding: 10px; */
-  /*border-radius: 10px;*/
-  font-size: 4em;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-  transform:scale(2,1);
+  padding: 15px;
+  border-radius: 10px;
+  font-family: helvetica;
 }
 
+
 #myBtn:hover {
- /* background-color: #555;*/
- color: rgba(255, 139, 142, 1);
+  background-color: #555;
+ 
 }
 .redesSociales ul li{
 	border-right: none;
@@ -903,7 +901,7 @@ footer .top{
 	.logo-marca img{
 		margin-right: 15vw;
 	}
-	
+
 	.preguntas a{
 		margin-right: 15vw;
 	}
@@ -916,9 +914,9 @@ footer .top{
 	video{
 		display: block;
 		position: absolute;
-		top: -1%; 
+		top: -1%;
 		left: 0;
-		width: 100vw; 
+		width: 100vw;
 		height: 100vh;
 		object-fit: cover;
 		z-index: -2;
@@ -928,4 +926,3 @@ footer .top{
 		padding-top: 10%;
 	}
 }
-
