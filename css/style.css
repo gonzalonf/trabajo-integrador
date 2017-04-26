@@ -245,7 +245,7 @@ footer .top{
 
 #myBtn:hover {
   background-color: #555;
- 
+
 }
 .redesSociales ul li{
 	border-right: none;
@@ -636,17 +636,19 @@ footer .top{
 
 .registro-container {
 	display: block;
-	margin: 20px;
-	padding-top: 3%;
-	padding-left: 10%;
-	padding-right: 10%;
 	min-height: 200px;
-	background-color: white;
 	text-align: left;
 	font-size: 10px;
+	padding-top: 40px;
+	padding-left: 500px;
+	padding-right: 500px;
+
 }
 
 .formulario {
+	padding-left: 12px;
+	padding-right: 12px;
+	color: #ff5a5f;
 }
 
 .decorative-input{
@@ -657,12 +659,12 @@ footer .top{
 	background-position: right 9px;
 	box-sizing: border-box;
 	display: block;
+	width: 100%;
 	font-size: 14px;
 	height: 40px;
-	padding: 10px 35px 10px 10px;
-	width: 100% !important;
 	background-size: 40px 171px;
 	border-radius: 3px;
+	padding-left: 15px;
 }
 
 .decorative-input-mail {
@@ -675,10 +677,11 @@ footer .top{
 	display: block;
 	font-size: 14px;
 	height: 40px;
-	padding: 10px 35px 10px 10px;
-	width: 100% !important;
+	width: 100%;
 	background-size: 40px 171px;
 	border-radius: 3px;
+	padding-left: 15px;
+
 }
 
 .decorative-input-password {
@@ -689,27 +692,48 @@ footer .top{
 	background-position: right -90px;
 	box-sizing: border-box;
 	display: block;
+	width: 100%;
 	font-size: 14px;
 	height: 40px;
-	padding: 10px 35px 10px 10px;
-	width: 100% !important;
 	background-size: 40px 171px;
 	border-radius: 3px;
+	padding-left: 15px;
 }
 
 .checkbox{
 	cursor: pointer;
 	line-height: normal;
-}
-
-.signup_modal_promotion_checkbox{
-	padding-top: 9px;
-	padding-bottom: 20px;
-	margin-right: 5px;
-}
-
-.pull-left{
+	padding-bottom: 35px;
+	padding-right: 9px;
 	float: left;
+}
+
+.me-gustaria{
+	text-align-last: justify;
+	padding-bottom: 35px;
+	font-size: 12px;
+	color: grey;
+}
+
+.enviar{
+		font-weight: normal;
+		box-sizing: border-box;
+		border: none;
+		background-color: #ff5a5f;
+		color: #fff;
+		width: 100% !important;
+		/*letter-spacing: 1px;*/
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+.enviar:hover{
+		background: #ed878a;
+	}
+
+.aclaracion{
+	text-align: center;
+	color: grey;
 }
 
 /*------------FIN ESTILOS REGISTRATE-------------------------------------------*/
@@ -891,8 +915,8 @@ footer .top{
 	}
 
 	.registro-container {
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: ;
+	padding-right: ;
 	}
 }
 
