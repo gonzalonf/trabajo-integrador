@@ -923,6 +923,27 @@ footer img{
 		padding: 14.5px 1vw;
 	}
 
+	.type_portada {
+	background-size: 0;
+	min-height: 97vh;
+	}
+
+	video{
+		display: block;
+		position: absolute;
+		top: -1%;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+		z-index: -2;
+	}
+
+	.contenedor-responsive-altura{
+	padding-top: 8%;
+	}
+
+
 	.registro-container {
 	padding-left: ;
 	padding-right: ;
@@ -958,9 +979,11 @@ footer img{
 	.contenedor-responsive-altura{
 		padding-top: 10%;
 	}
+
 	footer .footerContainer{
 		margin-top: 7px;
 	}
+
 	.logoFooter{
 		height: 45px;
 		display: block;
@@ -991,6 +1014,7 @@ footer img{
 		max-width: 33%;
 		line-height: 50px;
 	}
+
 	footer .lugar{
 		margin: auto;
 	}
