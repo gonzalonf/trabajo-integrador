@@ -749,6 +749,12 @@ footer img{
 	.enviar:hover{
 		background: #ed878a;
 	}
+	.registro-container{
+		/*----------mientras tanto --------------*/
+		margin: 50px auto;
+		max-width: 800px;
+
+	}
 
 	@media (min-width : 768px) {
 
@@ -924,9 +930,11 @@ footer img{
 
 
 	.registro-container {
+
+	/* aca habia alertas
 	padding-left: ;
 	padding-right: ;
-	}
+	}*/
 }
 
 @media (min-width : 1024px)  {
