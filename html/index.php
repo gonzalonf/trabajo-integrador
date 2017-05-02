@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	
+
 <!-- navegación -->
-	<?php include('nav.html') ;?>
+	<?php include('nav.php') ;?>
 
 
 	<section class="type_portada">
@@ -71,7 +71,7 @@
 					</div>
 					<p class="como-funciona-texto">Explorá nuestras propuestas y conocé nuestras soluciones express: eventos temáticos con todo resuelto, organización de eventos especiales en manos de un planner profesional de nuestra agenda ¡y mucho más!</p>
 				</li>
-				
+
 				<li class="como-funciona">
 					<div class="como-funciona-imagen">
 						<img src="../images/3.png" alt="paso3" width="120px">

@@ -9,7 +9,7 @@
 <body>
 
 <!-- barra navegación -->
-	<?php include('nav.html') ;?>
+	<?php include('nav.php') ;?>
 
 	<section class="type2">
 		<div class="contenedor-responsive text-responsive">

@@ -9,7 +9,7 @@
 <body>
 
 <!-- navegación -->
-	<?php include('nav.html') ;?>
+	<?php include('nav.php') ;?>
 
 
 	<!-- inicia el CONTENEDOR para el Registro -->
