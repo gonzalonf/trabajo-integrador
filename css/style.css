@@ -285,7 +285,7 @@ footer img{
 }
 
 .type_portada input[type=search] {
-	border-radius: 3px 0px 0px 3px;
+	border-radius: 0px 0px 0px 0px;
 	margin-left: -20px;
 }
 
@@ -506,7 +506,7 @@ footer img{
 		padding: 12px 20px;
 		display: inline-block;
 		border: 1px solid lightgrey;
-		background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+		background-image: url(../images/text-field-icons.png);
 		background-repeat: no-repeat;
 		background-position: right 9px;
 		background-size: 40px 171px;
@@ -521,7 +521,7 @@ footer img{
 		padding: 12px 20px;
 		display: inline-block;
 		border: 1px solid lightgrey;
-		background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+		background-image: url(../images/text-field-icons.png);
 		background-repeat: no-repeat;
 		background-position: right -90px;
 		background-size: 40px 171px;
@@ -669,7 +669,7 @@ footer img{
 	background: #f4f4f4;
 	border: 1px solid lightgrey;
 	background-repeat: no-repeat;
-	background-image: url(https://a0.muscache.com/airbnb/static/signinup/text-field-icons-72d5ec863b1ef7c22391015ec8af5906.png);
+	background-image: url(../images/text-field-icons.png);
 	box-sizing: border-box;
 	display: block;
 	width: 100%;
@@ -677,6 +677,8 @@ footer img{
 	background-size: 40px 171px;
 	border-radius: 3px;
 	padding-left: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .decorative-input{
  background-position: right 9px;
@@ -754,7 +756,11 @@ footer img{
 		/*----------mientras tanto --------------*/
 		margin: 50px auto;
 		max-width: 800px;
+	}
 
+	.msj_error {
+		font-size: 14px;
+		color: red;
 	}
 
 	@media (min-width : 768px) {
