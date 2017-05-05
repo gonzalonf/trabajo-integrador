@@ -1,4 +1,12 @@
-<?php 
+<?php
+
+// DATOS A GUARDAR...
+// -nombre
+// -apellido
+// -email
+// -hash
+// -NOMBRE del avatar SI ESTA (email-id.EXTENSION)
+
 
 function validacionRegistro() {
 
@@ -25,9 +33,10 @@ function validacionRegistro() {
 		$_SESSION['fecha_nac'] = $fecha_nac;
 	}
 
+
 	$email =trim($_POST['email']);
 	if (($email == '') || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
-		$errores['email'] = 'El e-mail no es valido.'; 
+		$errores['email'] = 'El e-mail no es valido.';
 	} else{
 		$_SESSION['email'] = $email;
 	}
@@ -41,46 +50,70 @@ function validacionRegistro() {
 
 	$password = $_POST['password'];
 	if ($password == ''){
-		$errores['password'] = 'Completar la contraseña.'; 
+		$errores['password'] = 'Completar la contraseña.';
 	}
 
 	$password2 = $_POST['password2'];
 	if ($password2 == ''){
-		$errores['password2'] = 'Confirmar la contraseña.'; 
-	} 
+		$errores['password2'] = 'Confirmar la contraseña.';
+	}
 
 	if ($password != $password2){
-		$errores['password2']  = 'Las contraseñas no coinciden.'; 
+		$errores['password2']  = 'Las contraseñas no coinciden.';
 	}
-	
+
 	return $errores;
 }
 
 //--------------------------------------------------------------------------------
 
-function guardarUsuario() { 
+function guardarUsuario() {
 
-	/* fdghdfjkgh */
+	/* la hace MIJA */
+	// en  users/users.Json
+
+	// estructura de db:
+	[1 => ['nombre'=> nombre,'apellido'=> apellido2, 'hash'=>hash1, 'nombre_avatar'],[2 => ['nombre'=> nombre2,'apellido'=> etc...]
+
+	email
+	// -hash
+	// -NOMBRE del avatar SI ESTA (email-id.EXTENSION)
 }
 
 //--------------------------------------------------------------------------------
 
-function recuperarUsuario() { 
+function recuperarUsuario($nombre,$rutaArchivo){
+    $json = file_get_contents($rutaArchivo);
+    $users = json_decode($json, true);
+    $userData = [];
+    foreach ($users as $id => $userArray) {
+        if ( in_array($nombre,$userArray) ){
+            $userData = [
+            'id' => $id,
+            'usuario'=> $userArray['usuario'],
+            'nombre'=> $userArray['nombre'],
+            'apellido'=> $userArray['apelido'],
+            'email'=> $userArray['email'],
+            'fecha_nac'=> $userArray['fecha_nac'],
+            'password' => $userArray['password'],
+            'avatar' => ($userArray['avatar'])??''
+            ];
+        }
+    }
+    return $userData;
+}
 
-	/* fdghdfjkgh */
+
+//--------------------------------------------------------------------------------
+
+function guardarImagen() {
+
+	/* LO HACE CARO */
 }
 
 //--------------------------------------------------------------------------------
 
-function guardarImagen() { 
+function recuperarImagen() {
 
-	/* fdghdfjkgh */
+	/* lo hace CARO */
 }
-
-//--------------------------------------------------------------------------------
-
-function recuperarImagen() { 
-
-	/* fdghdfjkgh */
-}
-

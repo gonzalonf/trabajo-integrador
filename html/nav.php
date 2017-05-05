@@ -18,6 +18,8 @@
 					<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
 					<!-- si está logeado: -->
 					<!--    nombre usuario con dropdown menu -->
+					<!-- -logout -->
+					<!-- perfil -->
 
 				</ul>
 			</nav>
