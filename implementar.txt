@@ -1,13 +1,23 @@
 auto localización y selección(estilo Pedidos Ya)
+
 carrito
+
 búsqueda interna
+
 usuarios(vendedor)-->contenidos, servicios, subir fotos, 
+
 calificaciones, precios
+
 registración
+
 sistema pagos (implementar MercadoPago o simil)
+
 promociones (las agrega el prestador desde su log)
+
 línea de tiempo/paso a paso
+
 drag & drop con íconos
+
 calendario!!!
 
 

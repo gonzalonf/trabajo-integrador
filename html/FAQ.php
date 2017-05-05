@@ -54,7 +54,7 @@
 <?php include 'footer.html'; ?>
 
 <!-- login -->
-<?php include('login.html'); ?>
+<?php include('login.php'); ?>
 
 
 	<!--...javascript! -------------------------------------------------->

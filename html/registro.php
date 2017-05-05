@@ -93,7 +93,7 @@ $usuario = $_SESSION['usuario']??'';
 	</div>
 
 	<!-- login -->
-	<?php include('login.html'); ?>
+	<?php include('login.php'); ?>
 
 	<!--..JAVASCRIPT! -------------->
 	<script>

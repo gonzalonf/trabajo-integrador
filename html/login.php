@@ -1,3 +1,13 @@
+<?php
+
+include('../php/login.check.php');
+
+include('../php/cookie.check.php');
+
+$usuarioFill = $_SESSION['usuario']??'';
+$passwordFill = (isset($_SESSION['login']) )?'*********':'';
+
+ ?>
 <div id="login-id" class="login-modal">
   <form class="caja-login animate" action="#">
     <div class="login-container-arriba">
@@ -14,15 +24,15 @@
     <div class="login-container">
 
       <label for='usuario'><b>Usuario</b></label>
-      <input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="uname" required>
+      <input id='usuario' class="login-input" type="text" placeholder="Nombre de usuario" name="usuario" value="<?php echo  $usuarioFill ;?>">
 
       <label for='clave'><b>Clave</b></label>
-      <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="psw" required>
+      <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="password" value="<?php echo  $passwordFill ;?>">
 
       <button type="submit" class="login-botones">INGRESAR</button>
 
       <label for="recordarme" >Recordarme</label>
-      <input style="float:left" type="checkbox" name="recordarme" id='recordarme' checked="checked">
+      <input style="float:left" type="checkbox" name="recordarme" value="true" id='recordarme' checked="checked">
 
 
     </div>

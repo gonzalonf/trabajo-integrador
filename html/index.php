@@ -86,7 +86,7 @@
 	<?php include('footer.html') ;?>
 
 	<!--LOGIN ----------------->
-	<?php include('login.html'); ?>
+	<?php include('login.php'); ?>
 
 
 	<!--...desde acá... JAVASCRIPT! -------------------------------->

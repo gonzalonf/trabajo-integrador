@@ -12,8 +12,13 @@
 					<li><a href="index.php">INICIO</a></li>
 					<li><a href="index.php#type1">NOSOTROS</a></li>
 					<li class="preguntas"><a href="FAQ.php">PREGUNTAS</a></li>
+
+					<!--si NO está logeado(!isset($_SESSION['login'])): -->
 					<li class="ingresa"><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESA</a></li>
 					<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
+					<!-- si está logeado: -->
+					<!--    nombre usuario con dropdown menu -->
+
 				</ul>
 			</nav>
 		</div>
