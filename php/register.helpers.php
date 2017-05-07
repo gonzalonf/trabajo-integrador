@@ -67,18 +67,84 @@ function validacionRegistro() {
 
 //--------------------------------------------------------------------------------
 
-function guardarUsuario() {
+function guardarUsuario(){
+	$password=password_hash($_POST['password'], PASSWORD_DEFAULT);
+	$users=file_get_contents('../users/users.json');
+	$users=json_decode($users,true);
+	$i=1;
+	$i=count($users)+1;
+	$users[$i]=[
+				'nombre'=>$_POST['nombre'],
+				'apellido'=>$_POST['apellido'],
+				'email'=>$_POST['email'],
+				'passwordHash'=>$password,
+				'avatar'=>  $avatar ?? 'default.jpg',
+			];
+
+	file_put_contents('../users/users.json', json_encode($users));
+
+}
+ function emailExistente(){
+	 $error=[];
+	 $miArray=file_get_contents('../users/users.json');
+	 $miArray=json_decode($miArray, true);
+	 foreach ($miArray as $key => $user) {
+	 	if (in_array($_POST['email'], $user, true )) {
+	 		$error='*el email ya esta registrado';
+	 	}
+	 }
+	 return $error;
+
+ }
+
+// ------------todo esto es para hacer el json linea por linea------------------------
+// function guardarUsuario2() {
 
 	/* la hace MIJA */
 	// en  users/users.Json
 
 	// estructura de db:
-	[1 => ['nombre'=> nombre,'apellido'=> apellido2, 'hash'=>hash1, 'nombre_avatar'],[2 => ['nombre'=> nombre2,'apellido'=> etc...]
-
-	email
+	// [1 => ['nombre'=> nombre,'apellido'=> apellido2, 'hash'=>hash1, 'nombre_avatar'],[2 => ['nombre'=> nombre2,'apellido'=> etc...]
+	//
+	// email
 	// -hash
 	// -NOMBRE del avatar SI ESTA (email-id.EXTENSION)
-}
+	//asi se guardaria linea por linea y no seria formato json
+// 		$password=password_hash($_POST['password'], PASSWORD_DEFAULT);
+// 		$new_user=[
+// 					'nombre'=>$_POST['nombre'],
+// 					'apellido'=>$_POST['apellido'],
+// 					'email'=>$_POST['email'],
+// 					'passwordHash'=>$password,
+// 					'avatar'=>  $avatar ?? 'default.jpg',
+// 				];
+//
+// 		$users=json_encode($new_user);
+// 		file_put_contents('../users/users.json', $users . PHP_EOL, FILE_APPEND | LOCK_EX );
+//
+//
+// }
+
+
+// function users2(){
+// 	//devuelve todos los usuarios, cuando esta linea por linea
+// 	$recurso = fopen('../users/users.json', 'r');
+// 	while ( ($linea = fgets($recurso)) !==false) {
+// 		$usuario=json_decode($linea, true);
+//
+// 	}
+// }
+// function usuarioExistente(){
+// 	// funcion no anda
+// 	$error=[];
+// 	$email=$_POST=['email'];
+// 	$usuario=users();
+// 		if ( in_array($email, $usuario) ) {
+// 			$error[]='* el email ya está registrado';
+// 		}
+// 	return $error;
+// }
+//
 
 //--------------------------------------------------------------------------------
 

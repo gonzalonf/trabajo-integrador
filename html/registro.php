@@ -30,6 +30,12 @@ $usuario = $_SESSION['usuario']??'';
 		<div class='crear-cuenta'>
 			<h1>CREAR CUENTA</h1>
 			<hr>
+			<?php if (isset($_SESSION['emailExistente'])): ?>
+				<script language="JavaScript" type="text/javascript">
+				alert("El email ya esta registrado, Intenta con otro");
+				</script>
+
+			<?php endif; ?>
 		</div>
 		<form class='formulario' action='../php/register.controller.php' method='post'>
 
@@ -51,11 +57,16 @@ $usuario = $_SESSION['usuario']??'';
 				<p class='msj_error'> <?php echo $_SESSION['errores']['fecha_nac']; ?> </p>
 			<?php endif; ?><br>
 
+			<?php if (isset($_SESSION['emailExistente'])): ?>
+				<p class='msj_error'> <?php echo $_SESSION['emailExistente']; ?> </p>
+				<?php endif; ?><br>
+				
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?php echo $email;?>'> <br>
 
 			<?php if (isset($_SESSION['errores']['email'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['errores']['email']; ?> </p>
 			<?php endif; ?><br>
+
 
 			<input class='decorative-input' type='text' placeholder='Usuario' name='usuario' value='<?php echo $usuario;?>'> <br>
 
