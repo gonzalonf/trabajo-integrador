@@ -2,6 +2,7 @@
 function recuperarUsuario($email,$rutaArchivo){
     $json = file_get_contents($rutaArchivo);
     $users = json_decode($json, true);
+    $users = (is_array($users))?$users:[];
     $userData = [];
     foreach ($users as $id => $userArray) {
         if ( in_array($email,$userArray) ){
