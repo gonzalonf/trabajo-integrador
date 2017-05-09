@@ -33,6 +33,12 @@ $avatar = $_SESSION['login']['avatar'];
                       <li>Apellido: <?php echo $apellido;?></li>
                   </ul>
           </div>
+          <form class="" action="perfilEditar.php" method="post">
+             <input class="editar" type="submit" name="editar" value="Editar">
+          </form>
+
+
+          <br><br>
           <br><br><a href="../php/logout.php">LOGOUT</a>
       </div>
       <?php include('footer.html'); ?>
