@@ -16,19 +16,20 @@ if($email=='' || $psw==''){
 
 
 $user = recuperarUsuario($email,$ruta);
+
 if (!$user==[]){
         $userHash = $user['password'];
 }
 
 
 if ($user==[] || !password_verify($psw,$userHash) ){
-    $_SESSION['error_login']='* usuario o contraseña incorrectos';
-    header('Location: ../html/login.php'); exit;
-}
-
-
-if( isset($_COOKIE['password']) &&  $userHash==$_COOKIE['password'] ){
-    unset($_SESSION['error_login']);
+    if (!isset($_COOKIE['password']) ){
+        $_SESSION['error_login']='* usuario o contraseña incorrectos';
+        header('Location: ../html/login.php'); exit;
+    }elseif (isset($_COOKIE['password']) &&  $userHash!=$_COOKIE['password']) {
+        $_SESSION['error_login']='* usuario o contraseña incorrectos';
+        header('Location: ../html/login.php'); exit;
+    }
 }
 
 unset($_SESSION['error_login']);

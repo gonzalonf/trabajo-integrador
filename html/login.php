@@ -2,11 +2,10 @@
 session_start();
 include('../php/login.check.php');
 
-$cookieEmail = $_SESSION['cookie']['email'] ?? '';
-$passwordFill =  isset($_SESSION['cookie']['Password']) ? '*****':'';
+$cookieEmail = $_COOKIE['email'] ?? '';
+$passwordFill =  (isset($_COOKIE['password'])) ? '*******':'';
 
 $error = $_SESSION['error_login']??'';
-
 ?>
 
 <!DOCTYPE html>
