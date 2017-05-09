@@ -1,31 +1,43 @@
 <?php
-function recuperarUsuario($nombre,$rutaArchivo){
+function recuperarUsuario($email,$rutaArchivo){
     $json = file_get_contents($rutaArchivo);
     $users = json_decode($json, true);
     $userData = [];
     foreach ($users as $id => $userArray) {
-        if ( in_array($nombre,$userArray) ){
+        if ( in_array($email,$userArray) ){
             $userData = [
             'id' => $id,
-            'usuario'=> $userArray['usuario'],
             'nombre'=> $userArray['nombre'],
-            'apellido'=> $userArray['apelido'],
+            'apellido'=> $userArray['apellido'],
             'email'=> $userArray['email'],
-            'fecha_nac'=> $userArray['fecha_nac'],
-            'password' => $userArray['password'],
-            'avatar' => ($userArray['avatar'])??''
+            'password' => $userArray['passwordHash'],
+            'avatar' => ($userArray['avatar'])??'default.jpg'
             ];
         }
     }
     return $userData;
 }
-
-// ----------------
-function guardarCookie(){
-    if( isset($_POST['recordarme']) && $_POST['recordarme'] =='true' ){
-        $cookielife = time()+(60*60*24*30);
-        setcookie('password',$userHash,$cookielife,'/');
-        setcookie('username',$_SESSION['usuario'],$cookielife,'/');
+//------------------
+function recuperarUsuarioConID($id,$rutaArchivo){
+    $json = file_get_contents($rutaArchivo);
+    $users = json_decode($json, true);
+    $userData = [];
+    if ($users!=[]){
+        $userData = [
+        'id' => $id,
+        'nombre'=> $users[$id]['nombre'],
+        'apellido'=> $users[$id]['apellido'],
+        'email'=> $users[$id]['email'],
+        'password' => $users[$id]['passwordHash'],
+        'avatar' => ($users[$id]['avatar'])??'default.jpg'
+        ];
     }
+    return $userData;
+}
+// ----------------
+function guardarCookie($email,$userHash){
+        $cookielife = time()+(60*60*24*30);
+        setcookie('email',$email,$cookielife,'/');
+        setcookie('password',$userHash,$cookielife,'/');
 
 }

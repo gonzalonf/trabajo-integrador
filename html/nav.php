@@ -13,13 +13,23 @@
 					<li><a href="index.php#type1">NOSOTROS</a></li>
 					<li class="preguntas"><a href="FAQ.php">PREGUNTAS</a></li>
 
-					<!--si NO está logeado(!isset($_SESSION['login'])): -->
-					<li class="ingresa"><a href="#" onclick="document.getElementById('login-id').style.display='block'">INGRESA</a></li>
-					<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
-					<!-- si está logeado: -->
-					<!--    nombre usuario con dropdown menu -->
-					<!-- -logout -->
-					<!-- perfil -->
+					<?php if (!isset($_SESSION['login'])): ?>
+						<li class="ingresa"><a href="login.php">INGRESA</a></li>
+						<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
+					<?php endif; ?>
+
+					<?php if (isset($_SESSION['login'])): ?>
+						<li  class="dropdown">
+							<img src="../images/dropdown.png" alt=""> <?php  echo $_SESSION['login']['nombre'] ?>
+							<div class="dropdown-menu">
+								<ul>
+									<li><a href="perfil.php">PERFIL</a></li>
+									<li><a href="../php/logout.php">LOGOUT</a></li>
+								</ul>
+							</div>
+						</li>
+					<?php endif; ?>
+
 
 				</ul>
 			</nav>

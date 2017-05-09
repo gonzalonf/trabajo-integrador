@@ -1,4 +1,14 @@
-<?php session_start() ?>
+<?php
+session_start();
+
+include('../php/login.check.secret.php');
+
+$email = $_SESSION['login']['email'];
+$nombre = $_SESSION['login']['nombre'];
+$apellido = $_SESSION['login']['apellido'];
+$avatar = $_SESSION['login']['avatar'];
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,22 +22,18 @@
       <div class="" style="text-align:center">
           <h1>Perfil</h1>
           <div class="avatar">
-              <img src="../images/avatar/default.png" alt="avatar" width="200px">
+              <img src="<?php echo '../users/'.$avatar; ?>" alt="avatar" width="200px">
           </div>
           <div class="info">
-                  <?php if ( !isset($_SESSION) || !count($_SESSION)): ?>
-                       Usted no ha sido correctamente logeado
-                 <?php   else: ?>
 
                   <ul> <!-- en nuestros prox avances, estos datos van a provenir del json, el cual se podra editar desde esta pantalla de perfil -->
-                      <li>Nombre de Usuario: <?php echo $_SESSION['usuario']; ?></li>
-                      <li>Nombre:  <?php echo $_SESSION['nombre']; ?></li>
-                      <li>Apellido: <?php echo $_SESSION['apellido']; ?></li>
-                      <li>Fecha de nacimiento: <?php echo $_SESSION['fecha_nac']; ?></li>
-                      <li>Email:  <?php echo $_SESSION['email']; ?></li>
+
+                      <li>Email:  <?php echo $email; ?></li>
+                      <li>Nombre:  <?php echo $nombre;?> </li>
+                      <li>Apellido: <?php echo $apellido;?></li>
                   </ul>
-                <?php endif; ?>
           </div>
+          <br><br><a href="../php/logout.php">LOGOUT</a>
       </div>
       <?php include('footer.html'); ?>
 

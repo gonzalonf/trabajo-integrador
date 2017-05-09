@@ -78,7 +78,7 @@ function guardarUsuario(){
 				'apellido'=>$_POST['apellido'],
 				'email'=>$_POST['email'],
 				'passwordHash'=>$password,
-				'avatar'=>  $avatar ?? 'default.jpg',
+				'avatar'=>  $avatar ?? 'default.png',
 			];
 
 	file_put_contents('../users/users.json', json_encode($users));

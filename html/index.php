@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,20 +88,7 @@
 	<!-- footer -->
 	<?php include('footer.html') ;?>
 
-	<!--LOGIN ----------------->
-	<?php include('login.php'); ?>
 
 
-	<!--...desde acá... JAVASCRIPT! -------------------------------->
-	<script>
-		var modal = document.getElementById('login-id');
-				// cerrar cuando clickea arafue
-				window.onclick = function(event) {
-					if (event.target == modal) {
-						modal.style.display = "none";
-					}
-				}
-			</script>
-
-		</body>
-		</html>
+	</body>
+</html>

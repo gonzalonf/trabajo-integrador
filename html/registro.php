@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+include('../php/login.check.php');
 include('../php/register.helpers.php');
 
 $nombre = $_SESSION['nombre']??'';
@@ -60,7 +61,7 @@ $usuario = $_SESSION['usuario']??'';
 			<?php if (isset($_SESSION['emailExistente'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['emailExistente']; ?> </p>
 				<?php endif; ?><br>
-				
+
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?php echo $email;?>'> <br>
 
 			<?php if (isset($_SESSION['errores']['email'])): ?>
@@ -103,21 +104,6 @@ $usuario = $_SESSION['usuario']??'';
 		</form>
 	</div>
 
-	<!-- login -->
-	<?php include('login.php'); ?>
-
-	<!--..JAVASCRIPT! -------------->
-	<script>
-		var modal = document.getElementById('login-id');
-			// cerrar cuando clickea arafue
-			window.onclick = function(event) {
-				if (event.target == modal) {
-					modal.style.display = 'none';
-				}
-			}
-		</script>
-
-		<?php include 'footer.html'; ?>
 
 	</body>
 	</html>
