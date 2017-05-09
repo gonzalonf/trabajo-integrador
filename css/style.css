@@ -298,8 +298,8 @@ footer img{
 }
 
 .type_portada input[type=search] {
-	border-radius: 0px 0px 0px 0px;
-	margin-left: -20px;
+	/*border-radius: 0px 0px 0px 0px;
+	margin-left: -20px;*/
 }
 
 .type_portada input[type=button] {
@@ -387,11 +387,12 @@ footer img{
 }
 
 .type_portada input{
+	-webkit-appearance: none;
 	background: #f4f4f4;
 	line-height: 30px;
 	text-align: center;
 	max-width: 950px;
-	border-radius: 3px;
+	border-radius: 3px 0 0 3px;
 	width: 70%;
 	margin: 20px;
 	font-size: 14px;
