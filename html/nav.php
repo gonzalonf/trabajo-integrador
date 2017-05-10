@@ -20,7 +20,7 @@
 
 					<?php if (isset($_SESSION['login'])): ?>
 						<li  class="dropdown">
-							<img src="../images/dropdown.png" alt=""> <?php  echo $_SESSION['login']['nombre'] ?>
+							<!-- <img src="../images/dropdown.png" alt=""> --> <?php  echo $_SESSION['login']['nombre'] ?>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a href="perfil.php">PERFIL</a></li>
