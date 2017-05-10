@@ -7,59 +7,60 @@
 // -hash
 // -NOMBRE del avatar SI ESTA (email-id.EXTENSION)
 
-
 function validacionRegistro() {
 
 	$errores = [];
 
 	$nombre = trim($_POST['nombre']);
+	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 	if ($nombre == '') {
-		$errores['nombre'] = 'Completar el nombre.';
-	} else{
+		$errores['nombre'] = '* Completar el nombre.';
+    } elseif (!ctype_alpha($nombre)) {
+        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos.';
+    } elseif (strlen($nombre) >= 15) {
+       $errores['nombre'] = '* El nombre no puede tener mas de 15 caracteres.';
+    } else {
 		$_SESSION['nombre'] = $nombre;
 	}
 
 	$apellido = trim($_POST['apellido']);
+	$apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
 	if ($apellido == '') {
-		$errores['apellido'] = 'Completar el apellido.';
-	} else{
+		$errores['apellido'] = '* Completar el apellido.';
+    } elseif (!ctype_alpha($apellido)) {
+        $errores['apellido'] = '* El apellido sólo puede tener caracteres alfabéticos.';
+    } elseif (strlen($apellido) >= 15) {
+       $errores['apellido'] = '* El apellido no puede tener mas de 15 caracteres.';
+    } else {
 		$_SESSION['apellido'] = $apellido;
 	}
 
-	$fecha_nac = trim($_POST['fecha_nac']);
-	if (!is_numeric($fecha_nac)) {
-		$errores['fecha_nac'] = 'La fecha de nacimiento debe ser un numero';
+	$fecha_nac = $_POST['dia'].'-'.$_POST['mes'].'-'.$_POST['anio'];
+	if (($_POST['anio'] == '') || ((date("Y") - ($_POST['anio']) < 18))) {
+		$errores['fecha_nac'] = '* Para registrarse debe ser mayor de edad (fecha ingresada: '.$_POST['dia'].'  '.$_POST['mes'].'  '.$_POST['anio'].')';
 	} else{
 		$_SESSION['fecha_nac'] = $fecha_nac;
 	}
 
-
 	$email =trim($_POST['email']);
 	if (($email == '') || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
-		$errores['email'] = 'El e-mail no es valido.';
+		$errores['email'] = '* El e-mail no es valido.';
 	} else{
 		$_SESSION['email'] = $email;
 	}
 
-	$usuario = trim($_POST['usuario']);
-	if ($usuario == '') {
-		$errores['usuario'] = 'Completar el usuario.';
-	} else{
-		$_SESSION['usuario'] = $usuario;
-	}
-
 	$password = $_POST['password'];
 	if ($password == ''){
-		$errores['password'] = 'Completar la contraseña.';
+		$errores['password'] = '* Completar la contraseña.';
 	}
 
 	$password2 = $_POST['password2'];
 	if ($password2 == ''){
-		$errores['password2'] = 'Confirmar la contraseña.';
+		$errores['password2'] = '* Confirmar la contraseña.';
 	}
 
 	if ($password != $password2){
-		$errores['password2']  = 'Las contraseñas no coinciden.';
+		$errores['password2']  = '* Las contraseñas no coinciden.';
 	}
 
 	return $errores;
@@ -174,12 +175,12 @@ function recuperarUsuario($nombre,$rutaArchivo){
 
 function guardarImagen() {
 
-	/* LO HACE CARO */
+	/* EN PROCESO */
 }
 
 //--------------------------------------------------------------------------------
 
 function recuperarImagen() {
 
-	/* lo hace CARO */
+	/* EN PROCESO */
 }

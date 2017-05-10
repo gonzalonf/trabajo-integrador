@@ -5,7 +5,7 @@ session_start();
 include('../php/register.helpers.php');
 
 $errores = validacionRegistro();
-$error=emailExistente();
+$error = emailExistente();
 // guardarUsuario()
 
 // lo logeo...
