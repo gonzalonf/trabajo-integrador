@@ -65,6 +65,58 @@ function validacionRegistro() {
 
 	return $errores;
 }
+function validacionEditar(){
+	$errores = [];
+
+	$nombre = trim($_POST['nombre']);
+	if ($nombre == '') {
+		$errores['nombre'] = 'Completar el nombre.';
+	} else{
+		$_SESSION['nombre'] = $nombre;
+	}
+
+	$apellido = trim($_POST['apellido']);
+	if ($apellido == '') {
+		$errores['apellido'] = 'Completar el apellido.';
+	} else{
+		$_SESSION['apellido'] = $apellido;
+	}
+
+	$email =trim($_POST['email']);
+	if (($email == '') || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
+		$errores['email'] = 'El e-mail no es valido.';
+	} else{
+		$_SESSION['email'] = $email;
+	}
+
+	$password = $_POST['password'];
+	$password2 = $_POST['password2'];
+
+	if ($password != $password2){
+		$errores['password2']  = 'Las contraseñas no coinciden.';
+	}
+
+	return $errores;
+
+
+}
+function emailExistenteEditarPerfil(){
+	$error=[];
+	$miArray=file_get_contents('../users/users.json');
+	$miArray=json_decode($miArray, true);
+
+
+	foreach ($miArray as $key => $user) {
+	   if ( (in_array($_POST['email'], $user, true)  )&& ( $_POST['email'] !== $_SESSION['email']  ) ) {
+		   $error='*el email ya esta registrado';
+	   }
+	}
+   //  if ($_POST['email'] == $_SESSION['email'] ) {
+   //  	$error=[];
+   //  }
+
+	return $error;
+}
 
 //--------------------------------------------------------------------------------
 
@@ -149,7 +201,7 @@ function guardarUsuario(){
 
 //--------------------------------------------------------------------------------
 
-function recuperarUsuario($nombre,$rutaArchivo){
+function recuperarUsuario2($nombre,$rutaArchivo){
     $json = file_get_contents($rutaArchivo);
     $users = json_decode($json, true);
     $userData = [];

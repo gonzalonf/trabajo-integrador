@@ -42,16 +42,26 @@ $usuario = $_SESSION['login']['usuario']??'';
 		<form class='formulario' action='../php/editar.controller.php' method='post'>
 
 			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
+			<?php if (isset($_SESSION['errores']['nombre'])): ?>
+				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
+			<?php endif; ?><br>
+
 
 
 			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
 
+			<?php if (isset($_SESSION['errores']['apellido'])): ?>
+					<p class='msj_error'> <?php echo $_SESSION['errores']['apellido']; ?> </p>
+				<?php endif; ?><br>
 
-		
+
 
 
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?php echo $email;?>'> <br>
 
+			<?php if (isset($_SESSION['errores'])): ?>
+					<p class='msj_error'> <?php echo $_SESSION['errores']['email']??''; ?> </p>
+				<?php endif; ?><br>
 
 
 
@@ -61,6 +71,12 @@ $usuario = $_SESSION['login']['usuario']??'';
 
 
 			<input class='decorative-input-password' type='password' placeholder='Confirmar contraseña' name='password2'> <br>
+
+
+			<?php if (isset($_SESSION['errores']['password2'])): ?>
+					<p class='msj_error'> <?php echo $_SESSION['errores']['password2']??''; ?> </p>
+				<?php endif; ?><br>
+
 
 
 			<div class='checkbox'>
