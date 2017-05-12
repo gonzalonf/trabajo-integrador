@@ -42,3 +42,11 @@ function guardarCookie($email,$userHash){
         setcookie('password',$userHash,$cookielife,'/');
 
 }
+//----------------------------
+function borrarCookie(){
+        unset($_COOKIE['password']);
+        unset($_COOKIE['email']);
+        $cookielife = time()-1;
+        setcookie('email','',$cookielife,'/');
+        setcookie('password','',$cookielife,'/');
+}

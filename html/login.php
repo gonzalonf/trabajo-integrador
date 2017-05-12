@@ -43,7 +43,7 @@ $error = $_SESSION['error_login']??'';
             <button type="submit" class="login-botones">INGRESAR</button>
 
             <label for="recordarme" >Recordarme</label>
-            <input style="float:left" type="checkbox" name="recordarme" value="true" id='recordarme'>
+            <input style="float:left" type="checkbox" name="recordarme" value="true" id='recordarme' checked>
 
 
           </div>

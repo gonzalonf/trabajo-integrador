@@ -44,5 +44,10 @@ $_SESSION['login']['avatar'] = $user['avatar'];
 
 if (isset($_POST['recordarme'])){
     guardarCookie($user['email'],$userHash);
+} else {
+    if (isset($_COOKIE['password'])){
+        borrarCookie();
+    }
 }
+
 header('Location: ../html/perfil.php');
