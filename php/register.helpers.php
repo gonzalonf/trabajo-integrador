@@ -35,12 +35,14 @@ function validacionRegistro() {
 		$_SESSION['apellido'] = $apellido;
 	}
 
+	/* empieza fecha de nacimiento
 	$fecha_nac = $_POST['dia'].'-'.$_POST['mes'].'-'.$_POST['anio'];
 	if (($_POST['anio'] == '') || ((date("Y") - ($_POST['anio']) < 18))) {
 		$errores['fecha_nac'] = '* Para registrarse debe ser mayor de edad (fecha ingresada: '.$_POST['dia'].'  '.$_POST['mes'].'  '.$_POST['anio'].')';
 	} else{
 		$_SESSION['fecha_nac'] = $fecha_nac;
 	}
+	termina fecha de nacimiento */
 
 	$email =trim($_POST['email']);
 	if (($email == '') || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
@@ -65,6 +67,7 @@ function validacionRegistro() {
 
 	return $errores;
 }
+
 function validacionEditar(){
 	$errores = [];
 
@@ -126,17 +129,18 @@ function guardarUsuario(){
 	$users=json_decode($users,true);
 	$i=1;
 	$i=count($users)+1;
+	$avatar = recuperarAvatar() ?? 'default.png';
 	$users[$i]=[
 				'nombre'=>$_POST['nombre'],
 				'apellido'=>$_POST['apellido'],
 				'email'=>$_POST['email'],
 				'passwordHash'=>$password,
-				'avatar'=>  $avatar ?? 'default.png',
+				'avatar'=>$avatar
 			];
 
 	file_put_contents('../users/users.json', json_encode($users));
-
 }
+
  function emailExistente(){
 	 $error=[];
 	 $miArray=file_get_contents('../users/users.json');
@@ -147,7 +151,6 @@ function guardarUsuario(){
 	 	}
 	 }
 	 return $error;
-
  }
 
 // ------------todo esto es para hacer el json linea por linea------------------------
@@ -225,14 +228,45 @@ function recuperarUsuario2($nombre,$rutaArchivo){
 
 //--------------------------------------------------------------------------------
 
-function guardarImagen() {
+function guardarAvatar() {
 
-	/* EN PROCESO */
+	$error_avatar = [];
+
+	if ($_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
+
+		$nombre = $_FILES['avatar']['name'];
+		$archivo_tmp = $_FILES['avatar']['tmp_name'];
+		$ext = pathinfo($nombre, PATHINFO_EXTENSION);
+		$ruta_avatar = __DIR__ . "/../users/";
+		
+		if ($ext != 'png' && $ext != 'jpg') {
+			$error_avatar['error'] = 'Solo se aceptan archivos de extension .jpg o .png.';
+		} elseif ($_SESSION['email'] != '') {
+			$nombre = str_replace('@', '-', $_SESSION['email']);
+			$nombre = str_replace('.', '-', $nombre);
+
+			move_uploaded_file($archivo_tmp, $ruta_avatar.$nombre.'.'.$ext);
+		} 
+	} 
+	else {
+		$error_avatar['error'] = 'Para subir la imagen, complete todos sus datos.';
+	}
+
+	return $error_avatar;
 }
 
 //--------------------------------------------------------------------------------
 
-function recuperarImagen() {
+function recuperarAvatar() {
 
-	/* EN PROCESO */
+	if ($_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
+		$nombre = str_replace('@', '-', $_POST['email']);
+		$nombre = str_replace('.', '-', $nombre);
+		$ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+		$ruta_imagen = "../users/".$nombre.'.'.$ext;
+	} else {
+		$ruta_imagen = null;
+	}
+
+	return $ruta_imagen;
 }

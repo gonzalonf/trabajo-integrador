@@ -9,6 +9,7 @@ $apellido = $_SESSION['apellido']??'';
 $fecha_nac = $_SESSION['fecha_nac']??'';
 $email = $_SESSION['email']??'';
 $usuario = $_SESSION['usuario']??'';
+
 ?>
 
 
@@ -38,7 +39,7 @@ $usuario = $_SESSION['usuario']??'';
 
 			<?php endif; ?>
 		</div>
-		<form class='formulario' action='../php/register.controller.php' method='post'>
+		<form class='formulario' action='../php/register.controller.php' method='post' enctype="multipart/form-data">
 
 			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
 
