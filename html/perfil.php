@@ -33,8 +33,14 @@ $avatar = $_SESSION['login']['avatar'];
                       <li>Apellido: <?php echo $apellido;?></li>
                   </ul>
           </div>
-          <form class="" action="perfilEditar.php" method="post">
-             <input class="editar" type="submit" name="editar" value="Editar">
+          <form class="" action="perfilEditarNombre.php" method="post">
+             <input class="editar" type="submit" name="editar" value="Editar Nombre">
+          </form>
+          <form class="" action="perfilEditarEmail.php" method="post">
+             <input class="editar" type="submit" name="editar" value="Cambiar Email">
+          </form>
+          <form class="" action="perfilEditarContrasenia.php" method="post">
+             <input class="editar" type="submit" name="editar" value="Cambiar Contraseña">
           </form>
 
 
