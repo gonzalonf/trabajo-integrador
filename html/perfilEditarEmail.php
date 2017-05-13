@@ -25,7 +25,7 @@ $error = $_SESSION['error_email']??'';
 
 				<div class='registro-container'>
 					<div class='crear-cuenta'>
-						<h1>Cambiar Email</h1>
+						<h1>Cambiar email</h1>
 						<hr>
 						<h2><?php echo $_SESSION['login']['email']; ?></h2>
 

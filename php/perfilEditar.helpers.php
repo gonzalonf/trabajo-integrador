@@ -20,6 +20,23 @@ function validarCambioMail($email,$email2){
 
 // ------------------
 
+function validarCambioPass($psw,$psw2){
+
+	$error = '';
+
+	if ($psw == ''){
+		$error = '* Completar la contraseña.';
+	}elseif ($psw2 == ''){
+		$error  = '* Confirmar la contraseña.';
+	} elseif ($psw !== $psw2){
+		$error = '* Las contraseñas no coinciden.';
+	}
+
+	return $error;
+
+}
+//-------------------
+
 function cambiarEmail($id,$nuevoMail,$ruta){
 	$fh = file_get_contents($ruta);
 	$users = json_decode($fh,true);
@@ -30,4 +47,17 @@ function cambiarEmail($id,$nuevoMail,$ruta){
 	file_put_contents($ruta,$users);
 
 	$_SESSION['login']['email'] = $nuevoMail;
+}
+
+//----------------
+
+function cambiarPassword($id,$nuevoPass,$ruta){
+	$fh = file_get_contents($ruta);
+	$users = json_decode($fh,true);
+
+	$pswHash = password_hash($nuevoPass,PASSWORD_DEFAULT);
+	$users[$id]['passwordHash'] = $pswHash;
+	$users = json_encode($users);
+
+	file_put_contents($ruta,$users);
 }
