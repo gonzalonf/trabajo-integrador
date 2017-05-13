@@ -38,7 +38,7 @@ $error = $_SESSION['error_login']??'';
             <input id='email' class="login-input" type="email" placeholder="email" name="email" value="<?php echo $cookieEmail; ?>">
 
             <label for='clave'><b>Clave</b></label>
-            <input id='clave' class="login-input" type="password" placeholder="Contraseña" name="password" value="<?php echo $passwordFill; ?>">
+            <input id='clave' class="login-input" type="password" placeholder="contraseña" name="password" value="<?php echo $passwordFill; ?>">
 
             <button type="submit" class="login-botones">INGRESAR</button>
 
