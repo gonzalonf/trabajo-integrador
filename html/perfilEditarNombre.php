@@ -59,11 +59,13 @@ $apellido = $_SESSION['login']['apellido']??'';
 
 		</form>
 	</div>
-
+	<a style="background-color:pink; text-align:center ; text-decoration:none; color:black" href="perfil.php">VOLVER</a>
 <?php include 'footer.html' ?>
+
 	</body>
 	</html>
 
+
 <?php
- // session_unset();
+ unset($_SESSION['errores']);
 ?>

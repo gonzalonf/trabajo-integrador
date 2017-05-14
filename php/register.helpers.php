@@ -68,7 +68,7 @@ function validacionRegistro() {
 	return $errores;
 }
 
-function validacionEditar(){
+function validacionEditarNombre(){
 	$errores = [];
 
 	$nombre = trim($_POST['nombre']);
@@ -83,20 +83,6 @@ function validacionEditar(){
 		$errores['apellido'] = 'Completar el apellido.';
 	} else{
 		$_SESSION['apellido'] = $apellido;
-	}
-
-	$email =trim($_POST['email']);
-	if (($email == '') || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
-		$errores['email'] = 'El e-mail no es valido.';
-	} else{
-		$_SESSION['email'] = $email;
-	}
-
-	$password = $_POST['password'];
-	$password2 = $_POST['password2'];
-
-	if ($password != $password2){
-		$errores['password2']  = 'Las contraseñas no coinciden.';
 	}
 
 	return $errores;
@@ -238,7 +224,7 @@ function guardarAvatar() {
 		$archivo_tmp = $_FILES['avatar']['tmp_name'];
 		$ext = pathinfo($nombre, PATHINFO_EXTENSION);
 		$ruta_avatar = __DIR__ . "/../users/";
-		
+
 		if ($ext != 'png' && $ext != 'jpg') {
 			$error_avatar['error'] = 'Solo se aceptan archivos de extension .jpg o .png.';
 		} elseif ($_SESSION['email'] != '') {
@@ -246,8 +232,8 @@ function guardarAvatar() {
 			$nombre = str_replace('.', '-', $nombre);
 
 			move_uploaded_file($archivo_tmp, $ruta_avatar.$nombre.'.'.$ext);
-		} 
-	} 
+		}
+	}
 	else {
 		$error_avatar['error'] = 'Para subir la imagen, complete todos sus datos.';
 	}

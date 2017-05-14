@@ -32,8 +32,15 @@ $avatar = $_SESSION['login']['avatar'];
                       <li>Nombre:  <?php echo $nombre;?> </li>
                       <li>Apellido: <?php echo $apellido;?></li>
                   </ul>
+                  <div class="editarNav">
+                      <ul>
+                      <li><a href="perfilEditarNombre.php">Cambiar Nombre y apellido</a></li>
+                      <li><a href="perfilEditarEmail.php">Cambiar Email</a></li>
+                      <li><a href="perfilEditarContrasenia.php">Cambiar Contraseña</a></li>
+                      </ul>
+                  </div>
           </div>
-          <form class="" action="perfilEditarNombre.php" method="post">
+          <!-- <form class="" action="perfilEditarNombre.php" method="post">
              <input class="editar" type="submit" name="editar" value="Editar Nombre">
           </form>
           <form class="" action="perfilEditarEmail.php" method="post">
@@ -41,7 +48,7 @@ $avatar = $_SESSION['login']['avatar'];
           </form>
           <form class="" action="perfilEditarContrasenia.php" method="post">
              <input class="editar" type="submit" name="editar" value="Cambiar Contraseña">
-          </form>
+          </form> -->
 
 
           <br><br>

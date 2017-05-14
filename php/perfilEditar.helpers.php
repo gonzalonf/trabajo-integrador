@@ -61,3 +61,19 @@ function cambiarPassword($id,$nuevoPass,$ruta){
 
 	file_put_contents($ruta,$users);
 }
+
+//-------------------
+
+function cambiarNombre($id,$nuevoNombre, $nuevoApellido, $ruta){
+	$json = file_get_contents($ruta);
+	$users = json_decode($json,true);
+
+	$users[$id]['nombre'] = $nuevoNombre;
+	$users[$id]['apellido'] = $nuevoApellido;
+	$users = json_encode($users);
+
+	file_put_contents($ruta,$users);
+
+	$_SESSION['login']['nombre'] = $nuevoNombre;
+	$_SESSION['login']['apellido'] = $nuevoApellido;
+}
