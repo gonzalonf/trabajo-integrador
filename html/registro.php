@@ -6,9 +6,8 @@ include('../php/register.helpers.php');
 
 $nombre = $_SESSION['nombre']??'';
 $apellido = $_SESSION['apellido']??'';
-$fecha_nac = $_SESSION['fecha_nac']??'';
+/*$fecha_nac = $_SESSION['fecha_nac']??'';*/
 $email = $_SESSION['email']??'';
-$usuario = $_SESSION['usuario']??'';
 
 ?>
 
@@ -106,8 +105,8 @@ $usuario = $_SESSION['usuario']??'';
 			<label for='avatar' class='text-label'>Foto de perfil: </label> <br>
 			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
 
-			<?php if (isset($_SESSION['errorAvatar']['error'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errorAvatar']['error']; ?> </p>
+			<?php if (isset($_SESSION['errorAvatar'])): ?>
+				<p class='msj_error'> <?php echo $_SESSION['errorAvatar']; ?> </p>
 			<?php endif; ?><br>
 
 			<div class='checkbox'>

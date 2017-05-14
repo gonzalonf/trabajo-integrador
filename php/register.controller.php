@@ -6,15 +6,20 @@ include('../php/register.helpers.php');
 
 $errores = validacionRegistro();
 $error = emailExistente();
-$error_avatar = guardarAvatar(); 
 
 // lo logeo...
 // $_SESSION['login']['id'];
 // $_SESSION['login']['avatar'];
 
-if (count($errorAvatar)) {
-	$_SESSION['errorAvatar'] = $error_avatar;
-	header('Location: ../html/registro.php');
+/*
+var_dump(validacionRegistro());
+var_dump(recuperarAvatar());
+exit();
+*/
+
+if ($error_avatar = guardarAvatar()) {
+		$_SESSION['errorAvatar'] = $error_avatar;
+		header('Location: ../html/registro.php');
 }
 
 if (count($errores)) {
@@ -24,10 +29,11 @@ if (count($errores)) {
 } elseif (count($error)) {
 	$_SESSION['emailExistente'] = $error;
 	header('Location: ../html/registro.php');
-	exit();
 
 } else {
 	guardarUsuario();
 	header('Location: ../html/perfil.php');
 	exit();
 }
+
+
