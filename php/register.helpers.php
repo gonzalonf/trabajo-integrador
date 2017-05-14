@@ -15,8 +15,8 @@ function validacionRegistro() {
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 	if ($nombre == '') {
 		$errores['nombre'] = '* Completar el nombre.';
-    } elseif (!ctype_alpha($nombre)) {
-        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos, sin espacios.';
+    } elseif ( !ctype_alpha(str_replace(' ', '', $nombre)) ) {
+        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos.';
     } elseif (strlen($nombre) >= 15) {
        $errores['nombre'] = '* El nombre no puede tener mas de 15 caracteres.';
     } else {
@@ -54,9 +54,9 @@ function validacionRegistro() {
 	$password = $_POST['password'];
 	if ($password == ''){
 		$errores['password'] = '* Completar la contraseña.';
-	} /*elseif (strlen($password) < 6) {
+	} elseif (strlen($password) < 6) {
 		$errores['email'] = '* El password debe tener al menos 6 caracteres.';
-	}*/
+	}
 
 	$password2 = $_POST['password2'];
 	if ($password2 == ''){
