@@ -19,8 +19,10 @@ $avatar = $_SESSION['login']['avatar'];
   </head>
   <body>
       <?php include('nav.php'); ?>
-      <div class="" style="text-align:center">
+      <div class="editarContainer" style="text-align:center">
           <h1>Perfil</h1>
+
+          <div class="perfil1">
           <div class="avatar">
               <img src="<?php echo '../users/'.$avatar; ?>" alt="avatar" width="200px">
           </div>
@@ -28,15 +30,20 @@ $avatar = $_SESSION['login']['avatar'];
 
                   <ul> <!-- en nuestros prox avances, estos datos van a provenir del json, el cual se podra editar desde esta pantalla de perfil -->
 
-                      <li>Email:  <?php echo $email; ?></li>
-                      <li>Nombre:  <?php echo $nombre;?> </li>
-                      <li>Apellido: <?php echo $apellido;?></li>
+                      <li>Email: <b> <?php echo $email; ?> </b></li>
+                      <li>Nombre: <b> <?php echo $nombre;?> </b> </li>
+                      <li>Apellido: <b> <?php echo $apellido;?> </b></li>
                   </ul>
+        </div>
+
+
+        </div>
                   <div class="editarNav">
                       <ul>
                       <li><a href="perfilEditarNombre.php">Cambiar Nombre y apellido</a></li>
                       <li><a href="perfilEditarEmail.php">Cambiar Email</a></li>
                       <li><a href="perfilEditarContrasenia.php">Cambiar Contraseña</a></li>
+                      <li><a style='color:black' href="../php/logout.php">Salir</a></li>
                       </ul>
                   </div>
           </div>
@@ -50,9 +57,6 @@ $avatar = $_SESSION['login']['avatar'];
              <input class="editar" type="submit" name="editar" value="Cambiar Contraseña">
           </form> -->
 
-
-          <br><br>
-          <br><br><a href="../php/logout.php">LOGOUT</a>
       </div>
       <?php include('footer.html'); ?>
 
