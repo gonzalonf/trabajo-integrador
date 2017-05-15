@@ -49,7 +49,7 @@ $error = $_SESSION['error_login']??'';
           </div>
 
           <div class="login-container-abajo">
-            <span class="login-olvidaste"> <a href="#">¿Olvidaste tu contraseña?</a></span>
+            <span class="login-olvidaste"> <a href="olvideContrasenia.php">¿Olvidaste tu contraseña?</a></span>
             <span class="ir-registro"> <a href="registro.php">REGISTRATE!</a></span>
           </div>
         </div>
