@@ -16,52 +16,50 @@ $error = $_SESSION['error_psw']??'';
 	<link rel='stylesheet' href='../css/style.css'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-	<body>
+<body>
 
-				<!-- navegación -->
-				<?php include('nav.php') ;?>
+	<!-- navegación -->
+	<?php include('nav.php') ;?>
 
-				<!-- inicia el CONTENEDOR para el Registro -->
+	<!-- inicia el CONTENEDOR para el Registro -->
 
-				<div class='registro-container'>
-					<div class='crear-cuenta'>
-						<h1>Cambiar contraseña</h1>
-						<hr>
+	<div class='registro-container'>
+		<div class='crear-cuenta'>
+			<h1>Cambiar contraseña</h1>
+			<hr>
 
-					</div>
-					<form class='formulario' action='../php/editarContrasenia.controller.php' method='post'>
-
-
-						<p class='msj_error'> <?php echo $error ?> </p>
+		</div>
+		<form class='formulario' action='../php/editarContrasenia.controller.php' method='post'>
 
 
-					<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''> <br>
-
-					<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='psw2' value=''> <br>
+			<p class='msj_error'> <?php echo $error ?> </p>
 
 
-					<br>
-					<br>
-					<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
-					<br>
-					<br>
-					<div class='aclaracion'>
-					<p>Al registrarme, acepto las Condiciones del servicio, la Política de Privacidad y de Cookies.</p>
-						<br>
-					</div>
+			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''> 
+			<br>
+
+			<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='psw2' value=''> 
+			<br>
+
+			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button> 
+			<br>
+
+		</div>
+	</form>
+</div>
+
+<div class='registro-container' style="margin-top: -50px;">
+	<div class='formulario'>
+		<button class='volver'> <a href="perfil.php">VOLVER</a> </button>
+	</div>
+</div>
+
+<?php include('footer.html'); ?>
 
 
-				</form>
-			</div>
-
-			<a style="background-color:pink; text-align:center ; text-decoration:none; color:black" href="perfil.php">VOLVER</a>
-
-			<?php include('footer.html'); ?>
-
-
-	</body>
+</body>
 </html>
 
 <?php
- unset($_SESSION['error_psw']);
+unset($_SESSION['error_psw']);
 ?>

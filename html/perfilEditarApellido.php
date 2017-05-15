@@ -28,32 +28,31 @@ $apellido = $_SESSION['login']['apellido']??'';
 
 	<div class='registro-container'>
 		<div class='crear-cuenta'>
-			<h1>Editar Nombre</h1>
+			<h1>Editar Apellido</h1>
 			<hr>
 
 		</div>
 		<form class='formulario' action='../php/editarNombre.controller.php' method='post'>
 
-			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
-			
-			<?php if (isset($_SESSION['errores']['nombre'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
-			<?php endif; ?><br>
-
-
-			<input class="input-oculto" type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
+			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
 
 			<?php if (isset($_SESSION['errores']['apellido'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['errores']['apellido']; ?> </p>
 			<?php endif; ?>
 			<br>
 
+			<input class="input-oculto" type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
+			
+			<?php if (isset($_SESSION['errores']['nombre'])): ?>
+				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
+			<?php endif; ?><br>
+
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>
 
 		</form>
 	</div>
-
+	
 	<div class='registro-container' style="margin-top: -50px;">
 		<div class='formulario'>
 			<button class='volver'> <a href="perfil.php">VOLVER</a> </button>

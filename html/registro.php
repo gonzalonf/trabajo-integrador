@@ -102,7 +102,7 @@ $email = $_SESSION['email']??'';
 				<p class='msj_error'> <?php echo $_SESSION['errores']['password2']; ?> </p>
 			<?php endif; ?><br>
 			
-			<label for='avatar' class='text-label'>Foto de perfil: </label> <br>
+			<label for='avatar' class='text-label'>Imagen de perfil: </label> <br>
 			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
 
 			<?php if (isset($_SESSION['errorAvatar'])): ?>

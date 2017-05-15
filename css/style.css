@@ -791,7 +791,6 @@ footer img{
 
 /*------------FIN ESTILOS REGISTRATE-------------------------------------------*/
 
-
 	.mainButton{
 		margin: 10vh auto;
 		width: 70%;
@@ -827,46 +826,68 @@ footer img{
 		font-size: 12px;
 		color: red;
 	}
-	.editarContainer{
-		margin: 30px;
-	}
-	.editarContainer h1{
-		margin: 20px;
 
-	}
-
+	/*
 	.editar{
 		margin: 30px 0 0 0;
 		background-color: #FF5A5F;
 		border: none;
 		padding: 3px;
-	}
-	.editarNav{
-		/*border: solid;*/
-		margin: 50px 40px;
+	}*/
 
+	.editarContainer{
+		margin: 0 300px;
+		text-align: center;
 	}
-	.editarNav ul li{
-		display: inline-flex;;
-	}
-	.editarNav li{
-		padding: 10px;
+	
+	.info li{
+		margin: 30px;
 	}
 
 	.editarNav a{
+		width: 300px;
 		background-color: #FF5A5F;
+		font-weight: bold;
 		color: white;
-		padding: 10px;
-	}
-	.info{
-		margin: 30px;
-		font-size: 1.3em;
-
-	}
-	.info li{
-		padding: 12px;
+		margin-left: 20px; 
+		padding: 10px 30px;
 	}
 
+	.avatar img{
+		object-fit: cover;
+  		width:230px;
+  		height:230px;
+	    margin: auto;
+	    border-radius: 50%;
+	}
+
+	.volver {
+		padding: 15px;
+		font-weight: normal;
+		box-sizing: border-box;
+		border: none;
+		background-color: #ff5a5f;
+		color: #fff;
+		width: 100%;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.volver:hover{
+		background: #ed878a;
+	}
+
+	.dato-generico{
+		margin: 20px;
+		color: black;
+		font-size: 20px;
+	}
+
+	.input-oculto {
+		height: 0; 
+		width: 0;
+		opacity: 0; 
+	}
 
 @media (min-width : 768px) {
 

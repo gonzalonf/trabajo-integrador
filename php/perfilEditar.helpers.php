@@ -77,3 +77,17 @@ function cambiarNombre($id,$nuevoNombre, $nuevoApellido, $ruta){
 	$_SESSION['login']['nombre'] = $nuevoNombre;
 	$_SESSION['login']['apellido'] = $nuevoApellido;
 }
+
+//-------------------
+
+function cambiarAvatar($id, $nuevo_avatar, $ruta){
+	$json = file_get_contents($ruta);
+	$users = json_decode($json,true);
+
+	$users[$id]['avatar'] = $nuevo_avatar;
+	$users = json_encode($users);
+
+	file_put_contents($ruta,$users);
+
+	$_SESSION['login']['avatar'] = $nuevo_avatar;
+}

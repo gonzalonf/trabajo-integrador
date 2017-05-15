@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('login.helpers.php');
-include 'perfilEditar.helpers.php';
+include ('perfilEditar.helpers.php');
 
 $id = $_SESSION['login']['id'];
 $email = $_POST['email'];

@@ -7,9 +7,7 @@ include('../php/register.helpers.php');
 $nombre = $_SESSION['login']['nombre']??'';
 $apellido = $_SESSION['login']['apellido']??'';
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -28,24 +26,18 @@ $apellido = $_SESSION['login']['apellido']??'';
 
 	<div class='registro-container'>
 		<div class='crear-cuenta'>
-			<h1>Editar Nombre</h1>
+			<h1>Editar Imagen de Perfil</h1>
 			<hr>
 
 		</div>
-		<form class='formulario' action='../php/editarNombre.controller.php' method='post'>
+		<form class='formulario' action='../php/editarAvatar.controller.php' method='post' enctype="multipart/form-data">
 
-			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
-			
-			<?php if (isset($_SESSION['errores']['nombre'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
+			<label for='avatar' class='text-label'>Imagen de perfil: </label> <br>
+			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
+
+			<?php if (isset($_SESSION['errorAvatar'])): ?>
+				<p class='msj_error'> <?php echo $_SESSION['errorAvatar']; ?> </p>
 			<?php endif; ?><br>
-
-
-			<input class="input-oculto" type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
-
-			<?php if (isset($_SESSION['errores']['apellido'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['apellido']; ?> </p>
-			<?php endif; ?>
 			<br>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>

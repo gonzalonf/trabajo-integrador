@@ -19,45 +19,42 @@ $avatar = $_SESSION['login']['avatar'];
   </head>
   <body>
       <?php include('nav.php'); ?>
-      <div class="editarContainer" style="text-align:center">
-          <h1>Perfil</h1>
-
-          <div class="perfil1">
-          <div class="avatar">
-              <img src="<?php echo '../users/'.$avatar; ?>" alt="avatar" width="200px">
-          </div>
-          <div class="info">
-
-                  <ul> <!-- en nuestros prox avances, estos datos van a provenir del json, el cual se podra editar desde esta pantalla de perfil -->
-
-                      <li>Email: <b> <?php echo $email; ?> </b></li>
-                      <li>Nombre: <b> <?php echo $nombre;?> </b> </li>
-                      <li>Apellido: <b> <?php echo $apellido;?> </b></li>
-                  </ul>
-        </div>
 
 
-        </div>
-                  <div class="editarNav">
-                      <ul>
-                      <li><a href="perfilEditarNombre.php">Cambiar Nombre y apellido</a></li>
-                      <li><a href="perfilEditarEmail.php">Cambiar Email</a></li>
-                      <li><a href="perfilEditarContrasenia.php">Cambiar Contraseña</a></li>
-                      <li><a style='color:black' href="../php/logout.php">Salir</a></li>
-                      </ul>
-                  </div>
-          </div>
-          <!-- <form class="" action="perfilEditarNombre.php" method="post">
-             <input class="editar" type="submit" name="editar" value="Editar Nombre">
-          </form>
-          <form class="" action="perfilEditarEmail.php" method="post">
-             <input class="editar" type="submit" name="editar" value="Cambiar Email">
-          </form>
-          <form class="" action="perfilEditarContrasenia.php" method="post">
-             <input class="editar" type="submit" name="editar" value="Cambiar Contraseña">
-          </form> -->
+  <div class='registro-container'>
+    <div class='crear-cuenta'>
+    <h1 style='font-size: 30px; '>Mi Perfil</h1>
+      <hr>
+    </div>
+  </div>
 
+  <div class="editarContainer">
+
+    <div class="perfil1">
+
+      <div class="avatar">
+        <img src="<?php echo '../users/'.$avatar; ?>" alt="avatar">
       </div>
+      
+      <div class="info">
+        <ul> <!-- en nuestros prox avances, estos datos van a provenir del json, el cual se podra editar desde esta pantalla de perfil -->
+          <li class="editarNav">Imagen de Perfil: <a href="perfilEditarAvatar.php">Cambiar</a></li> 
+          <li class="editarNav">Email: <b> <?php echo $email; ?></b> <a href="perfilEditarEmail.php">Cambiar</a> </li>
+          <li class="editarNav">Nombre: <b> <?php echo $nombre;?> </b> <a href="perfilEditarNombre.php">Cambiar</a> </li>
+          <li class="editarNav">Apellido: <b> <?php echo $apellido;?> </b> <a href="perfilEditarApellido.php">Cambiar</a> </li>
+          <li class="editarNav">Contraseña: <b> ●●●●●● </b> <a href="perfilEditarContrasenia.php">Cambiar</a></li> 
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class='registro-container' style="margin-top: 0;">
+    <div class='formulario'>
+      <button class='volver'> <a href="../php/logout.php">SALIR</a> </button>
+    </div>
+  </div>
+
       <?php include('footer.html'); ?>
 
   </body>
