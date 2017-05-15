@@ -15,8 +15,8 @@ function validacionRegistro() {
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 	if ($nombre == '') {
 		$errores['nombre'] = '* Completar el nombre.';
-    } elseif ( !ctype_alpha(str_replace(' ', '', $nombre)) ) {
-        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos.';
+	} elseif ( (!ctype_alpha(str_replace(' ', '', (str_replace('´', '', $nombre)) ))) ) {
+        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos, espacios y apóstrofes(´).';
     } elseif (strlen($nombre) >= 15) {
        $errores['nombre'] = '* El nombre no puede tener mas de 15 caracteres.';
     } else {
@@ -27,8 +27,8 @@ function validacionRegistro() {
 	$apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
 	if ($apellido == '') {
 		$errores['apellido'] = '* Completar el apellido.';
-    } elseif (!ctype_alpha($apellido)) {
-        $errores['apellido'] = '* El apellido sólo puede tener caracteres alfabéticos.';
+    } elseif ( (!ctype_alpha(str_replace(' ', '', (str_replace('´', '', $apellido)) ))) ) {
+        $errores['apellido'] = '* El apellido sólo puede tener caracteres alfabéticos, espacios y apóstrofes(´).';
     } elseif (strlen($apellido) >= 15) {
        $errores['apellido'] = '* El apellido no puede tener mas de 15 caracteres.';
     } else {
@@ -74,16 +74,26 @@ function validacionEditarNombre(){
 	$errores = [];
 
 	$nombre = trim($_POST['nombre']);
+	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 	if ($nombre == '') {
-		$errores['nombre'] = 'Completar el nombre.';
-	} else{
+		$errores['nombre'] = '* Completar el nombre.';
+	} elseif ( (!ctype_alpha(str_replace(' ', '', (str_replace('´', '', $nombre)) ))) ) {
+        $errores['nombre'] = '* El nombre sólo puede tener caracteres alfabéticos, espacios y apóstrofes(´).';
+    } elseif (strlen($nombre) >= 15) {
+       $errores['nombre'] = '* El nombre no puede tener mas de 15 caracteres.';
+    } else {
 		$_SESSION['nombre'] = $nombre;
 	}
 
 	$apellido = trim($_POST['apellido']);
+	$apellido = filter_var($apellido, FILTER_SANITIZE_STRING);
 	if ($apellido == '') {
-		$errores['apellido'] = 'Completar el apellido.';
-	} else{
+		$errores['apellido'] = '* Completar el apellido.';
+    } elseif ( (!ctype_alpha(str_replace(' ', '', (str_replace('´', '', $apellido)) ))) ) {
+        $errores['apellido'] = '* El apellido sólo puede tener caracteres alfabéticos, espacios y apóstrofes(´).';
+    } elseif (strlen($apellido) >= 15) {
+       $errores['apellido'] = '* El apellido no puede tener mas de 15 caracteres.';
+    } else {
 		$_SESSION['apellido'] = $apellido;
 	}
 
@@ -268,54 +278,3 @@ function recuperarAvatar() {
 	return $ruta_imagen;
 }
 
-//-----------------------------------------------------------------------------
-
-function guardarCambioAvatar() {
-
-	$error_avatar = '';
-	$ruta_avatar = __DIR__ . "/../users/";
-	$ext_permitidas = ['jpg', 'jpeg', 'png', 'gif'];
-
-	if ($_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
-
-		$nombre = $_FILES['avatar']['name'];
-		$peso_archivo = $_FILES['avatar']['size'];
-		$archivo_tmp = $_FILES['avatar']['tmp_name'];
-		$ext = pathinfo($nombre, PATHINFO_EXTENSION);
-		list($ancho, $alto) = getimagesize($archivo_tmp);
-
-		if (!in_array ($ext, $ext_permitidas)) {
-			$error_avatar = 'Solo se aceptan archivos de extension .jpg, .jpeg, .png o .gif.';
-		} 
-		elseif ($peso_archivo > '2100000') {
-			$error_avatar = 'El tamaño del archivo no debe exceder los 2Mb.';
-		}
-		elseif ($ancho < $alto) {
-			$error_avatar = 'La imagen no puede ser más alta que ancha.';
-		} 
-		else {
-			$nombre = str_replace('@', '-', $_SESSION['login']['email']);
-			$nombre = str_replace('.', '-', $nombre);
-
-			move_uploaded_file($archivo_tmp, $ruta_avatar.$nombre.'.'.$ext);
-		} 
-	}
-
-		return $error_avatar;
-}
-
-//-----------------------------------------------------------------------------
-
-function recuperarCambioAvatar() {
-
-	if (($_FILES['avatar']['error'] == UPLOAD_ERR_OK)  && (guardarCambioAvatar() == '')) {
-		$nombre = str_replace('@', '-', $_SESSION['login']['email']);
-		$nombre = str_replace('.', '-', $nombre);
-		$ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
-		$ruta_imagen = "../users/".$nombre.'.'.$ext;
-	} else {
-		$ruta_imagen = null;
-	}
-
-	return $ruta_imagen;
-}

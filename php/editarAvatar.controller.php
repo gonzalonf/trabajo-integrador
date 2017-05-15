@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'register.helpers.php';
+ 
 include 'perfilEditar.helpers.php';
 
 $id = $_SESSION['login']['id'];

@@ -32,7 +32,7 @@ $apellido = $_SESSION['login']['apellido']??'';
 			<hr>
 
 		</div>
-		<form class='formulario' action='../php/editarNombre.controller.php' method='post'>
+		<form class='formulario' action='../php/editarApellido.controller.php' method='post'>
 
 			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
 
