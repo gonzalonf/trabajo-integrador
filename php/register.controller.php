@@ -3,13 +3,11 @@
 session_start();
 
 include('../php/register.helpers.php');
+include '../php/login.helpers.php';
 
 $errores = validacionRegistro();
 $error = emailExistente();
 
-// lo logeo...
-// $_SESSION['login']['id'];
-// $_SESSION['login']['avatar'];
 
 /*
 var_dump(validacionRegistro());
@@ -29,9 +27,13 @@ if (count($errores)) {
 } elseif (count($error)) {
 	$_SESSION['emailExistente'] = $error;
 	header('Location: ../html/registro.php');
+// no es redundante el código? se soluciona con un ||
+
 
 } else {
 	guardarUsuario();
+	// lo logeo...x|
+	logearDesdeRegistro($_POST['email'],'../users/users.json');
 	header('Location: ../html/perfil.php');
 	exit();
 }

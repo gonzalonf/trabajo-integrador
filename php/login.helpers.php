@@ -50,3 +50,12 @@ function borrarCookie(){
         setcookie('email','',$cookielife,'/');
         setcookie('password','',$cookielife,'/');
 }
+//--------------------------
+function logearDesdeRegistro($email,$ruta){
+    $user=recuperarUsuario($email,$ruta);
+    $_SESSION['login']['id'] = $user['id'];
+    $_SESSION['login']['email'] = $user['email'];
+    $_SESSION['login']['nombre'] = $user['nombre'];
+    $_SESSION['login']['apellido'] = $user['apellido'];
+    $_SESSION['login']['avatar'] = $user['avatar'];
+}
