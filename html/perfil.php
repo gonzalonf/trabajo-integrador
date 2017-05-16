@@ -51,7 +51,7 @@ $avatar = $_SESSION['login']['avatar'];
 
   <div class='registro-container' style="margin-top: 0;">
     <div class='formulario'>
-      <button class='volver'> <a href="../php/logout.php">SALIR</a> </button>
+      <a class='volver' href="../php/logout.php">SALIR</a>
     </div>
   </div>
 

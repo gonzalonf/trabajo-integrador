@@ -60,7 +60,7 @@ $error = $_SESSION['error_email']??'';
 
 <div class='registro-container' style="margin-top: -50px;">
 	<div class='formulario'>
-		<button class='volver'> <a href="perfil.php">VOLVER</a> </button>
+		<a class='volver' href="perfil.php">VOLVER</a>
 	</div>
 </div>
 
