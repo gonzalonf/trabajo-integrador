@@ -1,3 +1,5 @@
+ELIMINAR USUARIO!
+
 auto localización y selección(estilo Pedidos Ya)
 
 carrito
