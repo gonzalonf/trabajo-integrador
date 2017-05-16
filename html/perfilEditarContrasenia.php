@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include('../php/login.check.secret.php');
+
+
 include('../php/perfilEditar.helpers.php');
 
 $error = $_SESSION['error_psw']??'';
@@ -35,13 +38,13 @@ $error = $_SESSION['error_psw']??'';
 			<p class='msj_error'> <?php echo $error ?> </p>
 
 
-			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''> 
+			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''>
 			<br>
 
-			<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='psw2' value=''> 
+			<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='psw2' value=''>
 			<br>
 
-			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button> 
+			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>
 
 		</div>

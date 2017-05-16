@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include('../php/login.check.secret.php');
+
+
 include('../php/perfilEditar.helpers.php');
 
 $error = $_SESSION['error_email']??'';
@@ -36,10 +39,10 @@ $error = $_SESSION['error_email']??'';
 			<p class='msj_error'> <?php echo $error ?> </p>
 
 
-			<input class='decorative-input-mail' type='text' placeholder='Nuevo email' name='email' value=''> 
+			<input class='decorative-input-mail' type='text' placeholder='Nuevo email' name='email' value=''>
 			<br>
 
-			<input class='decorative-input-mail' type='text' placeholder='Confirme email' name='email2' value=''> 
+			<input class='decorative-input-mail' type='text' placeholder='Confirme email' name='email2' value=''>
 			<br>
 
 

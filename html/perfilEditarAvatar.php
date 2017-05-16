@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include('../php/login.check.secret.php');
+
+
 include('../php/register.helpers.php');
 
 
@@ -51,7 +54,7 @@ $apellido = $_SESSION['login']['apellido']??'';
 			<a class='volver' href="perfil.php">VOLVER</a>
 		</div>
 	</div>
-	
+
 	<?php include 'footer.html' ?>
 
 </body>

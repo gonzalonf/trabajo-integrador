@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include('../php/login.check.secret.php');
+
+
 include('../php/register.helpers.php');
 
 
@@ -35,7 +38,7 @@ $apellido = $_SESSION['login']['apellido']??'';
 		<form class='formulario' action='../php/editarNombre.controller.php' method='post'>
 
 			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
-			
+
 			<?php if (isset($_SESSION['errores']['nombre'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
 			<?php endif; ?><br>
@@ -59,7 +62,7 @@ $apellido = $_SESSION['login']['apellido']??'';
 			<a class='volver' href="perfil.php">VOLVER</a>
 		</div>
 	</div>
-	
+
 	<?php include 'footer.html' ?>
 
 </body>

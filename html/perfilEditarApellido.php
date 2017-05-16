@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include('../php/login.check.secret.php');
+
 include('../php/register.helpers.php');
 
 
@@ -42,7 +44,7 @@ $apellido = $_SESSION['login']['apellido']??'';
 			<br>
 
 			<input class="input-oculto" type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
-			
+
 			<?php if (isset($_SESSION['errores']['nombre'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
 			<?php endif; ?><br>
@@ -52,13 +54,13 @@ $apellido = $_SESSION['login']['apellido']??'';
 
 		</form>
 	</div>
-	
+
 	<div class='registro-container' style="margin-top: -50px;">
 		<div class='formulario'>
 			<a class='volver' href="perfil.php">VOLVER</a>
 		</div>
 	</div>
-	
+
 	<?php include 'footer.html' ?>
 
 </body>

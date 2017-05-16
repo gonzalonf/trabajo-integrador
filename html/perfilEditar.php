@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../php/login.check.secret.php');
 
 include('../php/register.helpers.php');
 
