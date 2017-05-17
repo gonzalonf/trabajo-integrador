@@ -1032,7 +1032,22 @@ footer img{
 
 	.type_portada {
 		background-size: 0;
-		min-height: 97vh;
+		min-height: 95vh;
+	}
+
+	.contenedor-responsive-altura{
+		padding-top: 10%;
+	}
+
+	video{
+		display: block;
+		position: absolute;
+		top: -1%;
+		left: 0;
+		width: 100vw;
+		height: 30%;
+		object-fit: cover;
+		z-index: -2;
 	}
 
 	.dropdown{
@@ -1045,22 +1060,6 @@ footer img{
 	.dropdown-menu {
 		top: 15px;
 	}
-
-	video{
-		display: block;
-		position: absolute;
-		top: -1%;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		object-fit: cover;
-		z-index: -2;
-	}
-
-	.contenedor-responsive-altura{
-		padding-top: 8%;
-	}
-
 
 	.registro-container {
 		/* aca habia alertas*/
@@ -1081,26 +1080,6 @@ footer img{
 
 	.preguntas a{
 		margin-right: 15vw;
-	}
-
-	.type_portada {
-		background-size: 0;
-		min-height: 97vh;
-	}
-
-	video{
-		display: block;
-		position: absolute;
-		top: -1%;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		object-fit: cover;
-		z-index: -2;
-	}
-
-	.contenedor-responsive-altura{
-		padding-top: 10%;
 	}
 
 	footer .footerContainer{
