@@ -1,12 +1,13 @@
 <?php
-session_start();
+require("../php/soporte.php");
 
-include('../php/login.check.secret.php');
+$repoUsuarios = $repo->getRepositorioUsuarios();
 
+$usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-include('../php/perfilEditar.helpers.php');
-
-$error = $_SESSION['error_email']??'';
+if ($usuarioLogueado) {
+	$emailDefault = $usuarioLogueado->getEmail();
+}
 
 ?>
 
@@ -30,21 +31,15 @@ $error = $_SESSION['error_email']??'';
 		<div class='crear-cuenta'>
 			<h1>Cambiar email</h1>
 			<hr>
-			<h2 class="dato-generico"><?php echo $_SESSION['login']['email']; ?></h2>
-
+			
 		</div>
-		<form class='formulario' action='../php/editarEmail.controller.php' method='post'>
+		<form class='formulario' action='' method='post'>
 
-
-			<p class='msj_error'> <?php echo $error ?> </p>
-
-
-			<input class='decorative-input-mail' type='text' placeholder='Nuevo email' name='email' value=''>
+			<input class='decorative-input-mail' type='text' placeholder='Nuevo email' name='email' value='<?=$emailDefault?>'>
 			<br>
 
-			<input class='decorative-input-mail' type='text' placeholder='Confirme email' name='email2' value=''>
+			<input class='decorative-input-mail' type='text' placeholder='Confirme email' name='email2' value='<?=$emailDefault?>'>
 			<br>
-
 
 			<div class='checkbox'>
 				<input  id="mail-promociones" name='mail-promociones' type='checkbox' value='1' checked>
@@ -72,7 +67,3 @@ $error = $_SESSION['error_email']??'';
 
 </body>
 </html>
-
-<?php
-unset($_SESSION['error_email']);
-?>

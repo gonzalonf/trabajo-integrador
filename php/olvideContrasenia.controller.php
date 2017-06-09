@@ -1,8 +1,7 @@
 <?php
-session_start();
 
 require 'lib/PHPMailer/PHPMailerAutoload.php';
-include ('olvideContrasenia.helpers.php');
+include 'olvideContrasenia.helpers.php';
 include 'config.php';
 
 $mail = new PHPMailer;
@@ -13,10 +12,10 @@ $destinatario = $_POST['email'];
 
 
 
-if ($error = emailNoExistente()) {
-	$_SESSION['error_emailNoExistente'] = $error;
-	header('Location: ../html/olvideContrasenia.php');
-} else {
+// if ($error = emailNoExistente()) {
+// 	$_SESSION['error_emailNoExistente'] = $error;
+// 	header('Location: ../html/olvideContrasenia.php');
+// } else {
 
 	cambiarPassword($temporalPass);
 
@@ -47,4 +46,4 @@ if ($error = emailNoExistente()) {
 		header('Refresh: 3; URL=../html/login.php');
 	}
 
-}
+//}

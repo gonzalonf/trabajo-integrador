@@ -1,15 +1,13 @@
 <?php
-session_start();
+require("../php/soporte.php");
 
-include('../php/login.check.secret.php');
+$repoUsuarios = $repo->getRepositorioUsuarios();
 
+$usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-include('../php/register.helpers.php');
-
-
-$nombre = $_SESSION['login']['nombre']??'';
-$apellido = $_SESSION['login']['apellido']??'';
-
+if ($usuarioLogueado) {
+	$nombreDefault = $usuarioLogueado->getNombre();
+}
 
 ?>
 
@@ -35,20 +33,17 @@ $apellido = $_SESSION['login']['apellido']??'';
 			<hr>
 
 		</div>
-		<form class='formulario' action='../php/editarNombre.controller.php' method='post'>
+		<form class='formulario' action='' method='post'>
 
-			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
+			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?=$nombreDefault?>'> <br>
 
-			<?php if (isset($_SESSION['errores']['nombre'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
-			<?php endif; ?><br>
-
-
-			<input class="input-oculto" type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
-
-			<?php if (isset($_SESSION['errores']['apellido'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['apellido']; ?> </p>
-			<?php endif; ?>
+			<p class='msj_error'><?php if (isset($errores["nombre"])) { 
+				echo $errores["nombre"];
+			} else {
+				//$usuarioLogueado->setNombre($_POST["nombre"]);
+				//$usuarioLogueado->guardar($repoUsuarios);
+			}
+			?></p>
 			<br>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
@@ -67,7 +62,3 @@ $apellido = $_SESSION['login']['apellido']??'';
 
 </body>
 </html>
-
-<?php
-unset($_SESSION['errores']);
-?>

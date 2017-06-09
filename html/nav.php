@@ -1,3 +1,17 @@
+<?php
+require("../php/soporte.php");
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+
+$usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
+
+if ($usuarioLogueado) {
+
+  $imagenPerfil = $usuarioLogueado->getAvatar();
+}
+
+?>
+
 <header>
 	<div class="barra_superior">
 		<input class="burger-check" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label>
@@ -13,14 +27,10 @@
 					<li><a href="index.php#type1">NOSOTROS</a></li>
 					<li class="preguntas"><a href="FAQ.php">PREGUNTAS</a></li>
 
-					<?php if (!isset($_SESSION['login'])): ?>
-						<li class="ingresa"><a href="login.php">INGRESA</a></li>
-						<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
-					<?php endif; ?>
-
-					<?php if (isset($_SESSION['login'])): ?>
+					<?php if ($auth->estaLogueado()) { ?>
 						<li  class="dropdown">
-							<!-- <img src="../images/dropdown.png" alt=""> --> <?php  echo $_SESSION['login']['nombre'] ?>
+							<!-- <img src="../images/dropdown.png" alt=""> --> 
+							<?= $usuarioLogueado->getNombre() ?>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a href="perfil.php">PERFIL</a></li>
@@ -28,8 +38,10 @@
 								</ul>
 							</div>
 						</li>
-					<?php endif; ?>
-
+					<?php } else { ?>
+						<li class="ingresa"><a href="login.php">INGRESA</a></li>
+						<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
+					<?php } ?>
 
 				</ul>
 			</nav>

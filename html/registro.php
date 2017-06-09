@@ -1,56 +1,109 @@
 <?php
-session_start();
+require_once("../php/soporte.php");
+require_once("../php/clases/validadorUsuario.php");
 
-include('../php/login.check.php');
-include('../php/register.helpers.php');
+$repoUsuarios = $repo->getRepositorioUsuarios();
 
-$nombre = $_SESSION['nombre']??'';
-$apellido = $_SESSION['apellido']??'';
-/*$fecha_nac = $_SESSION['fecha_nac']??'';*/
-$email = $_SESSION['email']??'';
+if ($auth->estaLogueado()) {
+header("Location:perfil.php");exit;
+}
 
+$errores = [];
+$nombreDefault = "";
+$apellidoDefault = "";
+$localidadDefault = "";
+$emailDefault = "";
+
+if (!empty($_POST))
+{
+	$validador = new ValidadorUsuario();
+//Se envió información
+	$errores = $validador->validar($_POST, $repo);
+
+	if (empty($errores))
+	{
+//No hay Errores
+
+//Primero: Lo registro
+		$usuario = new Usuario(
+			null,
+			$_POST["nombre"],
+			$_POST["apellido"],
+			$_POST["localidad"],
+			$_POST["email"],
+			$_POST["password"]
+			);
+		$usuario->setPassword($_POST["password"]);
+		$usuario->guardar($repoUsuarios);
+		$usuario->setAvatar($_FILES["avatar"]);
+
+//Segundo: Lo envio al exito
+		header("Location:login.php");exit; 
+	}
+
+	if (!isset($errores["nombre"]))
+	{
+		$nombreDefault = $_POST["nombre"];
+	}
+	if (!isset($errores["apellido"]))
+	{
+		$nombreDefault = $_POST["apellido"];
+	}
+	if (!isset($errores["localidad"]))
+	{
+		$localidadDefault = $_POST["localidad"];
+	}
+	if (!isset($errores["email"]))
+	{
+		$emailDefault = $_POST["email"];
+	}
+}
 ?>
 
-
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8'>
-	<title>Registro</title>
-	<link rel='stylesheet' href='../css/style.css'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-</head>
-<body>
+    <html>
+    <head>
+    	<meta charset='utf-8'>
+    	<title>Registro</title>
+    	<link rel='stylesheet' href='../css/style.css'>
+    	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
 
-	<!-- navegación -->
-	<?php include('nav.php') ;?>
+    	<!-- navegación -->
+    	<?php include('nav.php') ;?>
 
-	<!-- inicia el CONTENEDOR para el Registro -->
+    	<!-- inicia el CONTENEDOR para el Registro -->
 
-	<div class='registro-container'>
-		<div class='crear-cuenta'>
-			<h1>CREAR CUENTA</h1>
-			<hr>
-			<?php if (isset($_SESSION['emailExistente'])): ?>
-				<script language="JavaScript" type="text/javascript">
-					alert("El email ya esta registrado, Intenta con otro");
-				</script>
+    	<div class='registro-container'>
+    		<div class='crear-cuenta'>
+    			<h1>CREAR CUENTA</h1>
+    			<hr>
 
-			<?php endif; ?>
-		</div>
-		<form class='formulario' action='../php/register.controller.php' method='post' enctype="multipart/form-data">
+    		</div>
 
-			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?php echo $nombre;?>'> <br>
+    		<form class='formulario' action='' method='post' enctype="multipart/form-data">
 
-			<?php if (isset($_SESSION['errores']['nombre'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['nombre']; ?> </p>
-			<?php endif; ?><br>
+    			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?=$nombreDefault?>'> <br>
 
-			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?php echo $apellido;?>'> <br>
+    			<p class='msj_error'><?php if (isset($errores["nombre"])) { 
+    				echo $errores["nombre"];
+    			}
+    			?></p>
 
-			<?php if (isset($_SESSION['errores']['apellido'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['apellido']; ?> </p>
-			<?php endif; ?><br>
+    			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?=$apellidoDefault?>'> <br>
+
+    			<p class='msj_error'><?php if (isset($errores["apellido"])) { 
+    				echo $errores["apellido"];
+    			}
+    			?></p>
+
+    			<input class='decorative-input' type='text' placeholder='Localidad' name='localidad' value='<?=$localidadDefault?>'> <br>
+
+    			<p class='msj_error'><?php if (isset($errores["localidad"])) { 
+    				echo $errores["localidad"];
+    			}
+    			?></p>
 
 			<!-- empieza fecha de nacimiento
 			<label for="dia" class='text-label'>Fecha de nacimiento:</label> 
@@ -80,34 +133,34 @@ $email = $_SESSION['email']??'';
 			<?php endif; ?><br>
 			termina fecha de nacimiento -->
 			
-			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?php echo $email;?>'> <br>
+			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?=$emailDefault?>'> <br>
 
-			<?php if (isset($_SESSION['errores']['email'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['email']; ?> </p>
-			<?php endif; ?>
-
-			<?php if (isset($_SESSION['emailExistente'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['emailExistente']; ?> </p>
-			<?php endif; ?><br>
+			<p class='msj_error'><?php if (isset($errores["email"])) { 
+				echo $errores["email"];
+			}
+			?></p>
 
 			<input class='decorative-input-password' type='password' placeholder='Contraseña' name='password'> <br>
 
-			<?php if (isset($_SESSION['errores']['password'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['password']; ?> </p>
-			<?php endif; ?><br>
+			<p class='msj_error'><?php if (isset($errores["password"])) { 
+				echo $errores["password"];
+			}
+			?></p>
 
 			<input class='decorative-input-password' type='password' placeholder='Confirmar contraseña' name='password2'> <br>
 
-			<?php if (isset($_SESSION['errores']['password2'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errores']['password2']; ?> </p>
-			<?php endif; ?><br>
+			<p class='msj_error'><?php if (isset($errores["password2"])) { 
+				echo $errores["password2"];
+			}
+			?></p>
 			
 			<label for='avatar' class='text-label'>Imagen de perfil: </label> <br>
 			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
 
-			<?php if (isset($_SESSION['errorAvatar'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['errorAvatar']; ?> </p>
-			<?php endif; ?><br>
+			<p class='msj_error'><?php if (isset($errores["avatar"])) { 
+				echo $errores["avatar"];
+			}
+			?></p>
 
 			<div class='checkbox'>
 				<input checked='checked' name='mail-promociones' type='checkbox' value='1'>
@@ -132,6 +185,5 @@ $email = $_SESSION['email']??'';
 </body>
 </html>
 
-<?php
-session_unset();
-?>
+
+

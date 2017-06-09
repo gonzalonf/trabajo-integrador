@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,11 +23,11 @@ session_start();
 
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value=''> <br>
 
-			<?php if (isset($_SESSION['error_emailNoExistente'])): ?>
+			<!-- <?php if (isset($_SESSION['error_emailNoExistente'])): ?>
 				<p class='msj_error'> <?php echo $_SESSION['error_emailNoExistente']; ?> </p>
 			<?php endif; ?>
 
-			<br>
+			<br> -->
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>
@@ -52,7 +47,3 @@ session_start();
 
 </body>
 </html>
-
-<?php
-unset($_SESSION['error_email']);
-?>

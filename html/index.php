@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,8 +84,6 @@ session_start();
 
 	<!-- footer -->
 	<?php include('footer.html') ;?>
-
-
 
 	</body>
 </html>

@@ -1,12 +1,9 @@
 <?php
-session_start();
+require("../php/soporte.php");
 
-include('../php/login.check.secret.php');
+$repoUsuarios = $repo->getRepositorioUsuarios();
 
-
-include('../php/perfilEditar.helpers.php');
-
-$error = $_SESSION['error_psw']??'';
+$usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
 ?>
 
@@ -32,10 +29,7 @@ $error = $_SESSION['error_psw']??'';
 			<hr>
 
 		</div>
-		<form class='formulario' action='../php/editarContrasenia.controller.php' method='post'>
-
-
-			<p class='msj_error'> <?php echo $error ?> </p>
+		<form class='formulario' action='' method='post'>
 
 
 			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''>

@@ -16,8 +16,8 @@ exit();
 */
 
 if ($error_avatar = guardarAvatar()) {
-		$_SESSION['errorAvatar'] = $error_avatar;
-		header('Location: ../html/registro.php');
+	$_SESSION['errorAvatar'] = $error_avatar;
+	header('Location: ../html/registro.php');
 }
 
 if (count($errores)) {

@@ -5,7 +5,12 @@ $repoUsuarios = $repo->getRepositorioUsuarios();
 
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
+if ($usuarioLogueado) {
+	$localidadDefault = $usuarioLogueado->getLocalidad();
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -24,19 +29,18 @@ $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
 	<div class='registro-container'>
 		<div class='crear-cuenta'>
-			<h1>Editar Imagen de Perfil</h1>
+			<h1>Editar Localidad</h1>
 			<hr>
 
 		</div>
-		<form class='formulario' action='' method='post' enctype="multipart/form-data">
+		<form class='formulario' action='' method='post'>
 
-			<label for='avatar' class='text-label'>Imagen de perfil: </label> <br>
-			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
+			<input class='decorative-input' type='text' placeholder='Localidad' name='localidad' value='<?=$localidadDefault?>'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["avatar"])) { 
-				echo $errores["avatar"];
+			<p class='msj_error'><?php if (isset($errores["localidad"])) { 
+				echo $errores["localidad"];
 			} else {
-				//$usuarioLogueado->setNombre($_POST["nombre"]);
+				//$usuarioLogueado->setLocalidad($_POST["localidad"]);
 				//$usuarioLogueado->guardar($repoUsuarios);
 			}
 			?></p>

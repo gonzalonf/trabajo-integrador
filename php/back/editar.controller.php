@@ -9,23 +9,14 @@ $error=emailExistenteEditarPerfil();
 
 
 if (count($errores)) {
-	$_SESSION['errores'] = $errores;
-	header('Location: ../html/perfilEditar.php');
+        $_SESSION['errores'] = $errores;
+        header('Location: ../html/perfilEditar.php');
 }
-	if (count($error)) {
-		$_SESSION['errores'] = $error;
-		header('Location: ../html/perfilEditar.php');
 
-
-}
-else {
-
-
-
-
-
-
-
+if (count($error)) {
+        $_SESSION['errores'] = $error;
+        header('Location: ../html/perfilEditar.php');
+} else {
         $usuario=recuperarUsuario($_SESSION['login']['email'],'../users/users.json');
         echo "<br>";
         echo "<br>";
@@ -51,7 +42,7 @@ else {
         echo "<br>";
         var_dump($users);
 
-        // file_put_contents('../users/users.json', json_encode($users));
-        	// header('Location: ../html/perfil.php');
+// file_put_contents('../users/users.json', json_encode($users));
+	// header('Location: ../html/perfil.php');
 }
- ?>
+?>
