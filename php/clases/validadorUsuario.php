@@ -41,14 +41,14 @@ class ValidadorUsuario extends Validador {
 
 		if (empty(trim($datos["email"])))
 		{
-			$errores["email"] = "Por favor ingrese mail";
+			$errores["email"] = "* Completar el e-mail.";
 		}
 		elseif (!filter_var($datos["email"], FILTER_VALIDATE_EMAIL)) {
-			$errores["email"] = "Por favor ingrese un mail correcto";   
+			$errores["email"] = "* Ingrese un e-mail válido.";   
 		}
 		elseif ($repoUsuarios->existeElMail($datos["email"]))
 		{
-			$errores["email"] = "El email ya esta registrado";      
+			$errores["email"] = "* El e-mail ya está registrado.";      
 		}
 
 		$password = $datos['password'];
@@ -68,7 +68,7 @@ class ValidadorUsuario extends Validador {
 		}
 		
 		if ($_FILES["avatar"]["error"] != UPLOAD_ERR_OK) {
-			$errores["avatar"] = "Hubo un error al subir la imagen, intentelo de nuevo más tarde.";
+			$errores["avatar"] = "* Hubo un error al subir la imagen, intentelo de nuevo más tarde.";
 		}
 
 		return $errores;

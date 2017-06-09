@@ -11,21 +11,21 @@
 
 	        if (empty(trim($datos["email"])))
 	        {
-	            $errores["email"] = "Por favor ingrese mail";
+	            $errores["email"] = "* Completar el e-mail.";
 	        }
 	        if (empty(trim($datos["password"])))
 	        {
-	            $errores["password"] = "Por favor ingrese password";
+	            $errores["password"] = "* Completar la contraseña.";
 	        }
 	        if (!$repoUsuarios->existeElMail($datos["email"]))
 	        {
-	            $errores["email"] = "El usuario no existe";
+	            $errores["email"] = "* El e-mail o la contraseña es incorrecta.";
 	        }
 	        else {
 	            $usuario = $repoUsuarios->traerUsuarioPorEmail($datos["email"]);
 
 	            if (!password_verify($datos["password"], $usuario->getPassword())) {
-	                $errores["password"] ="La contraseña es incorrecta";
+	                $errores["password"] ="* El e-mail o la contraseña es incorrecta.";
 	            }
 	        }
 
