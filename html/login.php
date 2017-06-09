@@ -73,7 +73,6 @@ if ($_POST) {
       <label for="recordarme" >Recordarme</label>
       <input style="float:left" type="checkbox" name="recordame" value="true" id='recodarme' checked>
 
-
     </div>
 
     <div class="login-container-abajo">

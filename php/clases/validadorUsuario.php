@@ -72,5 +72,5 @@ class ValidadorUsuario extends Validador {
 		}
 
 		return $errores;
-	}
+	 }
 }
