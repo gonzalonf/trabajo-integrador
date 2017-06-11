@@ -47,7 +47,7 @@ if (!empty($_POST))
 	}
 	if (!isset($errores["apellido"]))
 	{
-		$nombreDefault = $_POST["apellido"];
+		$apellidoDefault = $_POST["apellido"];
 	}
 	if (!isset($errores["localidad"]))
 	{
