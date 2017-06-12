@@ -1,5 +1,6 @@
 <?php
 require_once("repositorioUsuarios.php");
+require_once("DB.php");
 
 class Usuario {
 	private $id;
@@ -53,7 +54,7 @@ class Usuario {
 
 		return $name . "." . $ext;
 	}
-	
+
 	public function setId($id) {
 		$this->id = $id;
 	}
@@ -89,6 +90,21 @@ class Usuario {
 
 	public function guardar(RepositorioUsuarios $repo) {
 		$repo->guardar($this);
+	}
+
+	public function save()
+	{
+		$sql= 'INSERT INTO usuarios (id, nombre, apellido, email, localidad, password)
+		VALUES (:id, :nombre, :apellido, :email, :localidad, :password)';
+		$stmt=DB::getConn()->prepare($sql);
+		$stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+		$stmt->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
+		$stmt->bindValue(':apellido', $this->apellido, PDO::PARAM_STR);
+		$stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+		$stmt->bindValue(':localidad', $this->localidad, PDO::PARAM_STR);
+		$stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
+
+		$stmt->execute();
 	}
 
 	public function toArray() {
