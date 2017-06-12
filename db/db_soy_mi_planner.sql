@@ -65,7 +65,7 @@ CREATE TABLE `productos` (
   KEY `id_categoria_idx` (`id_categoria`),
   KEY `id_usuario_vendedor_idx` (`id_usuario_vendedor`),
   CONSTRAINT `id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_usuario_vendedor` FOREIGN KEY (`id_usuario_vendedor`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario_vendedor`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,15 +86,15 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(15) NOT NULL,
   `apellido` varchar(15) NOT NULL,
+  `localidad` varchar(20) NOT NULL,
   `email` varchar(25) NOT NULL,
   `password` varchar(62) NOT NULL,
-  `localidad` varchar(20) NOT NULL,
-  `ruta_avatar` varchar(45) DEFAULT NULL,
+  `avatar` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,6 +103,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'juan','perez','palermo','juan@perez.com','$2y$10$Cnv5gJzvnFZ8xgfhZnWyF.RgRpK6VK843k4tmLoJgnzEoUSt1XVE6',NULL),(2,'pepe','lopez','caballito','pepe@lopez.com','$2y$10$Cnv5gJzvnFZ8xgfhZnWyF.RgRpK6VK843k4tmLoJgnzEoUSt1XVE6',NULL),(3,'maria','juarez','once','maria@juarez.com','$2y$10$Cnv5gJzvnFZ8xgfhZnWyF.RgRpK6VK843k4tmLoJgnzEoUSt1XVE6',NULL),(4,'laura','gomez','liniers','laura@gomez.com','$2y$10$/GUjdjXCkjq7m9s1Dn2vJ.2VA/KuEc19jOMTpgWTAqsCyQMZm8qIS',NULL),(5,'pablo','suarez','devoto','pablo@suarez.com','$2y$10$/GUjdjXCkjq7m9s1Dn2vJ.2VA/KuEc19jOMTpgWTAqsCyQMZm8qIS',NULL),(16,'julia','sanchez','caba','julia@sanchez.com','$2y$10$GrPrYG2MMrZWbttqL0BPV.lkE/X8prgn3Ub2GN4Zng8a2p050qx1C',NULL),(17,'qq','qq','qq','qq@qq.com','$2y$10$ZjyIfWX9CYOihTm/kWDDl.fO0ecJt6CIPYLbJgAqHVMz6tPvbFcAi',NULL),(18,'aa','aa','aa','aa@aa.com','$2y$10$0KnksqQNo1k5QlAtLtM9y.uhFwG2n6aAmAvT4BBzQNUaSHx1XK5Nq',NULL),(19,'bb','bb','bb','bb@bb.com','$2y$10$0ZJ4LIHvPfZlmEi3FCHmfuAVCrm06ftGfa5ypfaioX1yh.L/Mm3Rq',NULL),(20,'cc','cc','cc','cc@cc.com','$2y$10$g04za/gYpiO1rsoA.boUMO5d7gPFyl//tylQ1HzL..2B4YN5kYDyC',NULL),(21,'dd','dd','dd','dd@dd.com','$2y$10$EKDGf.ZOjRzUX29qxVL8fuj8E4rwKe1vp5qgNOb0vOOEyGR1nDWaS',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +126,8 @@ CREATE TABLE `ventas` (
   KEY `id_usuario_vendedor_idx` (`id_usuario_vendedor`),
   KEY `id_producto_idx` (`id_producto`),
   CONSTRAINT `id_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_usuario_comprador` FOREIGN KEY (`id_usuario_comprador`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_usuario_comprador` FOREIGN KEY (`id_usuario_comprador`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `id_usuario_vendedor` FOREIGN KEY (`id_usuario_vendedor`) REFERENCES `productos` (`id_usuario_vendedor`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -147,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-30  3:55:57
+-- Dump completed on 2017-06-12  8:55:14

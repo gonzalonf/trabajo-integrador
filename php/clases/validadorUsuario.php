@@ -3,6 +3,7 @@ require_once("validador.php");
 require_once("repositorio.php");
 
 class ValidadorUsuario extends Validador {
+	
 	public function validar(Array $datos, Repositorio $repo) {
 
 		$repoUsuarios = $repo->getRepositorioUsuarios();

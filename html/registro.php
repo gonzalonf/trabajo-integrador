@@ -2,7 +2,11 @@
 require_once("../php/soporte.php");
 require_once("../php/clases/validadorUsuario.php");
 
+// Aca llamo a una funcion de la clase repositorio, 
+// que como es abstracta, se llama a traves de su hijo: repositorioJSON o repositorioSQL (repo fue instanciada en soporte.php, fijarse ahi)
+// Entonces, usando el __constructor de repositorioJSON o repositorioSQL, crea un nuevo repositorioUsuarios, que como tb es abstracta, en realidad lo que se instancia es su hijo, que es repositorioUsuariosJSON o repositorioUsuariosSQL
 $repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
 
 if ($auth->estaLogueado()) {
 header("Location:perfil.php");exit;
@@ -20,9 +24,8 @@ if (!empty($_POST))
 //Se envió información
 	$errores = $validador->validar($_POST, $repo);
 
-	if (empty($errores))
+	if (empty($errores)) // Si no hay errores
 	{
-//No hay Errores
 
 //Primero: Lo registro
 		$usuario = new Usuario(
@@ -35,9 +38,10 @@ if (!empty($_POST))
 			);
 		$usuario->setPassword($_POST["password"]);
 		$usuario->guardar($repoUsuarios);
+		$usuario->guardar($repoUsuarios2);
 		$usuario->setAvatar($_FILES["avatar"]);
 
-//Segundo: Lo envio al exito
+//Segundo: Lo envio al login
 		header("Location:login.php");exit; 
 	}
 

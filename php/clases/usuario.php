@@ -88,23 +88,9 @@ class Usuario {
 		}
 	}
 
+// $repo puede ser RepositorioJSON o RepositorioSQL, ver soporte.php. Estas clases son las que contruyen el RepositorioUsuariosJSON o RepositorioUsuariosSQL
 	public function guardar(RepositorioUsuarios $repo) {
 		$repo->guardar($this);
-	}
-
-	public function save()
-	{
-		$sql= 'INSERT INTO usuarios (id, nombre, apellido, email, localidad, password)
-		VALUES (:id, :nombre, :apellido, :email, :localidad, :password)';
-		$stmt=DB::getConn()->prepare($sql);
-		$stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-		$stmt->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
-		$stmt->bindValue(':apellido', $this->apellido, PDO::PARAM_STR);
-		$stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-		$stmt->bindValue(':localidad', $this->localidad, PDO::PARAM_STR);
-		$stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
-
-		$stmt->execute();
 	}
 
 	public function toArray() {
@@ -116,6 +102,6 @@ class Usuario {
 		"email" => $this->getEmail(),
 		"password" => $this->getPassword()
 		];
-
 	}
+
 }

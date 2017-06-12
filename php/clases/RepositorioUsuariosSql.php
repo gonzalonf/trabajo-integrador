@@ -1,57 +1,72 @@
 <?php
-	require_once("repositorioUsuarios.php");
-	require_once("DB.php");
+require_once("repositorioUsuarios.php");
+require_once("DB.php");
 
-	class RepositorioUsuariosSql extends RepositorioUsuarios {
+class RepositorioUsuariosSql extends RepositorioUsuarios {
 
-		public function find($id) {
-			$sql = 'SELECT * FROM '.static::$table.' WHERE id = :id';
-			$stmt = DB::getConn()->prepare($sql);
-			$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-			$stmt->execute();
+	public function traerTodosLosUsuarios() {
 
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		$usuarios = [];
 
-			$class = get_called_class();
-			$usuario = new $class([]);
-			$usuario->toModel($result);
+		$sql = 'SELECT * FROM soy_mi_planner.usuarios';
+		$stmt = DB::getConn()->prepare($sql);
+		$stmt->execute();
 
-	        return $usuarios;
-	    }
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		public function save()
-        {
-            $sql = ($this->id)?$this->update():$this->insert();
-            $stmt = DB::getConn()->prepare($sql);
-            foreach ($this->fillable as $column) {
-                $stmt->bindValue(":$column", $this->$column);
-            }
-            $stmt->execute();
-        }
+		foreach ($result as $result) {
+			$usuarioArray = $result;
 
-        private function insert()
-        {
-			$sql= 'INSERT INTO usuarios (id, nombre, apellido, email, localidad, password)
-			VALUES (:id, :nombre, :apellido, :email, :localidad, :password)';
-			$stmt=DB::getConn()->prepare($sql);
-			$stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-			$stmt->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
-			$stmt->bindValue(':apellido', $this->apellido, PDO::PARAM_STR);
-			$stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-			$stmt->bindValue(':localidad', $this->localidad, PDO::PARAM_STR);
-			$stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
+			$usuario = new Usuario(
+				$usuarioArray["id"],
+				$usuarioArray["nombre"],
+				$usuarioArray["apellido"],
+				$usuarioArray["localidad"],
+				$usuarioArray["email"],
+				$usuarioArray["password"]
+				);
 
-			$stmt->execute();
+			$usuarios[] = $usuario;
+		}
 
-        }
-
-        private function update()
-        {
-            $set = '';
-            foreach ($this->fillable as $column) {
-                $set .= "$column=:$column,";
-            }
-            $set = trim($set, ",");
-            return "UPDATE ".static::$table." SET $set WHERE id = ".$this->id;
-        }
+		return $usuarios;
 	}
+
+	public function traerProximoId() {
+	        //1: Me traigo todo el archivo
+		$sql = 'SELECT max(id) FROM soy_mi_planner.usuarios';
+		$stmt = DB::getConn()->prepare($sql);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		return $result[0]['max(id)'] + 1;
+	}
+
+	public function guardar(Usuario $usuario) {
+		
+		$sql= 'INSERT INTO usuarios (id, nombre, apellido, localidad, email, password)
+		VALUES (:id, :nombre, :apellido, :localidad, :email, :password)';
+		
+		$stmt=DB::getConn()->prepare($sql);
+
+
+		$stmt->bindValue(':id', null, PDO::PARAM_INT);
+		$stmt->bindValue(':nombre', $usuario->getNombre(), PDO::PARAM_STR);
+		$stmt->bindValue(':apellido', $usuario->getApellido(), PDO::PARAM_STR);
+		$stmt->bindValue(':localidad', $usuario->getLocalidad(), PDO::PARAM_STR);
+		$stmt->bindValue(':email', $usuario->getEmail(), PDO::PARAM_STR);
+		$stmt->bindValue(':password', $usuario->getPassword(), PDO::PARAM_STR);
+
+		$stmt->execute();
+
+	}
+
+	public function modificar()
+	{
+		$stmt=DB::getConn()->prepare($sql);
+
+		// GONZA: ACA FALTA ESCRIBIR LA FUNCION
+	}
+
+}
