@@ -55,7 +55,7 @@ class ValidadorUsuario extends Validador {
 		if ($password == ''){
 			$errores['password'] = '* Completar la contraseña.';
 		} elseif (strlen($password) < 6) {
-			$errores['email'] = '* El password debe tener al menos 6 caracteres.';
+			$errores['password'] = '* El password debe tener al menos 6 caracteres.';
 		}
 
 		$password2 = $datos['password2'];
