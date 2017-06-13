@@ -9,7 +9,7 @@
 <body>
 
 <!-- navegación -->
-	<?php include('nav.php') ;?>
+	<?php include('nav.php');?>
 
 
 	<section class="type_portada">

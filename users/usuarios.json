@@ -1,7 +1,4 @@
-{"id":5,"nombre":"Juan Bautista","apellido":"Alberdi","localidad":"Alberdi","email":"jub@hotmail.com","password":"$2y$10$\/JKR8m1O7pR5ud.Iy.xLke75uy0RKcz5txJt7w3vxy46gQaZCQVnm"}
-{"id":6,"nombre":"Diego A","apellido":"Maradona","localidad":"Villa Fiorito","email":"dam@hotmail.com","password":"$2y$10$gcnTSIdqWGjeZL\/V3nDexuZdXIL7J.rAjv4yaADcT1BtN2yIENT5m"}
-{"id":7,"nombre":"Jorge","apellido":"Maradona","localidad":"Olivos","email":"jorge.m@gmail.com","password":"$2y$10$f\/G6UfU8DRRnWsma\/4Sm8uvgHO92NnJE\/kAy\/KszJG4.fmbsDJaWe"}
-{"id":8,"nombre":"gon","apellido":"F","localidad":"Martinez","email":"gon@f.com","password":"$2y$10$86UHVO7bYyFHEf7ECN8b0umXfn1xW81d4jvt0l2H9xX8x3dGQ.Hi2"}
-{"id":9,"nombre":"Gordon","apellido":"Shumway","localidad":"Olivos","email":"alf1@melmac.com","password":"$2y$10$f8bGINoOVaZdGF9KzGFQx.vTv6pJQRfWoZAjmH47SYV7R8HS\/jlIi"}
-{"id":10,"nombre":"Mauro ","apellido":"Viale","localidad":"La Matanza","email":"mjauroviale@america.com","password":"$2y$10$wIoJ5cMvMJOgzbYLaYIw7.Qx2Ufg0HWMAL02RHpT868H7oRkdXwx2"}
-{"id":11,"nombre":"Alfred","apellido":"Nobel","localidad":"abc","email":"aaa@a.com","password":"$2y$10$jWd2Kc.PCUkwhTxd2CJnFuFnpZsJZG69M3WHYUfHWgZ36R6\/ILEVG"}
+{"id":1,"nombre":"juan","apellido":"perez","localidad":"palermo","email":"juan@perez.com","password":"$2y$10$ZjyIfWX9CYOihTm\/kWDDl.fO0ecJt6CIPYLbJgAqHVMz6tPvbFcAi"}
+{"id":2,"nombre":"pepe","apellido":"lopez","localidad":"caballito","email":"pepe@lopez.com","password":"$2y$10$0KnksqQNo1k5QlAtLtM9y.uhFwG2n6aAmAvT4BBzQNUaSHx1XK5Nq"}
+{"id":3,"nombre":"maria","apellido":"juarez","localidad":"once","email":"maria@juarez.com","password":"$2y$10$0ZJ4LIHvPfZlmEi3FCHmfuAVCrm06ftGfa5ypfaioX1yh.L\/Mm3Rq"}
+

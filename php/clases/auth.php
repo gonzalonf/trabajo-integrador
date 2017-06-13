@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once("usuario.php");
 	require_once("repositorioUsuarios.php");
 	
@@ -51,9 +51,9 @@
     	}
 
     	 public function logout()
-		  {		
-		      session_destroy();
-		      $this->unsetCookie("usuarioLogueado");
+		  {
+		  	session_destroy();
+		    $this->unsetCookie("usuarioLogueado");
 		  }
 
 		  private function unsetCookie($nombreCookie)
