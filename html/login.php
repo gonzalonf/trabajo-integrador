@@ -3,8 +3,9 @@ require_once("../php/soporte.php");
 require_once("../php/clases/validadorLogin.php");
 
 if ($auth->estaLogueado()) {
-  header("Location:perfil.php");exit; 
+  header("Location:perfil.php");exit;
 }
+
 
 $errores = [];
 if ($_POST) {
@@ -12,16 +13,17 @@ if ($_POST) {
   $validador = new ValidadorLogin();
 
   $errores = $validador->validar($_POST, $repo);
-  
+
+
   if (empty($errores))
   {
     $usuario = $repo->getRepositorioUsuarios()->traerUsuarioPorEmail($_POST["email"]);
     $auth->loguear($usuario);
-    if ($validador->estaEnFormulario("recordame"))
+    if ($validador->estaEnFormulario("recordarme"))
     {
       $auth->guardarCookie($usuario);
     }
-    header("Location:perfil.php");exit; 
+    header("Location:perfil.php");exit;
   }
 }
 ?>
@@ -37,7 +39,7 @@ if ($_POST) {
   <?php include('nav.php'); ?>
 
   <form class="caja-login animate" action="" method="post">
-   
+
     <div class="login-container-arriba">
 
     </div>
@@ -70,8 +72,9 @@ if ($_POST) {
 
       <button type="submit" class="login-botones">INGRESAR</button>
 
-      <label for="recordarme" >Recordarme</label>
-      <input style="float:left" type="checkbox" name="recordame" value="true" id='recodarme' checked>
+          <label for="recordarme" >Recordarme</label>
+          <input style="float:left" type="checkbox" name="recordarme" value="true" id='recordarme' checked>
+
 
     </div>
 
@@ -82,6 +85,8 @@ if ($_POST) {
   </div>
 </form>
 
-<?php include('footer.html'); ?>
+<?php include('footer.html');
+
+?>
 </body>
 </html>
