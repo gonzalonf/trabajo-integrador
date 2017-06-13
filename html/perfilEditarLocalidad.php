@@ -1,12 +1,40 @@
 <?php
 require("../php/soporte.php");
+require_once("../php/clases/validadorUsuario.php");
 
 $repoUsuarios = $repo->getRepositorioUsuarios();
-
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-if ($usuarioLogueado) {
-	$localidadDefault = $usuarioLogueado->getLocalidad();
+if (!$auth->estaLogueado()) {
+header("Location:login.php");exit;
+}
+
+$validador = new ValidadorUsuario();
+
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
+
+$campo = 'localidad';
+$valorDefault = $usuarioLogueado->getLocalidad();
+
+if ($validador->estaEnFormulario($campo)) {
+	$errores = $validador->validar($_POST, $repo);
+}
+$errores = $errores[$campo] ?? '';
+
+if(!empty($_POST)){
+
+    if ($errores=='' && $_POST[$campo]!=='' && $_POST[$campo]!==$valorDefault){
+        $current = $_POST[$campo];
+        $usuarioLogueado->setLocalidad($current);
+        $usuarioLogueado->modificar($repoUsuarios);
+        $usuarioLogueado->modificar($repoUsuarios2);
+        $valorDefault =$current;
+
+        header('Location: perfil.php');
+        
+    }
 }
 
 ?>
@@ -35,16 +63,9 @@ if ($usuarioLogueado) {
 		</div>
 		<form class='formulario' action='' method='post'>
 
-			<input class='decorative-input' type='text' placeholder='Localidad' name='localidad' value='<?=$localidadDefault?>'> <br>
+			<input class='decorative-input' type='text' placeholder='Localidad' name='localidad' value='<?=$valorDefault?>'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["localidad"])) { 
-				echo $errores["localidad"];
-			} else {
-				//$usuarioLogueado->setLocalidad($_POST["localidad"]);
-				//$usuarioLogueado->guardar($repoUsuarios);
-			}
-			?></p>
-			<br>
+			<p class='msj_error'><?=$errores?></p><br>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>

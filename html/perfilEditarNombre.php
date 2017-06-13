@@ -1,12 +1,40 @@
 <?php
 require("../php/soporte.php");
+require_once("../php/clases/validadorUsuario.php");
 
 $repoUsuarios = $repo->getRepositorioUsuarios();
-
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-if ($usuarioLogueado) {
-	$nombreDefault = $usuarioLogueado->getNombre();
+if (!$auth->estaLogueado()) {
+header("Location:login.php");exit;
+}
+
+$validador = new ValidadorUsuario();
+
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
+
+$campo = 'nombre';
+$valorDefault = $usuarioLogueado->getNombre();
+
+if ($validador->estaEnFormulario($campo)) {
+	$errores = $validador->validar($_POST, $repo);
+}
+$errores = $errores[$campo] ?? '';
+
+if(!empty($_POST)){
+
+    if ($errores=='' && $_POST[$campo]!=='' && $_POST[$campo]!==$valorDefault){
+        $current = $_POST[$campo];
+        $usuarioLogueado->setNombre($current);
+        $usuarioLogueado->modificar($repoUsuarios);
+        $usuarioLogueado->modificar($repoUsuarios2);
+        $valorDefault =$current;
+
+        header('Location: perfil.php');
+
+    }
 }
 
 ?>
@@ -35,16 +63,9 @@ if ($usuarioLogueado) {
 		</div>
 		<form class='formulario' action='' method='post'>
 
-			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?=$nombreDefault?>'> <br>
+			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?=$valorDefault?>'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["nombre"])) { 
-				echo $errores["nombre"];
-			} else {
-				//$usuarioLogueado->setNombre($_POST["nombre"]);
-				//$usuarioLogueado->guardar($repoUsuarios);
-			}
-			?></p>
-			<br>
+			<p class='msj_error'><?=$errores?></p><br>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>

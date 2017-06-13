@@ -92,6 +92,9 @@ class Usuario {
 	public function guardar(RepositorioUsuarios $repo) {
 		$repo->guardar($this);
 	}
+    public function modificar(RepositorioUsuarios $repo) {
+		$repo->modificar($this);
+	}
 
 	public function toArray() {
 		return [

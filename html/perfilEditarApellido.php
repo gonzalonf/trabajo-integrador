@@ -1,12 +1,40 @@
 <?php
 require("../php/soporte.php");
+require_once("../php/clases/validadorUsuario.php");
 
 $repoUsuarios = $repo->getRepositorioUsuarios();
-
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-if ($usuarioLogueado) {
-	$apellidoDefault = $usuarioLogueado->getApellido();
+if (!$auth->estaLogueado()) {
+header("Location:login.php");exit;
+}
+
+$validador = new ValidadorUsuario();
+
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
+
+$campo = 'apellido';
+$valorDefault = $usuarioLogueado->getApellido();
+
+if ($validador->estaEnFormulario($campo)) {
+	$errores = $validador->validar($_POST, $repo);
+}
+$errores = $errores[$campo] ?? '';
+
+if(!empty($_POST)){
+
+    if ($errores=='' && $_POST[$campo]!=='' && $_POST[$campo]!==$valorDefault){
+        $current = $_POST[$campo];
+        $usuarioLogueado->setApellido($current);
+        $usuarioLogueado->modificar($repoUsuarios);
+        $usuarioLogueado->modificar($repoUsuarios2);
+        $valorDefault =$current;
+
+        header('Location: perfil.php');
+        
+    }
 }
 
 ?>
@@ -25,7 +53,6 @@ if ($usuarioLogueado) {
 	<!-- navegación -->
 	<?php include('nav.php') ;?>
 
-	<!-- inicia el CONTENEDOR para el Registro -->
 
 	<div class='registro-container'>
 		<div class='crear-cuenta'>
@@ -35,19 +62,13 @@ if ($usuarioLogueado) {
 		</div>
 		<form class='formulario' action='' method='post'>
 
-			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?=$apellidoDefault?>'> <br>
+			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?=$valorDefault?>'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["apellido"])) { 
-				echo $errores["apellido"];
-			} else {
-				//$usuarioLogueado->setApellido($_POST["apellido"]);
-				//$usuarioLogueado->guardar($repoUsuarios);
-			}
-			?></p>
-			<br>
+			<p class='msj_error'>
+                <?=$errores?>
+            </p><br>
 
-			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
-			<br>
+			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button> <br>
 
 		</form>
 	</div>
@@ -60,9 +81,5 @@ if ($usuarioLogueado) {
 
 	<?php include 'footer.html' ?>
 
-</body>
+  </body>
 </html>
-
-<?php
-unset($_SESSION['errores']);
-?>

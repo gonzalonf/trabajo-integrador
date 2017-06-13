@@ -29,8 +29,8 @@ if ($usuarioLogueado) {
 
 					<?php if ($auth->estaLogueado()) { ?>
 						<li  class="dropdown">
-							<!-- <img src="../images/dropdown.png" alt=""> --> 
-							<?= $usuarioLogueado->getNombre() ?>
+							<!-- <img src="../images/dropdown.png" alt=""> -->
+							<?=$usuarioLogueado->getNombre() ?>
 							<div class="dropdown-menu">
 								<ul>
 									<li><a href="perfil.php">PERFIL</a></li>

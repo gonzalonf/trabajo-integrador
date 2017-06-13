@@ -2,7 +2,7 @@
 require_once("../php/soporte.php");
 require_once("../php/clases/validadorUsuario.php");
 
-// Aca llamo a una funcion de la clase repositorio, 
+// Aca llamo a una funcion de la clase repositorio,
 // que como es abstracta, se llama a traves de su hijo: repositorioJSON o repositorioSQL (repo fue instanciada en soporte.php, fijarse ahi)
 // Entonces, usando el __constructor de repositorioJSON o repositorioSQL, crea un nuevo repositorioUsuarios, que como tb es abstracta, en realidad lo que se instancia es su hijo, que es repositorioUsuariosJSON o repositorioUsuariosSQL
 $repoUsuarios = $repo->getRepositorioUsuarios();
@@ -40,9 +40,10 @@ if (!empty($_POST))
 		$usuario->guardar($repoUsuarios);
 		$usuario->guardar($repoUsuarios2);
 		$usuario->setAvatar($_FILES["avatar"]);
+        $auth->loguear($usuario);
 
 //Segundo: Lo envio al login
-		header("Location:login.php");exit; 
+		header("Location:login.php");exit;
 	}
 
 	if (!isset($errores["nombre"]))
@@ -90,27 +91,27 @@ if (!empty($_POST))
 
     			<input class='decorative-input' type='text' placeholder='Nombre' name='nombre' value='<?=$nombreDefault?>'> <br>
 
-    			<p class='msj_error'><?php if (isset($errores["nombre"])) { 
+    			<p class='msj_error'><?php if (isset($errores["nombre"])) {
     				echo $errores["nombre"];
     			}
     			?></p>
 
     			<input class='decorative-input' type='text' placeholder='Apellido' name='apellido' value='<?=$apellidoDefault?>'> <br>
 
-    			<p class='msj_error'><?php if (isset($errores["apellido"])) { 
+    			<p class='msj_error'><?php if (isset($errores["apellido"])) {
     				echo $errores["apellido"];
     			}
     			?></p>
 
     			<input class='decorative-input' type='text' placeholder='Localidad' name='localidad' value='<?=$localidadDefault?>'> <br>
 
-    			<p class='msj_error'><?php if (isset($errores["localidad"])) { 
+    			<p class='msj_error'><?php if (isset($errores["localidad"])) {
     				echo $errores["localidad"];
     			}
     			?></p>
 
 			<!-- empieza fecha de nacimiento
-			<label for="dia" class='text-label'>Fecha de nacimiento:</label> 
+			<label for="dia" class='text-label'>Fecha de nacimiento:</label>
 			<select class='decorative-input-fecha' name="dia">
 				<option value="">Dia</option>
 				<?php for ($i=1; $i < 32; $i++) { ?>
@@ -136,32 +137,32 @@ if (!empty($_POST))
 				<p class='msj_error'> <?php echo $_SESSION['errores']['fecha_nac']; ?> </p>
 			<?php endif; ?><br>
 			termina fecha de nacimiento -->
-			
+
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value='<?=$emailDefault?>'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["email"])) { 
+			<p class='msj_error'><?php if (isset($errores["email"])) {
 				echo $errores["email"];
 			}
 			?></p>
 
 			<input class='decorative-input-password' type='password' placeholder='Contraseña' name='password'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["password"])) { 
+			<p class='msj_error'><?php if (isset($errores["password"])) {
 				echo $errores["password"];
 			}
 			?></p>
 
 			<input class='decorative-input-password' type='password' placeholder='Confirmar contraseña' name='password2'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["password2"])) { 
+			<p class='msj_error'><?php if (isset($errores["password2"])) {
 				echo $errores["password2"];
 			}
 			?></p>
-			
+
 			<label for='avatar' class='text-label'>Imagen de perfil: </label> <br>
 			<input class='decorative-input-imagen-boton' type='file' name='avatar'> <br>
 
-			<p class='msj_error'><?php if (isset($errores["avatar"])) { 
+			<p class='msj_error'><?php if (isset($errores["avatar"])) {
 				echo $errores["avatar"];
 			}
 			?></p>
@@ -169,7 +170,7 @@ if (!empty($_POST))
 			<div class='checkbox'>
 				<input checked='checked' name='mail-promociones' type='checkbox' value='1'>
 			</div>
-			
+
 			<label for='mail-promociones' class='me-gustaria'>  Me gustaría recibir cupones, promociones, encuestas y actualizaciones por correo electrónico sobre Soy Mi Planner y sus socios.
 			</label>
 			<br>

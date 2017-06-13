@@ -1,12 +1,43 @@
 <?php
 require("../php/soporte.php");
+require_once("../php/clases/validadorUsuario.php");
 
 $repoUsuarios = $repo->getRepositorioUsuarios();
-
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 
-?>
+if (!$auth->estaLogueado()) {
+header("Location:login.php");exit;
+}
 
+$validador = new ValidadorUsuario();
+
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
+
+$campo = 'password';
+$valorDefault = $usuarioLogueado->getPassword();
+
+if ($validador->estaEnFormulario($campo)) {
+	$errores = $validador->validar($_POST, $repo);
+}
+$errores = $errores[$campo] ?? $errores['password2'] ?? '';
+
+if(!empty($_POST)){
+
+    if ($errores=='' && $_POST[$campo]!=='' && $_POST[$campo]!==$valorDefault){
+        $current = $_POST[$campo];
+        $usuarioLogueado->setPassword($current);
+        $usuarioLogueado->modificar($repoUsuarios);
+        $usuarioLogueado->modificar($repoUsuarios2);
+        $valorDefault =$current;
+
+        header('Location: perfil.php');
+
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -32,11 +63,13 @@ $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 		<form class='formulario' action='' method='post'>
 
 
-			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='psw' value=''>
+			<input class='decorative-input-password' type='password' placeholder='Nueva contraseña' name='password' value=''>
 			<br>
 
-			<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='psw2' value=''>
+			<input class='decorative-input-password' type='password' placeholder='Confirme contraseña' name='password2' value=''>
 			<br>
+
+            <p class='msj_error'><?=$errores?></p><br>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>

@@ -67,7 +67,37 @@
 	    	}
 
 	    	$usuarioJSON = json_encode($usuario->toArray());
-	    	
+
 	    	file_put_contents("../users/usuarios.json", $usuarioJSON . "\n", FILE_APPEND);
 	    }
-	}
+        public function modificar(Usuario $usuario){
+
+            $id = $usuario->getId();
+            // $repo = $this->traerTodosLosUsuarios();
+
+           $archivoUsuarios = file_get_contents("../users/usuarios.json");
+           $usuariosJSON = explode("\n", $archivoUsuarios);
+           $cantidadUsuarios = count($usuariosJSON);
+           $elUltimo = $cantidadUsuarios - 1;
+           unset($usuariosJSON[$elUltimo]);
+
+        //    archivo temporal para los cambios
+           $temp=fopen("../users/usuariosTEMP.json",'w');
+           fclose($temp);
+
+           foreach ($usuariosJSON as $usuarioJSON) {
+               $usuarioArray = json_decode($usuarioJSON, true);
+               if ($usuarioArray['id'] == $id){
+                    $usuarioArray['nombre']=$usuario->getNombre();
+       	        	$usuarioArray['apellido']=$usuario->getApellido();
+       	        	$usuarioArray['localidad']=$usuario->getLocalidad();
+       	        	$usuarioArray['email']=$usuario->getEmail();
+       	        	$usuarioArray['password']=$usuario->getPassword();
+
+                    $usuarioJSON = json_encode($usuarioArray);
+               }
+               file_put_contents("../users/usuariosTEMP.json", $usuarioJSON . "\n", FILE_APPEND);
+           }
+           rename("../users/usuariosTEMP.json","../users/usuarios.json");
+	    }
+}

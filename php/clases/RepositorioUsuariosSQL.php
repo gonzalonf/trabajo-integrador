@@ -39,15 +39,15 @@ class RepositorioUsuariosSql extends RepositorioUsuarios {
 		$stmt->execute();
 
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		
+
 		return $result[0]['max(id)'] + 1;
 	}
 
 	public function guardar(Usuario $usuario) {
-		
+
 		$sql= 'INSERT INTO usuarios (id, nombre, apellido, localidad, email, password)
 		VALUES (:id, :nombre, :apellido, :localidad, :email, :password)';
-		
+
 		$stmt=DB::getConn()->prepare($sql);
 
 
@@ -62,11 +62,29 @@ class RepositorioUsuariosSql extends RepositorioUsuarios {
 
 	}
 
-	public function modificar()
+	public function modificar(Usuario $usuario)
 	{
+        // GONZA: ACA FALTA ESCRIBIR LA FUNCION
+        $sql= 'UPDATE usuarios
+        SET
+        nombre = :nombre ,
+        apellido = :apellido,
+        localidad = :localidad,
+        email = :email,
+        password = :password
+		WHERE id = :id';
+
 		$stmt=DB::getConn()->prepare($sql);
 
-		// GONZA: ACA FALTA ESCRIBIR LA FUNCION
+
+		$stmt->bindValue(':id', $usuario->getId(), PDO::PARAM_INT);
+		$stmt->bindValue(':nombre', $usuario->getNombre(), PDO::PARAM_STR);
+		$stmt->bindValue(':apellido', $usuario->getApellido(), PDO::PARAM_STR);
+		$stmt->bindValue(':localidad', $usuario->getLocalidad(), PDO::PARAM_STR);
+		$stmt->bindValue(':email', $usuario->getEmail(), PDO::PARAM_STR);
+		$stmt->bindValue(':password', $usuario->getPassword(), PDO::PARAM_STR);
+
+		$stmt->execute();
 	}
 
 }
