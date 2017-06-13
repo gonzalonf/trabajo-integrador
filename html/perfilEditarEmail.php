@@ -8,9 +8,9 @@ $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
 if (!$auth->estaLogueado()) {
     header("Location:login.php");exit;
 }
-var_dump($usuarioLogueado);
-echo "<hr>";
-print_r($_SESSION['usuarioLogueado']);
+// var_dump($usuarioLogueado);
+// echo "<hr>";
+// print_r($_SESSION['usuarioLogueado']);
 
 
 $validador = new ValidadorUsuario();
