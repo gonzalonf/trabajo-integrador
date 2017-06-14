@@ -18,16 +18,15 @@
 			<h1>Olvide Contraseña - Solicitar nueva contraseña al correo</h1>
 			<hr>
 		</div>
-
+		
 		<form class='formulario' action='../php/olvideContrasenia.controller.php' method='post'>
 
 			<input class='decorative-input-mail' type='text' placeholder='Correo electronico' name='email' value=''> <br>
 
-			<!-- <?php if (isset($_SESSION['error_emailNoExistente'])): ?>
-				<p class='msj_error'> <?php echo $_SESSION['error_emailNoExistente']; ?> </p>
-			<?php endif; ?>
-
-			<br> -->
+			<p class='msj_error'><?php if (isset($_SESSION['error_emailNoExistente'])) {
+				echo $_SESSION['error_emailNoExistente'];
+			}
+			?></p>
 
 			<button type='submit' class='enviar' name='submit' value='registrate'><strong>CONFIRMAR</strong></button>
 			<br>
@@ -44,6 +43,9 @@
 
 <?php include('footer.html'); ?>
 
-
 </body>
 </html>
+<?php
+unset($_SESSION['error_emailNoExistente']);
+?>
+

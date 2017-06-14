@@ -1,8 +1,18 @@
 <?php
 
 require 'lib/PHPMailer/PHPMailerAutoload.php';
-include 'olvideContrasenia.helpers.php';
 include 'config.php';
+
+require_once("../php/soporte.php");
+
+$repoUsuarios = $repo->getRepositorioUsuarios();
+$repoUsuarios2 = $repo2->getRepositorioUsuarios();
+
+if ($auth->estaLogueado()) {
+	header("Location:perfil.php");exit;
+}
+
+//---------------
 
 $mail = new PHPMailer;
 
@@ -10,14 +20,19 @@ $temporalPass = uniqid();
 
 $destinatario = $_POST['email'];
 
+//Lo que viene a continuacion aprovecha los metodos de las clases.
 
-
-// if ($error = emailNoExistente()) {
-// 	$_SESSION['error_emailNoExistente'] = $error;
-// 	header('Location: ../html/olvideContrasenia.php');
-// } else {
-
-	cambiarPassword($temporalPass);
+if(!empty($_POST['email'])){
+	if (!$repoUsuarios->existeElMail($_POST["email"])){
+		$_SESSION['error_emailNoExistente'] = '* El e-mail no esta registrado.';
+		header('Location: ../html/olvideContrasenia.php');exit;
+	} else {
+		$usuario = $repo->getRepositorioUsuarios()->traerUsuarioPorEmail($_POST["email"]);
+		$usuario2 = $repo2->getRepositorioUsuarios()->traerUsuarioPorEmail($_POST["email"]);
+		$usuario->setPassword($temporalPass);
+		$usuario2->setPassword($temporalPass);
+		$usuario->modificar($repoUsuarios);
+		$usuario2->modificar($repoUsuarios2);
 
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
@@ -45,5 +60,5 @@ $destinatario = $_POST['email'];
 		echo 'La contraseña ha sido enviada. Si no esta en bandeja de entrada, ver correos no deseados.';
 		header('Refresh: 3; URL=../html/login.php');
 	}
-
-//}
+}
+}
