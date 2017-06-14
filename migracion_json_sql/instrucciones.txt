@@ -1,0 +1,6 @@
+Instrucciones:
+
+1.Importar en Workbench la base de datos (prueba.sql)
+2.Ejecutar migracion_json_sql.php
+3.Refrescar para observar como se agregaron los usuarios del JSON a la tabla "users"
+
