@@ -63,7 +63,7 @@
 
 	    public function guardar(Usuario $usuario) {
 	    	if ($usuario->getId() == null) {
-	    		$usuario->setId($this->traerProximoId());
+	    		$usuario->setId(RepositorioUsuariosSql::traerProximoIdSql());
 	    	}
 
 	    	$usuarioJSON = json_encode($usuario->toArray());
