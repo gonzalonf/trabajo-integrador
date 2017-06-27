@@ -3,21 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>Soy mi Planner</title>
-	<link rel="stylesheet" href="../css/style.css">
+	<link id="pagestyle" rel="stylesheet" type="text/css" href="../css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-<!-- navegación -->
+	<!-- navegación -->
 	<?php include('nav.php');?>
 
-
 	<section class="type_portada">
-		<div class="video-container">
-			<video muted autoplay loop>
-				<source src="../videos/vid2.mp4" type="video/mp4">
-			</video>
+
+		<div class="contenedorFijo">
+			<div class="contenedorMovil">
+				<div class="contenido1"></div>
+				<div class="contenido2"></div>
+				<div class="contenido3"></div>
+				<div class="contenido4"></div>
+			</div>
 		</div>
+		<button type="button" class="buttonCarrusel buttonLeft">&lt;</button>
+		<button type="button" class="buttonCarrusel buttonRight">&gt;</button>
 
 		<div class="contenedor-responsive ">
 			<h2 class="contenedor-responsive-altura">¡Todo lo que necesitás para planificar TU EVENTO!</h2>
@@ -85,5 +90,7 @@
 	<!-- footer -->
 	<?php include('footer.html') ;?>
 
-	</body>
+	<script src="../js/carrusel.js"></script>
+
+</body>
 </html>

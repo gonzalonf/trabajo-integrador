@@ -33,7 +33,7 @@ if ($_POST) {
 <head>
   <meta charset="utf-8">
   <title>LOGIN</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link id="pagestyle" rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
   <?php include('nav.php'); ?>
