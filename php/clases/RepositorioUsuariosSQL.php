@@ -32,7 +32,7 @@ class RepositorioUsuariosSql extends RepositorioUsuarios {
 		return $usuarios;
 	}
 
-	public function traerProximoIdSql() {
+	static public function traerProximoIdSql() {
 	        //1: Me traigo todo el archivo
 		$sql = 'SELECT max(id) FROM soy_mi_planner.usuarios';
 		$stmt = DB::getConn()->prepare($sql);
