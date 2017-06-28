@@ -17,24 +17,35 @@ if ($usuarioLogueado) {
 		<input class="burger-check" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label>
 
 		<label class="switch">
-		<input type="checkbox" 
-			   onclick="estilo();" type="checkbox" id="checkbox" />
+			<input type="checkbox" id="miCheckbox" onclick="cambiarEstilo(setearCookie());"/>
 			<div class="slider round"></div>
 		</label>
 
 		<script type="text/javascript">
-			function estilo() {
-				if (document.querySelector('input#checkbox').checked) {
+
+			window.onload = cambiarEstilo(document.cookie.replace(/(?:(?:^|.*;\s*)checkStatus\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
+
+			function setearCookie(){
+				var estado = document.querySelector("#miCheckbox").checked;
+				document.cookie = 'checkStatus=' + estado; // aca estoy creando la cookie
+				var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)checkStatus\s*\=\s*([^;]*).*$)|^.*$/, "$1"); // aca etoy asignando la cookie a una variable
+				return cookieValue
+			}
+			
+			function cambiarEstilo(miCookie) {
+				if (miCookie == 'true') {
 					document.querySelector('link#pagestyle').setAttribute('href', '../css/style2.css');
+					document.querySelector("#miCheckbox").checked = true;
 				} else {
 					document.querySelector('link#pagestyle').setAttribute('href', '../css/style.css');
 				}
 			}
+
 		</script>
 
 		<div class="logo-marca">
 			<a href="index.php#">
-				<img src="../images/logo.png" alt="logotipo" class="logo">
+				<img src="../images/logo2.png" alt="logotipo" class="logo">
 			</a>
 		</div>
 
