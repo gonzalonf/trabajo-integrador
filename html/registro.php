@@ -1,9 +1,7 @@
-<?php
-require_once("../php/soporte.php");
-require_once("../php/clases/validadorUsuario.php");
-require_once("../php/registroController.php");
-?>
+<?php require("../php/registroController.php"); ?>
+
 <script src="../js/register.js" charset="utf-8"></script>
+
 <!DOCTYPE html>
     <html>
     <head>
@@ -128,6 +126,3 @@ require_once("../php/registroController.php");
 	<?php include 'footer.html'; ?>
 </body>
 </html>
-
-
-

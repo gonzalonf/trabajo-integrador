@@ -27,9 +27,7 @@ if (!empty($_POST))
 // evaluo AJAX
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) {
 
-        header('Content-Type: application/json');
-
-
+        // header('Content-Type: application/json');
 
         if ($errores){
 
@@ -55,6 +53,7 @@ if (!empty($_POST))
             }
 
         }
+        
         print json_encode($errores);
 
 
@@ -103,4 +102,3 @@ if (!empty($_POST))
 	}
 
 }
-?>
