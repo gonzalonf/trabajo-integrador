@@ -1,6 +1,5 @@
 <?php
 require("../php/soporte.php");
-
 $repoUsuarios = $repo->getRepositorioUsuarios();
 
 $usuarioLogueado = $auth->traerUsuarioLogueado($repoUsuarios);
@@ -40,15 +39,15 @@ if ($usuarioLogueado) {
       <div class="avatar">
         <img src="<?=$imagenPerfil?>" alt="avatar">
       </div>
-      
+
       <div class="info">
-        <ul> 
-          <li class="editarNav">Imagen de Perfil: <a href="perfilEditarAvatar.php">Cambiar</a></li> 
+        <ul>
+          <li class="editarNav">Imagen de Perfil: <a href="perfilEditarAvatar.php">Cambiar</a></li>
           <li class="editarNav">Email: <b> <?= $usuarioLogueado->getEmail() ?></b> <a href="perfilEditarEmail.php">Cambiar</a> </li>
           <li class="editarNav">Nombre: <b> <?= $usuarioLogueado->getNombre() ?> </b> <a href="perfilEditarNombre.php">Cambiar</a> </li>
           <li class="editarNav">Apellido: <b> <?= $usuarioLogueado->getApellido() ?> </b> <a href="perfilEditarApellido.php">Cambiar</a> </li>
           <li class="editarNav">Localidad: <b> <?= $usuarioLogueado->getLocalidad() ?> </b> <a href="perfilEditarLocalidad.php">Cambiar</a> </li>
-          <li class="editarNav">Contraseña: <b> ●●●●●● </b> <a href="perfilEditarContrasenia.php">Cambiar</a></li> 
+          <li class="editarNav">Contraseña: <b> ●●●●●● </b> <a href="perfilEditarContrasenia.php">Cambiar</a></li>
         </ul>
       </div>
 
@@ -63,7 +62,7 @@ if ($usuarioLogueado) {
 
   <?php include('footer.html'); ?>
 
-  <?php } else {  
+  <?php } else {
    header("Location:login.php");exit;
  }
  ?>

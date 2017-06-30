@@ -46,13 +46,19 @@ class Usuario {
 	}
 	public function getAvatar()
 	{
-		$name = "../users/" . $this->getId();
+
+		$name = "../users/".$this->getId();
 		$matching = glob($name . ".*");
 
-		$info = pathinfo($matching[0]);
-		$ext = $info['extension'];
+        if ($matching) {
+            $info = pathinfo($matching[0]);
+            $ext = $info['extension'];
+            $path = $name . "." . $ext;
+        } else {
+            $path =  "../users/default.png" ;
+        }
 
-		return $name . "." . $ext;
+        return $path;
 	}
 
 	public function setId($id) {
