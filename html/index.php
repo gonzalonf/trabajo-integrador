@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Soy mi Planner</title>
 	<link id="pagestyle" rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -44,6 +45,7 @@
 			</form>
 		</div>
 	</section>
+<?php include 'cuantos_somos_front.php' ?>
 
 	<!-- quienes somos -------------------------------------------------->
 	<section id=type1 class="type1">
@@ -91,6 +93,6 @@
 	<?php include('footer.html') ;?>
 
 	<script src="../js/carrusel.js"></script>
-
+	<script src="../js/cuantos_somos.js"></script>
 </body>
 </html>
