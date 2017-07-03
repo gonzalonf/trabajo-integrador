@@ -8,7 +8,7 @@
 
 
 body {
-	background: white;  /* color de fondo gral */
+	background: darkslateblue;  /* color de fondo gral */
 	font-family: Verdana, sans-serif;
 	font-size: 16px;
 }
@@ -75,7 +75,7 @@ input[type=checkbox]:checked + label {
 	top: 0px;
 	margin: 0px;    /* dejo algunas cosas en cero, por si uno quiere probar un valor rapidamente y luego hacer undo */
 	padding: 0px;
-	background: white;
+	background: darkslateblue;
 	display: flex;
 	flex-flow: column;
 	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /*esto lo agregué para que se despuegue la barra del fondo... saquenlo si no gusta	*/
@@ -90,6 +90,7 @@ body{
 	margin: 0px;
 	padding: 0px 0px;
 	height: 45px;
+	filter: invert(100%);
 }
 
 .botonera{
@@ -104,19 +105,19 @@ body{
 	display: block;
 	padding: 10px 0px;
 	font-weight: bold;
-	color: grey;
+	color: white;
 	transition: background-color 0.3s;
 }
 
 .botonera a:hover{
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: white;
 	font-weight: bold;
-	color: white;
+	color: darkslateblue;
 }
 
 .ingresa{
 	flex-flow: row;
-	background: #ff5a5f;
+	background: limegreen;
 	overflow: hidden;
 }
 
@@ -128,12 +129,12 @@ body{
 	display: block;
 	padding: 10px 0px;
 	font-weight: bold;
-	color: white;
+	color: darkslateblue;
 }
 
 .ingresa a:hover{
 	background: rgba(0, 0, 0, 0.6);
-	color: #ff5a5f;
+	color: limegreen;
 }
 
 .registrate{
@@ -150,12 +151,12 @@ body{
 	display: block;
 	padding: 10px 0px;
 	font-weight: bold;
-	color: #ff5a5f;
+	color: limegreen;
 }
 
 .registrate a:hover{
-	background: rgba(255, 90, 95, 0.7);
-	color: white;
+	background: green;
+	color: darkslateblue;
 }
 
 .dropdown{
@@ -166,6 +167,7 @@ body{
 	background-size: 20px;
 	font-weight: bold;
 	padding: 10px 0px;
+	color: white;
 }
 
 .dropdown:hover{
@@ -262,7 +264,7 @@ input:checked + .slider:before {
 footer{
 
 	padding: 10px;
-	color: black ;
+	color: white ;
 	font-size: 14px;
 	background-color: rgba(0, 0, 0, 0.1);
 }
@@ -274,12 +276,12 @@ footer ul{
 }
 footer li {
 	margin: auto;
-	/*border-right: solid black 2px;*/
+	/*border-right: solid white 2px;*/
 }
 
 footer li a {
 	margin-right: 8px;
-	color: black;
+	color: white;
 	font-size: 14px;
 	line-height: 2px;
 }
@@ -291,7 +293,7 @@ footer .lugar{
 footer .lugar a{
 	font-weight: 500;
 	text-decoration: none;
-	color: black;
+	color: white;
 	line-height: 20px;
 }
 footer a:hover{
@@ -307,12 +309,14 @@ footer .lugar .map img{
 footer .top{
 	float: right;
 	font-weight: bold;
-	color: #ff5a5f;
+	color: limegreen;
 }
 footer img{
 	display: block;
 	margin:auto;
+	filter: invert(100%);
 }
+
 #myBtn {
   display: none;
   position: fixed;
@@ -321,8 +325,8 @@ footer img{
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #ff5a5f;
-  color: white;
+  background-color: limegreen;
+  color: darkslateblue;
   font-weight: bold;
   letter-spacing: 2px;
   cursor: pointer;
@@ -368,7 +372,7 @@ footer img{
 }
 
 .type_portada input[type=button] {
-	background-color: #ff5a5f;
+	background-color: limegreen;
 	background-image: url(../images/lupita_blanca.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -385,11 +389,11 @@ footer img{
 }
 
 .type_portada input[type=button]:hover {
-	background-color: #ed878a;
+	background-color: palegreen;
 }
 
 .type_portada input[type=button]:active {
-	background-color: #ed878a;
+	background-color: palegreen;
 	background-position: center 3px;
 }
 
@@ -407,7 +411,7 @@ footer img{
 	align-items: center;
 	font-size: 0.8em;
 	text-decoration: none;
-	color: white;
+	color: darkslateblue;
 }
 
 .opciones_principales1, .opciones_principales2{
@@ -434,21 +438,21 @@ footer img{
 }
 
 .opciones_principales1 a{
-	background-color: #55bd74;
+	background-color: purple;
 	transition: background-color 0.3s;
 }
 
 .opciones_principales2 a{
-	background-color:  #ff5a5f;
+	background-color:  limegreen;
 	transition: background-color 0.3s;
 }
 
 .opciones_principales1 a:hover{
-	background-color: #95e5ac;
+	background-color: mediumorchid;
 }
 
 .opciones_principales2 a:hover{
-	background-color: #ed878a;
+	background-color: palegreen;
 }
 
 .type_portada input{
@@ -470,8 +474,9 @@ footer img{
 	margin: 0px;
 	padding: 5%;
 	min-height: 200px;
-	background: white;
+	background: darkslateblue;
 	text-align: center;
+	color: white;
 	/*line-height: 1.5em;*/
 	/*position: relative;*/ /*ya no hace falta*/
 }
@@ -481,8 +486,8 @@ footer img{
 	margin: 0px;
 	padding: 5%;
 	min-height: 200px;
-	background: #666666;
-	color: white;
+	background: white;
+	color: darkslateblue;
 	text-align: center;
 	/*line-height: 1.5em;*/
 }
@@ -517,7 +522,7 @@ footer img{
 	padding: 10px;
 	margin: auto 300px;
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 
 /*------------EMPIEZA estilos LOGIN-------------------------*/
@@ -526,7 +531,7 @@ footer img{
 		position: fixed;
 		top: 0;
 		margin-top: 0;
-		background-color: white;
+		background-color: darkslateblue;
 
 		display: none; /* oculta al comienzo*/
 
@@ -611,7 +616,7 @@ footer img{
 
 .login-input:focus{
 	background-color:#f4f4f4;
-	border: 1px solid black;
+	border: 1px solid white;
 	/*box-shadow: 5px 5px 5px blue;*/
 }
 
@@ -647,8 +652,8 @@ footer img{
 
 .login-botones {
 		/*background-color: #4CAF50;*/
-		background-color: #ff5a5f;
-		color: white;
+		background-color: limegreen;
+		color: darkslateblue;
 		padding: 14px 20px;
 		margin: 8px 0;
 		border: none;
@@ -736,10 +741,11 @@ footer img{
 	width: 80%;
 	margin: auto;
 	text-align: center;
+	color:white;
 }
 
 .formulario {
-	color: #ff5a5f;
+	color: limegreen;
 	width: 70%;
 	margin: 12px auto;
 }
@@ -802,7 +808,7 @@ footer img{
 .text-label {
 	display: block;
 	text-align-last: left;
-	color: grey;
+	color: white;
 	font-size: 12px;
 }
 
@@ -825,7 +831,7 @@ footer img{
 	box-sizing: border-box;
 	border: none;
 	outline: none;
-	background-color: #ff5a5f;
+	background-color: limegreen;
 	color: #fff;
 	width: 100% !important;
 	font-weight: bold;
@@ -833,7 +839,7 @@ footer img{
 }
 
 .enviar:hover{
-	background: #ed878a;
+	background: palegreen;
 }
 
 .aclaracion{
@@ -868,6 +874,7 @@ footer img{
 	.editarContainer{
 		margin: 0 auto; /* centrado */
 		text-align: center;
+		color: white;
 	}
 	
 	.info li{
@@ -878,13 +885,13 @@ footer img{
 		width: 300px;
 		padding: 7px 7px;
 		margin-left: 10px; 	
-		background-color: #FF5A5F;
+		background-color: limegreen;
 		font-weight: bold;
 		color: white;
 	}
 
 	.editarNav a:hover{
-		background: #ed878a;
+		background: palegreen;
 	}
 
 	.avatar img{
@@ -902,7 +909,7 @@ footer img{
 	box-sizing: border-box;
 	border: none;
 	outline: none;
-	background-color: #ff5a5f;
+	background-color: limegreen;
 	color: #fff;
 	width: 100% !important;
 	font-weight: bold;
@@ -914,12 +921,12 @@ footer img{
 	}
 	
 	.volver:hover{
-		background: #ed878a;
+		background: palegreen;
 	}
 
 	.dato-generico{
 		margin: 20px;
-		color: black;
+		color: white;
 		font-size: 20px;
 	}
 
@@ -1107,7 +1114,7 @@ footer img{
 		max-height: 90vh;
 		max-width: 500px;
 		overflow: auto;
-		border: black 2px solid;
+		border: white 2px solid;
 
 	}
 
@@ -1122,6 +1129,7 @@ footer img{
 		/*background-color: red;*/
 	}
 
+
 	.barra_superior{
 		flex-flow: row;
 		justify-content: center;
@@ -1130,6 +1138,7 @@ footer img{
 
 	.logo-marca img{
 		margin-right: 3.5vw;
+		filter: invert(100%);
 	}
 
 	.botonera{
@@ -1202,6 +1211,7 @@ footer img{
 
 	.logo-marca img{
 		margin-right: 15vw;
+		filter: invert(100%);
 	}
 
 	.preguntas a{
@@ -1216,6 +1226,7 @@ footer img{
 		height: 45px;
 		display: block;
 		margin: auto;
+		filter: invert(100%);
 	}
 
 	.footerContainer{

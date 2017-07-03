@@ -1,39 +1,13 @@
-<?php
-require_once("../php/soporte.php");
-require_once("../php/clases/validadorLogin.php");
+<?php require("../php/loginController.php"); ?>
 
-if ($auth->estaLogueado()) {
-  header("Location:perfil.php");exit;
-}
-
-
-$errores = [];
-if ($_POST) {
-
-  $validador = new ValidadorLogin();
-
-  $errores = $validador->validar($_POST, $repo);
-
-
-  if (empty($errores))
-  {
-    $usuario = $repo->getRepositorioUsuarios()->traerUsuarioPorEmail($_POST["email"]);
-    $auth->loguear($usuario);
-    if ($validador->estaEnFormulario("recordarme"))
-    {
-      $auth->guardarCookie($usuario);
-    }
-    header("Location:perfil.php");exit;
-  }
-}
-?>
+<script src="../js/login.js" charset="utf-8"></script>
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>LOGIN</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link id="pagestyle" rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
   <?php include('nav.php'); ?>
@@ -58,17 +32,17 @@ if ($_POST) {
       <label for='password'><b>Clave</b></label>
       <input id='password' class="login-input" type="password" placeholder="contraseña" name="password">
 
-      <?php if (!empty($errores)) { ?>
-      <div>
-        <ul>
-          <?php foreach($errores as $error) { ?>
-          <li class='msj_error'>
-            <?= $error ?>
-          </li>
-          <?php } ?>
-        </ul>
-      </div>
-      <?php } ?>
+      <div class="msj_error">
+          <ul>
+                <?php if (!empty($errores)): ?>
+
+                    <?php foreach ($errores as $error): ?>
+                        <li>  <?= $error  ?>  </li>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            </ul>
+        </div>
 
       <button type="submit" class="login-botones">INGRESAR</button>
 
