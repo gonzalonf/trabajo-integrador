@@ -93,6 +93,7 @@
 	<?php include('footer.html') ;?>
 
 	<script src="../js/carrusel.js"></script>
-	<script src="../js/cuantos_somos.js"></script>
+	<script src="../js/cuantos_somos.js"> </script>
+	<!-- "../js/cuantos_somos.js" -->
 </body>
 </html>

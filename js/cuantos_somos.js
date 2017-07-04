@@ -1,5 +1,5 @@
 ;(function (window, document, undefined) {
-     window.onload = function(){
+     
          function ajax()
         {
          		var contador = document.querySelector(".contador");
@@ -36,7 +36,7 @@
                     }
                 }, stepTime);
         }
-    }
+
 
 
 })(window, document);
