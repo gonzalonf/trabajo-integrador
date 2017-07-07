@@ -67,6 +67,9 @@ if ($usuarioLogueado) {
 							</ul>
 						</div>
 					</li>
+
+					<script src="../js/navPopup.js" charset="utf-8"></script>
+
 					<?php } else { ?>
 					<li class="ingresa"><a href="login.php">INGRESA</a></li>
 					<li class="registrate"><a href="registro.php">REGISTRATE</a></li>
