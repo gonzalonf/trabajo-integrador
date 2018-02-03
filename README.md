@@ -1,4 +1,4 @@
-# trabajo-integrador
+# soymiplanner
 
 Red-social/E-commerce de eventos.
 Ejercicio integrador para el curso de Digital House.
